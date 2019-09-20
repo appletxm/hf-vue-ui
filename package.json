@@ -1,6 +1,6 @@
 {
-  "name": "hf-vue-h5",
-  "version": "1.0.2",
+  "name": "hf-vue-ui",
+  "version": "1.0.0",
   "private": false,
   "dependencies": {
     "@babel/polyfill": "7.4.3",
@@ -84,7 +84,7 @@
     "vue-router",
     "vant",
     "scss",
-    "pc ui"
+    "components ui"
   ],
   "author": "appletxm & hf front-end crew",
   "license": "ISC",
@@ -92,6 +92,6 @@
     "url": "https://github.com/appletxm/hf-vue-h5/issues"
   },
   "node": {
-    "version": ">=8.0"
+    "version": ">=8.3"
   }
 }

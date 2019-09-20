@@ -9,3 +9,11 @@
   -moz-transition: $transition;
   transition: $transition;
 }
+
+@mixin getColorAlpha($color, $opacity) {
+  color: rgba($color, $opacity);
+}
+
+@mixin getBgColorAlpha($color, $opacity) {
+  background-color: rgba($color, $opacity);
+}
