@@ -1,16 +1,9 @@
 
-/*color*/
-$purple: #990088;
-$orange: orange;
-$white: #fff;
-$gray-light: #f0f0f0;
-$gray-light-l3: #f5f5f5;
-
 /*mask*/
-$clr-mask: rgba(#{$clr-mask-color}, 0.7);
+$clr-mask: rgba($clr-mask-color, 0.7);
 
 /*shadow*/
-$clr-projection: box-shadow 0 2px 8px rgba(#{$clr-projection}, 0.1);
+$clr-projection: box-shadow 0 2px 8px rgba($clr-projection-color, 0.1);
 
 /*font*/
 $font-family: "Helvetica Neue", "Helvetica", "Arial", "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Source Han Sans SC", "Source Han Sans CN", "Source Han Sans TC","WenQuanYi Micro Hei", "sans-serif";

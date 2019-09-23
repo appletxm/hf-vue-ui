@@ -10,7 +10,8 @@
     "vant": "2.2.1",
     "vue": "2.6.10",
     "vue-router": "3.0.0",
-    "vuex": "3.1.1"
+    "vuex": "3.1.1",
+    "webpack-cli": "^3.3.9"
   },
   "scripts": {
     "sync": "node scripts/sync-dependencies.js",
@@ -24,7 +25,8 @@
     "buildForPre": "npm run clean && node scripts/build.js production pre",
     "eslint": "eslint --config .eslintrc.js src/js/**/*.{js,vue}",
     "release": "node scripts/release.js production",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "build:compoent": "npm run clean && webpack --config config/webpack.config.component.prod.js"
   },
   "pre-commit": [],
   "devDependencies": {

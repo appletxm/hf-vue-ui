@@ -1,10 +1,10 @@
 <template>
- <button>测试组件</button>
+  <button>测试组件</button>
 </template>
 
 <script>
 export default {
-  name: "Button",
+  name: 'Button',
   data() {
     return {}
   },

@@ -1,5 +1,6 @@
 .#{$prefix}-button{
   font-size: $font-14;
-  color: $white;
-  background-color: $orange;
+  line-height: $font-14-lineheight;
+  color: $clr-font-btn01-color;
+  background-color: $clr-error-color;
 }
