@@ -1,0 +1,2 @@
+export const NAVIGATOR_LIST = 'NAVIGATOR_LIST'
+export const CURRENT_MODULE = 'CURRENT_MODULE'

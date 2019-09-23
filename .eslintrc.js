@@ -36,6 +36,7 @@ module.exports = {
     "consistent-return": 0,
     "operator-assignment": 0,
     "func-names": 0,
-    "vue/max-attributes-per-line": 0
+    "vue/max-attributes-per-line": 0,
+    "no-plusplus": 0
   }
 };

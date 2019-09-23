@@ -27,7 +27,7 @@ module.exports = {
 
   getOutPutConfig: function (envKeyWord, env, webpackConfig) {
     const appJs = path.resolve(env.sourcePath + '/js/index.js')
-    const isDev = envKeyWord === 'development' || envKeyWord === 'mock'
+    const isDev = envKeyWord === 'development'
 
     if (isDev === true) {
       webpackConfig.entry.app = [hotMiddlewareScript, appJs]
@@ -144,7 +144,7 @@ module.exports = {
         if (rawCss[item] && rawCss[item]['dest']) {
           let dest = rawCss[item]['dest']
           dest = dest.replace('<%version%>', rawCss[item]['version'])
-          dest = dest.replace('src/', '')
+          dest = dest.replace('examples/', '')
           css.push(dest)
         }
       })
@@ -152,10 +152,13 @@ module.exports = {
         if (rawJavascript[item] && rawJavascript[item]['dest']) {
           let dest = rawJavascript[item]['dest']
           dest = dest.replace('<%version%>', rawJavascript[item]['version'])
-          dest = dest.replace('src/', '')
+          dest = dest.replace('examples/', '')
           javascript.push(dest)
         }
       })
+
+      css.push('assets/style/basic.css', 'assets/style/doc.css')
+
       return {
         css, javascript
       }

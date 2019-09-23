@@ -1,4 +1,4 @@
-import { hasOwn } from 'element-ui/src/utils/util';
+import { hasOwn } from '../utils/util';
 
 const RE_NARGS = /(%|)\{([0-9a-zA-Z_]+)\}/g;
 /**
@@ -6,8 +6,7 @@ const RE_NARGS = /(%|)\{([0-9a-zA-Z_]+)\}/g;
  *  - Inspired:
  *    https://github.com/Matt-Esch/string-template/index.js
  */
-export default function(Vue) {
-
+export default function (Vue) {
   /**
    * template
    *
@@ -16,9 +15,12 @@ export default function(Vue) {
    * @return {String}
    */
 
+  console.info('format.js:', Vue)
+
   function template(string, ...args) {
     if (args.length === 1 && typeof args[0] === 'object') {
-      args = args[0];
+      // args = args[0]
+      [args] = [...args]
     }
 
     if (!args || !args.hasOwnProperty) {
@@ -28,8 +30,7 @@ export default function(Vue) {
     return string.replace(RE_NARGS, (match, prefix, i, index) => {
       let result;
 
-      if (string[index - 1] === '{' &&
-        string[index + match.length] === '}') {
+      if (string[index - 1] === '{' && string[index + match.length] === '}') {
         return i;
       } else {
         result = hasOwn(args, i) ? args[i] : null;

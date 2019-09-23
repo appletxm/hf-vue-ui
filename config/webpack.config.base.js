@@ -3,17 +3,15 @@ const MiniCssExtractPlugin  = require('mini-css-extract-plugin')
 const autoprefixer = require('autoprefixer')
 
 module.exports = function (envKeyWord, env) {
-  const isDev = envKeyWord === 'development' || envKeyWord === 'mock'
-  const mode = envKeyWord === 'test' || envKeyWord === 'production' ? 'production' : 'development'
+  const isDev = envKeyWord === 'development'
+  const mode = envKeyWord === 'production' ? 'production' : 'development'
 
   return {
     mode: mode,
     performance: {
       hints: isDev ? false : 'warning'
     },
-    entry: {
-      vendor: ['axios']
-    },
+    entry: {},
     output: {
       filename: isDev ? 'js/[name].js' : 'js/[name].min.[chunkhash:7].js',
       path: path.resolve(env.distPath),
@@ -22,13 +20,12 @@ module.exports = function (envKeyWord, env) {
     },
     module: {
       rules: [
-        {
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /node_modules/
-        },
-        
+        // {
+        //   enforce: 'pre',
+        //   test: /\.(js|vue)$/,
+        //   loader: 'eslint-loader',
+        //   exclude: /node_modules/
+        // },
         {
           test: /\.js$/,
           loader: 'babel-loader',
@@ -80,28 +77,45 @@ module.exports = function (envKeyWord, env) {
         {
           test: /\.vue$/,
           loader: 'vue-loader',
-          include: [path.join(__dirname, '..', 'src')]
+          include: [path.resolve(env.sourcePath)]
         },
         {
           test: /\.html$/,
           loader: 'html-loader',
-          include: [path.join(__dirname, '..', 'src')]
+          include: [path.resolve(env.sourcePath)]
+        },
+        {
+          test: /\.md$/,
+          include: [path.resolve(env.sourcePath)],
+          use: [
+            {
+              loader: 'vue-loader',
+              options: {
+                compilerOptions: {
+                  preserveWhitespace: false
+                }
+              }
+            },
+            {
+              loader: path.resolve('./loaders/md-loader/index.js')
+            }
+          ]
         }
       ]
     },
     resolve: {
       extensions: ['.js', '.vue', '.scss', '.css', '.html', '.json'],
       alias: {
-        // 'vue$': 'vue/dist/vue.esm.js',
         'vue': 'vue/dist/vue.min.js',
-        '@': path.join(__dirname, '../src/'),
         'env.cfg': '',
-        'pages': path.join(__dirname, '../src/js/pages/'),
-        'components': path.join(__dirname, '../src/js/components/'),
-        'assets': path.join(__dirname, '../src/assets/'),
-        'common': path.join(__dirname, '../src/js/common/'),
-        'utils': path.join(__dirname, '../src/js/utils/'),
-        'store': path.join(__dirname, '../src/js/store')
+        'pages': path.join(__dirname, '../examples/js/pages/'),
+        'components': path.join(__dirname, '../examples/js/components/'),
+        'assets': path.join(__dirname, '../examples/assets/'),
+        'common': path.join(__dirname, '../examples/js/common/'),
+        'utils': path.join(__dirname, '../examples/js/utils/'),
+        'store': path.join(__dirname, '../examples/js/store'),
+        'docs': path.join(__dirname, '../examples/docs'),
+        'hf-ui': path.join(__dirname, '../src/index.js'),
       }
     },
     plugins: [],

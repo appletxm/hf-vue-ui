@@ -1,9 +1,8 @@
 module.exports = {
   host: '127.0.0.1',
-  port: 8087,
+  port: 8091,
   api: '/api',
   publicPath: '',
-  publicPath: '',
-  distPath: './dist',
-  sourcePath: './src'
+  distPath: './dist/examples',
+  sourcePath: './examples'
 }

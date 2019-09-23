@@ -1,5 +1,5 @@
 <template>
-  <button>测试组件</button>
+  <button>{{ t('el.datepicker.clear') }}</button>
 </template>
 
 <script>

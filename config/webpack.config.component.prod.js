@@ -97,11 +97,9 @@ module.exports = {
     alias: {
       'vue': 'vue/dist/vue.min.js',
       'cfg': path.resolve('./config/component.config'),
-      'pages': path.join(__dirname, '../src/js/pages/'),
       'components': path.join(__dirname, '../src/components/'),
       'theme': path.join(__dirname, '../src/theme/'),
-      'common': path.join(__dirname, '../src/js/common/'),
-      'utils': path.join(__dirname, '../src/js/utils/')
+      'locale': path.join(__dirname, '../src/locale/')
     }
   },
   plugins: [
@@ -133,5 +131,6 @@ module.exports = {
   },
   node: {
     buffer: false
-  }
+  },
+  stats: 'normal'
 }

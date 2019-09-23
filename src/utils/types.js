@@ -11,14 +11,10 @@ export function isHtmlElement(node) {
 }
 
 export const isFunction = (functionToCheck) => {
-  var getType = {};
+  const getType = {};
   return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
 };
 
-export const isUndefined = (val)=> {
-  return val === void 0;
-};
+export const isUndefined = (val) => val === undefined
 
-export const isDefined = (val) => {
-  return val !== undefined && val !== null;
-};
+export const isDefined = (val) => val !== undefined && val !== null
