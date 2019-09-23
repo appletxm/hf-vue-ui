@@ -5,6 +5,9 @@ import router from './router'
 import { setInitialStates } from './store/state'
 import { getStore } from './store'
 import App from './app'
+import Components from 'hf-ui'
+
+console.info(Components)
 
 const { appPrefix } = styles
 const state = setInitialStates({ appPrefix })

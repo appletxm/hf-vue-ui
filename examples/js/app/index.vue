@@ -1,5 +1,6 @@
 <template>
   <div :class="[$store.state.appPrefix + '-my-app', 'page-container', 'page-component']">
+    <hf-ui-button></hf-ui-button>
     <navigator></navigator>
     <div :class="[$store.state.appPrefix + '-module-all']">
       <router-view></router-view>
@@ -8,7 +9,8 @@
 </template>
 
 <script>
-import navigator from 'components/navigator'
+import navigator from 'components-biz/navigator'
+
 import {
   checkUserLogin
 } from 'common/auth'

@@ -3,7 +3,7 @@ import './theme/index.scss'
 import Button from 'components/button'
 import locale from 'locale'
 
-const cfg = require('cfg')
+const cfg = require('component-cfg')
 
 const components = [
   Button

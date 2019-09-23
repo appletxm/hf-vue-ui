@@ -1,6 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin  = require('mini-css-extract-plugin')
 const autoprefixer = require('autoprefixer')
+const componentCfg = require('./component.config')
 
 module.exports = function (envKeyWord, env) {
   const isDev = envKeyWord === 'development'
@@ -77,7 +78,7 @@ module.exports = function (envKeyWord, env) {
         {
           test: /\.vue$/,
           loader: 'vue-loader',
-          include: [path.resolve(env.sourcePath)]
+          include: [path.resolve(env.sourcePath), path.resolve(componentCfg.sourcePath)]
         },
         {
           test: /\.html$/,
@@ -109,13 +110,17 @@ module.exports = function (envKeyWord, env) {
         'vue': 'vue/dist/vue.min.js',
         'env.cfg': '',
         'pages': path.join(__dirname, '../examples/js/pages/'),
-        'components': path.join(__dirname, '../examples/js/components/'),
+        'components-biz': path.join(__dirname, '../examples/js/components/'),
         'assets': path.join(__dirname, '../examples/assets/'),
         'common': path.join(__dirname, '../examples/js/common/'),
         'utils': path.join(__dirname, '../examples/js/utils/'),
         'store': path.join(__dirname, '../examples/js/store'),
         'docs': path.join(__dirname, '../examples/docs'),
         'hf-ui': path.join(__dirname, '../src/index.js'),
+        'component-cfg': path.resolve('./config/component.config'),
+        'components': path.join(__dirname, '../src/components/'),
+        'theme': path.join(__dirname, '../src/theme/'),
+        'locale': path.join(__dirname, '../src/locale/')
       }
     },
     plugins: [],

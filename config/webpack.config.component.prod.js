@@ -96,7 +96,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.scss', '.css', '.html', '.json'],
     alias: {
       'vue': 'vue/dist/vue.min.js',
-      'cfg': path.resolve('./config/component.config'),
+      'component-cfg': path.resolve('./config/component.config'),
       'components': path.join(__dirname, '../src/components/'),
       'theme': path.join(__dirname, '../src/theme/'),
       'locale': path.join(__dirname, '../src/locale/')
