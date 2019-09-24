@@ -23,7 +23,6 @@ module.exports = {
     path: path.resolve(cfg.distPath),
     publicPath: cfg.publicPath,
     pathinfo: isDev,
-    globalObject: `prefix=cfg.prefix`,
     libraryTarget:'umd',
     library: `${cfg.componentPrefix}`,
     libraryExport: 'default'
