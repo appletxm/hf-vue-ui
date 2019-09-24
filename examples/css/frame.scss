@@ -3,5 +3,15 @@
   margin: 0 auto;
   .#{$prefix}-module-all {
     margin: $page-gap;
+    display: flex;
+
+    .#{$prefix}-c-side-menu {
+      padding-top: 50px;
+      flex: 25% 1 1;
+    }
+
+    .content {
+      flex: 75% 1 1;
+    }
   }
 }

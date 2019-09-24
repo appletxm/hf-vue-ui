@@ -1,5 +1,5 @@
 const detault = {
-  currentModule: 'Home',
+  currentModule: 'Components',
   navigatorList: [],
   appPrefix: ''
 }

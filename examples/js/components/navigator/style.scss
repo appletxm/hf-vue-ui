@@ -2,18 +2,45 @@
   font-size: $font-14;
   list-style: none;
   display: flex;
-  height: 40px;
-  line-height: 40px;
+  height: 60px;
+  line-height: 60px;
+  position: sticky;
+  border-bottom: 1px solid $clr-divider-color;
 
   li {
     flex: 50% 1 1;
     text-align: center;
-    color: $clr-main01-color;
+    font-size: $font-16;
+    color: $clr-sub-color;
     cursor: pointer;
     @include transition(all .5s ease);
+    overflow: hidden;
+   
+    .text-inner {
+      display: inline-block;
+      padding: 0 10px;
+      position: relative;
+
+      &:after {
+        content: "";
+        display: block;
+        height: 4px;
+        background-color: $clr-error-color;
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        right: 0;
+        transition: all .2s ease-in-out;
+      }  
+    }
 
     &:hover {
-      color: $clr-error-color;
+      .text-inner {
+        color: $clr-error-color;
+        &:after {
+          bottom: 0;
+        }
+      }
     }
 
     span {
@@ -21,7 +48,12 @@
     }
 
     &.actived {
-      color: $clr-error-color;
+      .text-inner {
+        color: $clr-error-color;
+        &:after {
+          bottom: 0;
+        }
+      }
     }
   }
 }

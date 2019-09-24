@@ -3,10 +3,12 @@
     <li
       v-for="item in $store.state.navigatorList"
       :key="item.id"
-      :class="[$store.state.currentModule === item.module && 'actived']"
+      :class="[$store.state.currentModule.indexOf(item.module) >= 0 && 'actived']"
       @click="(event) => {gotoPage(event, item)}"
     >
-      <span :class="[item.icon]"></span>{{ item.label }}
+      <span class="text-inner">
+        <span :class="[item.icon]"></span>{{ item.label }}
+      </span>
     </li>
   </ul>
 </template>

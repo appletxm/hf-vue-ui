@@ -1,14 +1,17 @@
-import eventQueue from 'common/event-queue'
-import navigatorList from '../navigator-list'
+import navigatorList from './navigator-list'
 
 export function getNavigatorList() {
   return navigatorList
 }
 
-export function runEventQueue(route) {
-  eventQueue.executeQueue(route)
-}
+export function matchedNavItem(moduleName, nav) {
+  let returnItem = []
+  
+  nav.forEach(item => {
+    if (item.module === moduleName) {
+      returnItem = item.children || []
+    }
+  })
 
-export function clearQueue() {
-  eventQueue.clearQueue()
+  return returnItem
 }
