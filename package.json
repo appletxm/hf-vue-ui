@@ -1,6 +1,6 @@
 {
   "name": "hf-vue-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A ui libs for hf",
   "main": "dist/lib/hf-ui.min.js",
   "private": false,
