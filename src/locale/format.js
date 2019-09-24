@@ -14,9 +14,6 @@ export default function (Vue) {
    * @param {Array} ...args
    * @return {String}
    */
-
-  console.info('format.js:', Vue)
-
   function template(string, ...args) {
     if (args.length === 1 && typeof args[0] === 'object') {
       // args = args[0]

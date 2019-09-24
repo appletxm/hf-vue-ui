@@ -157,7 +157,8 @@ module.exports = {
         }
       })
 
-      css.push('assets/style/basic.css', 'assets/style/doc.css')
+      css.push('assets/style/hightlight.9.15.10.css', 'assets/style/basic.css', 'assets/style/doc.css')
+      javascript.push('assets/js/highlight.js.9.15.10.min.js')
 
       return {
         css, javascript

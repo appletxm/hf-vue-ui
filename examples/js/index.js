@@ -6,14 +6,15 @@ import { setInitialStates } from './store/state'
 import { getStore } from './store'
 import App from './app'
 import Components from 'hf-ui'
-
-console.info(Components)
+import DemoBlock from './components/demo-block'
 
 const { appPrefix } = styles
 const state = setInitialStates({ appPrefix })
 const store = getStore(state)
 
 // uiAdapt(window, document, 750)
+
+Vue.component('demo-block', DemoBlock)
 
 new Vue({
   router,

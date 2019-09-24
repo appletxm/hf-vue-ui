@@ -23,7 +23,8 @@
     "eslint": "eslint --config .eslintrc.js src/js/**/*.{js,vue}",
     "release": "node scripts/release.js production",
     "test": "jest --coverage",
-    "build:compoent": "npm run clean && webpack --config config/webpack.config.component.prod.js"
+    "build:compoent": "npm run clean && webpack --config config/webpack.config.component.prod.js",
+    "debug": "npm run clean && node --inspect scripts/dev-server.js development"
   },
   "pre-commit": [],
   "devDependencies": {
