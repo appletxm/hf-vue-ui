@@ -24,11 +24,8 @@ function build () {
         throw err
       }
 
-      if (process.argv && process.argv[4] === 'current-branch') {
-        spinner.stop()
-        console.log(chalk.magenta('***build for current branch success***'))
-        return false
-      }
+      spinner.stop()
+      console.log(chalk.magenta('***build for current branch success***'))
 
       // distOperations.createTarFile(process.argv[3] || 'production').then((_) => {
       //   spinner.stop()

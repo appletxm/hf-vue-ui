@@ -1,5 +1,7 @@
 <template>
-  <button :class="[cfg.prefix + '-button']">测试</button>
+  <button :class="[cfg.prefix + '-button']">
+    测试
+  </button>
 </template>
 
 <script>

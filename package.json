@@ -1,6 +1,8 @@
 {
   "name": "hf-vue-ui",
   "version": "1.0.0",
+  "description": "A ui libs for hf",
+  "main": "dist/lib/hf-ui.min.js",
   "private": false,
   "dependencies": {
     "@babel/polyfill": "7.4.3",
@@ -12,19 +14,20 @@
   },
   "scripts": {
     "sync": "node scripts/sync-dependencies.js",
-    "clean": "rimraf dist/*",
-    "mock": "npm run clean && node scripts/dev-server.js mock",
-    "start": "npm run clean && node scripts/dev-server.js development",
-    "dev": "npm run clean && node scripts/devServer.js development",
-    "build": "npm run clean && node scripts/build.js production test current-branch",
-    "buildForProd": "npm run clean && node scripts/build.js production",
-    "buildForTest": "npm run clean && node scripts/build.js production test",
-    "buildForPre": "npm run clean && node scripts/build.js production pre",
+    "clean:examples": "rimraf dist/examples/*",
+    "clean:lib": "rimraf dist/lib/*",
+    "start": "npm run clean:examples && node scripts/dev-server.js development",
+    "dev": "npm run clean:examples && node scripts/dev-server.js development",
+    "build": "npm run clean:examples && node scripts/build.js production test current-branch",
+    "buildForProd": "npm run clean:examples && node scripts/build.js production",
+    "buildForTest": "npm run clean:examples && node scripts/build.js production test",
+    "buildForPre": "npm run clean:examples && node scripts/build.js production pre",
     "eslint": "eslint --config .eslintrc.js src/js/**/*.{js,vue}",
     "release": "node scripts/release.js production",
     "test": "jest --coverage",
-    "build:compoent": "npm run clean && webpack --config config/webpack.config.component.prod.js",
-    "debug": "npm run clean && node --inspect scripts/dev-server.js development"
+    "debug": "npm run clean:examples && node --inspect scripts/dev-server.js development",
+    "build:compoent": "npm run clean:lib && webpack --config config/webpack.config.component.prod.js",
+    "build:examples": "npm run clean:examples && npm run buildForProd"
   },
   "pre-commit": [],
   "devDependencies": {
