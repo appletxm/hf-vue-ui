@@ -12,8 +12,8 @@
 import navigator from 'components-biz/navigator'
 import SideMenu from 'components-biz/side-menu'
 import { checkUserLogin } from 'common/auth'
-import { NAVIGATOR_LIST } from 'store/mutation-types'
-import { getNavigatorList, matchedNavItem } from './models'
+import { NAVIGATOR_LIST, CURRENT_MODULE, CURRENT_SUB_MODULE } from 'store/mutation-types'
+import { getNavigatorList, matchedNavItem, matchModuleFromUrl } from './models'
 
 export default {
   components: {
@@ -28,18 +28,35 @@ export default {
     }
   },
   watch: {
-    '$store.state.currentModule'(val) {
-      this.sildeMenuData = matchedNavItem(val, this.$store.state.navigatorList)
+    '$route.path'(val) {
+      this.$initModuleInfo(val)
     }
   },
   created() {
     const navigatorList = getNavigatorList()
     this.$store.commit(NAVIGATOR_LIST, navigatorList)
-    this.sildeMenuData = matchedNavItem(this.$store.state.currentModule, this.$store.state.navigatorList)
+    // this.$getSubData(this.$store.state.currentModule)
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
+    $initModuleInfo (path) {
+      let res = matchModuleFromUrl(path, this.$store.state.navigatorList)
+
+      console.info('path:', path, res[0]['module'])
+
+      if (res[0]) {
+        this.$store.commit(CURRENT_MODULE, res[0]['module'])
+        this.$getSubData(res[0]['module'])
+      }
+      if (res[1]) {
+        this.$store.commit(CURRENT_SUB_MODULE, res[1]['module'])
+      }
+      
+    },
+
+    $getSubData (moduleName) {
+       this.sildeMenuData = matchedNavItem(moduleName, this.$store.state.navigatorList)
+    }
   }
 }
 </script>

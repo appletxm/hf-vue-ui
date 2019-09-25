@@ -4,10 +4,11 @@ export default [
     module: 'Guide',
     label: '指南',
     icon: 'hf-iconfont icon-bianji',
+    path: '/guid/principle',
     children: [
       {
         id: '101',
-        module: 'Home_Principle',
+        module: 'Guide_Principle',
         path: '/guid/principle',
         label: '原则',
         icon: 'hf-iconfont icon-bianji',
@@ -21,6 +22,7 @@ export default [
     module: 'Components',
     label: '组件',
     icon: 'hf-iconfont icon-chakuaidi',
+    path: '/components/basic/button',
     children: [
       {
         id: '201',

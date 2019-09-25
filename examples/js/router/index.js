@@ -1,17 +1,23 @@
 /* global Vue, VueRouter, hljs */
 
+import { getRouteFromNav } from './decorate'
+
 const Home = () => import(/* webpackChunkName: "Home" */ 'pages/home')
 const About = () => import(/* webpackChunkName: "Home" */ 'pages/about')
 const ErrorPage = () => import(/* webpackChunkName: "Error" */ 'pages/error')
 const DocTest = () => import(/* webpackChunkName: "DocTest" */ 'docs/test.md')
 
-const routes = [
+const decorateRoutes = getRouteFromNav()
+
+let routes = [
   { path: '/', component: DocTest },
   { path: '/#/', component: Home },
   { path: '/home', component: Home },
-  { path: '/about', component: About },
-  { path: '*', component: ErrorPage }
+  { path: '/about', component: About }
 ]
+routes = routes.concat(decorateRoutes)
+routes.push({ path: '*', component: ErrorPage })
+
 const router = new VueRouter({ routes })
 
 router.beforeEach((to, from, next) => {

@@ -6,14 +6,31 @@
     list-style: none;
   }
 
+  li {
+    &.level-top {
+      margin-bottom: 15px;
+    }
+  }
+
   a {
     font-size: $font-14;
     line-height: $clr-font-describe-color;
-    color: $clr-font-color;
+    color: $clr-font-tips-color;
     display: block;
+    line-height: $font-20-lineheight;
 
     &.alive {
       color: $clr-font-title-color;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        color: $clr-error-color;
+      }
+    }
+
+    &.actived {
+      color: $clr-error-color;
     }
   }
 }

@@ -3,8 +3,8 @@
     <li
       v-for="item in $store.state.navigatorList"
       :key="item.id"
-      :class="[$store.state.currentModule.indexOf(item.module) >= 0 && 'actived']"
-      @click="(event) => {gotoPage(event, item)}"
+      :class="[$store.state.currentModule === item.module ? 'actived' : '']"
+      @click="(event) => { $gotoPage(event, item) }"
     >
       <span class="text-inner">
         <span :class="[item.icon]"></span>{{ item.label }}
@@ -14,8 +14,6 @@
 </template>
 
 <script>
-import { CURRENT_MODULE } from 'store/mutation-types'
-
 export default {
   components: {},
   data() {
@@ -31,7 +29,7 @@ export default {
   },
 
   methods: {
-    gotoPage(event, item) {
+    $gotoPage(event, item) {
       event.stopPropagation()
 
       if (item.module === this.$store.state.currentModule) {
@@ -39,10 +37,8 @@ export default {
       }
 
       this.$router.push({
-        path: item.url
+        path: item.path
       })
-
-      this.$store.commit(CURRENT_MODULE, item.module)
     }
   }
 }
