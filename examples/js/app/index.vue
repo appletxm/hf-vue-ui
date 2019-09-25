@@ -38,7 +38,7 @@ export default {
   created() {
     const navigatorList = getNavigatorList()
     this.$store.commit(NAVIGATOR_LIST, navigatorList)
-    // this.$getSubData(this.$store.state.currentModule)
+    this.$getSubData(this.$store.state.currentModule)
   },
   mounted() {},
   methods: {
