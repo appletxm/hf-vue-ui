@@ -182,10 +182,6 @@
   box-sizing: border-box
 }
 
-.page-component .content {
-  padding-top: 50px
-}
-
 .page-component .content>h3 {
   margin: 55px 0 20px
 }

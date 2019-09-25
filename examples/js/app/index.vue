@@ -1,24 +1,27 @@
 <template>
   <div :class="[$store.state.appPrefix + '-my-app', 'page-container', 'page-component']">
-    <navigator></navigator>
+    <app-navigator />
     <div :class="[$store.state.appPrefix + '-module-all']">
       <side-menu :side-menu-data="sildeMenuData"></side-menu>
       <router-view></router-view>
     </div>
+    <app-footer />
   </div>
 </template>
 
 <script>
-import navigator from 'components-biz/navigator'
+import AppNavigator from 'components-biz/navigator'
 import SideMenu from 'components-biz/side-menu'
 import { checkUserLogin } from 'common/auth'
 import { NAVIGATOR_LIST, CURRENT_MODULE, CURRENT_SUB_MODULE } from 'store/mutation-types'
 import { getNavigatorList, matchedNavItem, matchModuleFromUrl } from './models'
+import AppFooter from 'components-biz/footer'
 
 export default {
   components: {
-    navigator,
-    SideMenu
+    AppNavigator,
+    SideMenu,
+    AppFooter
   },
   data() {
     return {
@@ -41,17 +44,9 @@ export default {
   methods: {
     $initModuleInfo (path) {
       let res = matchModuleFromUrl(path, this.$store.state.navigatorList)
-
-      console.info('path:', path, res[0]['module'])
-
-      if (res[0]) {
-        this.$store.commit(CURRENT_MODULE, res[0]['module'])
-        this.$getSubData(res[0]['module'])
-      }
-      if (res[1]) {
-        this.$store.commit(CURRENT_SUB_MODULE, res[1]['module'])
-      }
-      
+      this.$store.commit(CURRENT_MODULE, res.currentModuleName)
+      this.$store.commit(CURRENT_SUB_MODULE, res.currentSubModuleName)
+      this.$getSubData(res.currentModuleName)
     },
 
     $getSubData (moduleName) {

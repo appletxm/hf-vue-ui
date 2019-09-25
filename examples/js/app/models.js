@@ -27,18 +27,18 @@ export function matchedNavItem (moduleName, nav) {
   return returnItem
 }
 
-// export function getSubHighLightItem (subNavList) {
-//   let resItem = []
-//   if (subNavList.length === 0) {
-//     return resItem
-//   }
-//   matchedSubItemHigh(subNavList, resItem)
-//   return resItem
-// }
-
 export function matchModuleFromUrl (path, navigatorList) {
   let res = []
+  let resObj = {
+    currentModuleName: '',
+    currentSubModuleName: ''
+  }
   matchedSubItem(path, navigatorList, res)
-
-  return res
+  if (res.length > 0) {
+    const moduleName = res[res.length - 1]['module']
+    const splitOjb = moduleName.split('_')
+    resObj.currentModuleName = splitOjb[0]
+    resObj.currentSubModuleName = moduleName
+  }
+  return resObj
 }

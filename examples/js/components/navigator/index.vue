@@ -21,7 +21,11 @@ export default {
   },
   computed: {},
 
-  watch: {},
+  watch: {
+    // '$store.state.currentModule'(val) {
+    //   console.info('====', val)
+    // }
+  },
 
   created() {},
 

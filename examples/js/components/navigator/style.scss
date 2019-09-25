@@ -5,7 +5,9 @@
   height: 60px;
   line-height: 60px;
   position: sticky;
+  top: 0;
   border-bottom: 1px solid $clr-divider-color;
+  background-color: $clr-bg-page-color;
 
   li {
     flex: 50% 1 1;

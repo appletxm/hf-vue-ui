@@ -17,3 +17,36 @@
 @mixin getBgColorAlpha($color, $opacity) {
   background-color: rgba($color, $opacity);
 }
+
+@mixin scroll-bar {
+  $--scrollbar-thumb-background: $clr-font-describe-color;
+  $--scrollbar-track-background: $clr-divider-color;
+
+  &::-webkit-scrollbar {
+    z-index: 11;
+    width: 6px;
+
+    &:horizontal {
+      height: 6px;
+    }
+
+    &-thumb {
+      border-radius: 5px;
+      width: 6px;
+      background: $--scrollbar-thumb-background;
+    }
+
+    &-corner {
+      background: $--scrollbar-track-background;
+    }
+
+    &-track {
+      background: $--scrollbar-track-background;
+
+      &-piece {
+        background: $--scrollbar-track-background;
+        width: 6px;
+      }
+    }
+  }
+}
