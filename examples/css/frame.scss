@@ -1,6 +1,8 @@
 .#{$prefix}-my-app{
   width: $page-width;
   margin: 0 auto;
+  @include scroll-bar;
+  
   .#{$prefix}-module-all {
     padding-top: 90px;
     display: flex;
@@ -16,4 +18,3 @@
     }
   }
 }
-@include scroll-bar;
