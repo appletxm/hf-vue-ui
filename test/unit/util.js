@@ -1,6 +1,13 @@
 import Vue from 'vue'
 
+window.Vue = Vue
+const cfg = require('component-cfg')
+const componentsCollection = require('../../src/components-collection')
+const { version } = componentsCollection
 let id = 0
+Vue.prototype.cfg = cfg
+
+console.info('Now will test components: ', version)
 
 const createElm = function () {
   const elm = document.createElement('div');
@@ -30,7 +37,9 @@ export const createVue = function (Compo, mounted = false) {
   if (Object.prototype.toString.call(Compo) === '[object String]') {
     Compo = { template: Compo };
   }
-  return new Vue(Compo).$mount(mounted === false ? null : createElm());
+  const vm = new Vue(Compo)
+  const elm = createElm()
+  return vm.$mount(mounted === false ? null : elm);
 };
 
 /**

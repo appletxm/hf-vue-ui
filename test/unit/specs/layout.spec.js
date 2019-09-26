@@ -122,6 +122,7 @@ describe('Footer', () => {
         <hf-ui-footer height="100px"></hf-ui-footer>
       `
     }, true);
+
     expect(vm.$children[0].$el.style.height).to.equal('100px');
   });
 });
