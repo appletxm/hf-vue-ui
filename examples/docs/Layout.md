@@ -1,53 +1,50 @@
-## Button LayerOUT
-常用的操作按钮。
+## 布局 Layout
+产品体系中、常用到的布局规范。
 
-### 基础用法
+### 上中下布局
 
-基础的按钮用法。
+该布局内容显示范围固定在 1200px内，并且居中显示。整个页面排版稳定，不受用户终端显示器影响。
 
-:::demo 使用`type`、`plain`、`round`和`circle`属性来定义 Button 的样式。
+:::demo 中部左右布局
 
 ```html
-<div>
-  <hf-ui-button>默认按钮</hf-ui-button>
-  <hf-ui-button type="primary">主要按钮</hf-ui-button>
-  <hf-ui-button type="success">成功按钮</hf-ui-button>
-</div>
-
-<script>
-  export default {
-    data() {
-      return {
-        value: new Date()
-      }
-    }
+<hf-ui-container class="hf-ui-doc-layout">
+  <hf-ui-header><p class="logo">LOGO</p>Header</hf-ui-header>
+  <hf-ui-main>Main</hf-ui-main>
+  <hf-ui-footer>Footer</hf-ui-footer>
+</hf-ui-container>
+<style>
+  .hf-ui-doc-layout {
+    width: 1200px;
+    position: relative;
+    transform: scale(0.5);
   }
-</script>
+  .hf-ui-header{
+    bakground
+  }
+  .logo {
+    width: 
+  }
+</style>
 ```
 :::
 
-:::tip 这是tip信息
-这是不对的哈
-:::
+### Container Attributes
+| 参数    | 说明     | 类型    | 可选值      | 默认值 |
+|---------|----------|---------|-------------|--------|
+| direction | 子元素的排列方向 | string | horizontal / vertical | 子元素中有 `el-header` 或 `el-footer` 时为 vertical，否则为 horizontal |
 
-:::warning 这是tip信息
-这是不对的哈
-:::
+### Header Attributes
+| 参数    | 说明     | 类型    | 可选值      | 默认值 |
+|---------|----------|---------|-------------|--------|
+| height | 顶栏高度 | string | — | 60px |
 
-:::danger 这是tip信息
-这是不对的哈
-:::
+### Aside Attributes
+| 参数    | 说明     | 类型    | 可选值      | 默认值 |
+|---------|----------|---------|-------------|--------|
+| width | 侧边栏宽度 | string | — | 300px |
 
-### Attributes
-| 参数      | 说明    | 类型      | 可选值       | 默认值   |
-|---------- |-------- |---------- |-------------  |-------- |
-| size     | 尺寸   | string  |   medium / small / mini            |    —     |
-| type     | 类型   | string    |   primary / success / warning / danger / info / text |     —    |
-| plain     | 是否朴素按钮   | boolean    | — | false   |
-| round     | 是否圆角按钮   | boolean    | — | false   |
-| circle     | 是否圆形按钮   | boolean    | — | false   |
-| loading     | 是否加载中状态   | boolean    | — | false   |
-| disabled  | 是否禁用状态    | boolean   | —   | false   |
-| icon  | 图标类名 | string   |  —  |  —  |
-| autofocus  | 是否默认聚焦 | boolean   |  —  |  false  |
-| native-type | 原生 type 属性 | string | button / submit / reset | button |
+### Footer Attributes
+| 参数    | 说明     | 类型    | 可选值      | 默认值 |
+|---------|----------|---------|-------------|--------|
+| height | 底栏高度 | string | — | 60px |

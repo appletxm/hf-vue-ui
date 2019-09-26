@@ -91,6 +91,7 @@
       position: fixed;
       bottom: 0;
       width: 868px;
+      z-index: 50;
     }
 
     i {
@@ -98,13 +99,14 @@
       line-height: 44px;
       transition: .3s;
       &.hovering {
-        transform: translateX(-40px);
+        // transform: translateX(-40px);
+        opacity: 1;
       }
     }
 
     > span {
       position: absolute;
-      transform: translateX(-30px);
+      transform: translateX(5px);
       font-size: 14px;
       line-height: 44px;
       transition: .3s;
@@ -119,7 +121,7 @@
     & .text-slide-enter,
     & .text-slide-leave-active {
       opacity: 0;
-      transform: translateX(10px);
+      // transform: translateX(10px);
     }
     
     .control-button {

@@ -1,198 +1,30 @@
 {
-  "id": "1351746",
-  "name": "大数据",
-  "font_family": "hf-iconfont",
-  "css_prefix_text": "hf-",
+  "id": "1437471",
+  "name": "samples",
+  "font_family": "hf-ui-icon",
+  "css_prefix_text": "ui-icon-",
   "description": "",
   "glyphs": [
     {
-      "icon_id": "10350345",
-      "name": "编辑",
-      "font_class": "bianji",
-      "unicode": "e64c",
-      "unicode_decimal": 58956
+      "icon_id": "595535",
+      "name": "arrow up",
+      "font_class": "arrowup",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
     },
     {
-      "icon_id": "10350348",
-      "name": "删除",
-      "font_class": "shanchu",
-      "unicode": "e64d",
-      "unicode_decimal": 58957
+      "icon_id": "7214832",
+      "name": "Double arrow down",
+      "font_class": "Doublearrowdown",
+      "unicode": "e6c2",
+      "unicode_decimal": 59074
     },
     {
-      "icon_id": "10350349",
-      "name": "上一步",
-      "font_class": "shangyibu",
-      "unicode": "e64e",
-      "unicode_decimal": 58958
-    },
-    {
-      "icon_id": "10350351",
-      "name": "下一步",
-      "font_class": "xiayibu",
-      "unicode": "e650",
-      "unicode_decimal": 58960
-    },
-    {
-      "icon_id": "10350352",
-      "name": "向上",
-      "font_class": "xiangshang",
-      "unicode": "e651",
-      "unicode_decimal": 58961
-    },
-    {
-      "icon_id": "10350354",
-      "name": "向下",
-      "font_class": "xiangxia",
-      "unicode": "e653",
-      "unicode_decimal": 58963
-    },
-    {
-      "icon_id": "10350355",
-      "name": "收起",
-      "font_class": "shouqi",
-      "unicode": "e654",
-      "unicode_decimal": 58964
-    },
-    {
-      "icon_id": "10350356",
-      "name": "向左",
-      "font_class": "xiangzuo",
-      "unicode": "e655",
-      "unicode_decimal": 58965
-    },
-    {
-      "icon_id": "10350357",
-      "name": "展开",
-      "font_class": "zhankai",
-      "unicode": "e656",
-      "unicode_decimal": 58966
-    },
-    {
-      "icon_id": "10350358",
-      "name": "置底",
-      "font_class": "zhidi",
-      "unicode": "e657",
-      "unicode_decimal": 58967
-    },
-    {
-      "icon_id": "10350359",
-      "name": "向右",
-      "font_class": "xiangyou",
-      "unicode": "e658",
-      "unicode_decimal": 58968
-    },
-    {
-      "icon_id": "10350360",
-      "name": "置顶",
-      "font_class": "zhiding",
-      "unicode": "e659",
-      "unicode_decimal": 58969
-    },
-    {
-      "icon_id": "10360607",
-      "name": "数据大屏",
-      "font_class": "shujudaping",
-      "unicode": "e65a",
-      "unicode_decimal": 58970
-    },
-    {
-      "icon_id": "10360608",
-      "name": "数据源",
-      "font_class": "shujuyuan",
-      "unicode": "e65b",
-      "unicode_decimal": 58971
-    },
-    {
-      "icon_id": "10360609",
-      "name": "数据集",
-      "font_class": "shujuji",
-      "unicode": "e65c",
-      "unicode_decimal": 58972
-    },
-    {
-      "icon_id": "10415212",
-      "name": "密码",
-      "font_class": "mima",
-      "unicode": "e65d",
-      "unicode_decimal": 58973
-    },
-    {
-      "icon_id": "10415226",
-      "name": "user",
-      "font_class": "user",
-      "unicode": "e65e",
-      "unicode_decimal": 58974
-    },
-    {
-      "icon_id": "10441615",
-      "name": "08雷达图黑底",
-      "font_class": "leidatuheidi",
-      "unicode": "e65f",
-      "unicode_decimal": 58975
-    },
-    {
-      "icon_id": "10441616",
-      "name": "04散点图",
-      "font_class": "sandiantu",
-      "unicode": "e660",
-      "unicode_decimal": 58976
-    },
-    {
-      "icon_id": "10441617",
-      "name": "矩形圆角",
-      "font_class": "juxingyuanjiao",
-      "unicode": "e661",
-      "unicode_decimal": 58977
-    },
-    {
-      "icon_id": "10441618",
-      "name": "矩形",
-      "font_class": "juxing",
-      "unicode": "e662",
-      "unicode_decimal": 58978
-    },
-    {
-      "icon_id": "10441619",
-      "name": "椭圆形",
-      "font_class": "tuoyuanxing",
-      "unicode": "e663",
-      "unicode_decimal": 58979
-    },
-    {
-      "icon_id": "10441620",
-      "name": "饼图",
-      "font_class": "bingtu",
-      "unicode": "e664",
-      "unicode_decimal": 58980
-    },
-    {
-      "icon_id": "10441621",
-      "name": "19地图",
-      "font_class": "ditu",
-      "unicode": "e665",
-      "unicode_decimal": 58981
-    },
-    {
-      "icon_id": "10441622",
-      "name": "Line Copy 8",
-      "font_class": "LineCopy",
-      "unicode": "e666",
-      "unicode_decimal": 58982
-    },
-    {
-      "icon_id": "10441623",
-      "name": "折线图",
-      "font_class": "zhexiantu",
-      "unicode": "e667",
-      "unicode_decimal": 58983
-    },
-    {
-      "icon_id": "10441624",
-      "name": "柱形图",
-      "font_class": "zhuxingtu",
-      "unicode": "e668",
-      "unicode_decimal": 58984
+      "icon_id": "7214851",
+      "name": "Double arrow up",
+      "font_class": "Doublearrowup",
+      "unicode": "e6c8",
+      "unicode_decimal": 59080
     }
   ]
 }

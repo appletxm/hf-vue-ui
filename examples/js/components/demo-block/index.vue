@@ -22,13 +22,13 @@
       :class="{ 'is-fixed': fixedControl }"
       @click="isExpanded = !isExpanded"
     >
-      123456
-      <!-- <transition name="arrow-slide">
+      <transition name="arrow-slide">
         <i :class="[iconClass, { 'hovering': hovering }]"></i>
       </transition>
       <transition name="text-slide">
-        <span v-show="hovering">{{ controlText }}</span>
+        <span>{{ controlText }}</span>
       </transition>
+      <!--
       <el-tooltip effect="dark" :content="langConfig['tooltip-text']" placement="right">
         <transition name="text-slide">
           <el-button
@@ -128,7 +128,7 @@ export default {
     },
 
     iconClass() {
-      return this.isExpanded ? 'el-icon-caret-top' : 'el-icon-caret-bottom';
+      return this.isExpanded ? 'hf-ui-icon ui-icon-arrowup' : 'hf-ui-icon ui-icon-arrowdown';
     },
 
     controlText() {
