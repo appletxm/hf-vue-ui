@@ -1,9 +1,11 @@
 .#{$prefix}-c-footer{
-  padding: 20px 10px 10px 10px;
-  margin: 10px;
   text-align: center;
   color: $clr-font-describe-color;
   font-size: $font-12;
   border-top: 1px solid $clr-divider-color;
   bottom: 0;
+  @extend %fixed-position;
+  top: auto;
+  height: $footer-height;
+  line-height: $footer-height;
 }

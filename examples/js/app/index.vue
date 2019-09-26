@@ -12,10 +12,10 @@
 <script>
 import AppNavigator from 'components-biz/navigator'
 import SideMenu from 'components-biz/side-menu'
-import { checkUserLogin } from 'common/auth'
+import AppFooter from 'components-biz/footer'
+// import { checkUserLogin } from 'common/auth'
 import { NAVIGATOR_LIST, CURRENT_MODULE, CURRENT_SUB_MODULE } from 'store/mutation-types'
 import { getNavigatorList, matchedNavItem, matchModuleFromUrl } from './models'
-import AppFooter from 'components-biz/footer'
 
 export default {
   components: {
@@ -42,15 +42,15 @@ export default {
   },
   mounted() {},
   methods: {
-    $initModuleInfo (path) {
-      let res = matchModuleFromUrl(path, this.$store.state.navigatorList)
+    $initModuleInfo(path) {
+      const res = matchModuleFromUrl(path, this.$store.state.navigatorList)
       this.$store.commit(CURRENT_MODULE, res.currentModuleName)
       this.$store.commit(CURRENT_SUB_MODULE, res.currentSubModuleName)
       this.$getSubData(res.currentModuleName)
     },
 
-    $getSubData (moduleName) {
-       this.sildeMenuData = matchedNavItem(moduleName, this.$store.state.navigatorList)
+    $getSubData(moduleName) {
+      this.sildeMenuData = matchedNavItem(moduleName, this.$store.state.navigatorList)
     }
   }
 }

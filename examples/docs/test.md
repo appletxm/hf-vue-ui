@@ -9,9 +9,9 @@
 
 ```html
 <div>
-  <hf-ui-button>默认按钮</hf-ui-button>
-  <hf-ui-button type="primary">主要按钮</hf-ui-button>
-  <hf-ui-button type="success">成功按钮</hf-ui-button>
+  <hf-ui-test-button>默认按钮</hf-ui-test-button>
+  <hf-ui-test-button type="primary">主要按钮</hf-ui-test-button>
+  <hf-ui-test-button type="success">成功按钮</hf-ui-test-button>
 </div>
 
 <script>

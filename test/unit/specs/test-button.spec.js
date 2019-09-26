@@ -1,5 +1,5 @@
 /* global describe, it, afterEach, expect */
-import Button from 'components/button'
+import Button from 'components/test-button'
 import { createTest, destroyVM } from '../util'
 
 describe('Button', () => {

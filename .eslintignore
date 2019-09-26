@@ -5,3 +5,7 @@ config/*.js
 mock/*/*.*
 scripts/*.js
 src/assets/js/*.js
+src/theme/*/*
+*.scss
+*.md
+*.json

@@ -102,7 +102,6 @@ export default [
       }
     ]
   },
-  
   {
     id: 3,
     module: 'Theme',

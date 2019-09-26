@@ -1,20 +1,31 @@
 .#{$prefix}-my-app{
   width: $page-width;
   margin: 0 auto;
-  @include scroll-bar;
   
   .#{$prefix}-module-all {
-    padding-top: 90px;
-    display: flex;
-    align-items: stretch;
+    position: absolute;
+    width: $page-width;
+    top: $nav-height + 20px;
+    bottom: $footer-height + 20px;
+    left: 50%;
+    margin-left: -$page-width/2;
 
     .#{$prefix}-c-side-menu {
-      flex: 15% 1 1;
+      @extend %absolute-position;
+      width: 15%;
+      right: auto;
+      overflow: auto;
     }
 
     .content {
-      flex: 85% 1 1;
-      min-height: 800px;
+      @extend %absolute-position;
+      width: 85%;
+      right: auto;
+      left: 15%;
+      overflow: auto;
+      padding: 0 20px 0 0;
     }
   }
 }
+
+@include scroll-bar;

@@ -1,24 +1,23 @@
 import navigatorList from './navigator-list'
 
-function matchedSubItem (path, data, res) {
-  data.forEach(item => {
+function matchedSubItem(path, data, res) {
+  data.forEach((item) => {
     if (item.path === path) {
       res.push(item)
-    } 
-    
+    }
     if (item.children && item.children.length > 0) {
       matchedSubItem(path, item.children, res)
     }
   })
 }
 
-export function getNavigatorList () {
+export function getNavigatorList() {
   return navigatorList
 }
 
-export function matchedNavItem (moduleName, nav) {
+export function matchedNavItem(moduleName, nav) {
   let returnItem = []
-  nav.forEach(item => {
+  nav.forEach((item) => {
     if (item.module === moduleName) {
       returnItem = item.children || []
     }
@@ -27,9 +26,10 @@ export function matchedNavItem (moduleName, nav) {
   return returnItem
 }
 
-export function matchModuleFromUrl (path, navigatorList) {
-  let res = []
-  let resObj = {
+export function matchModuleFromUrl(path, navigatorList) {
+  /* eslint-disable prefer-destructuring */
+  const res = []
+  const resObj = {
     currentModuleName: '',
     currentSubModuleName: ''
   }
@@ -41,4 +41,5 @@ export function matchModuleFromUrl (path, navigatorList) {
     resObj.currentSubModuleName = moduleName
   }
   return resObj
+  /* eslint-enable prefer-destructuring */
 }

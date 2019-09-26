@@ -19,7 +19,7 @@
 }
 
 @mixin scroll-bar {
-  $--scrollbar-thumb-background: $clr-font-describe-color;
+  $--scrollbar-thumb-background: $clr-font-tips-color;
   $--scrollbar-track-background: $clr-divider-color;
 
   &::-webkit-scrollbar {

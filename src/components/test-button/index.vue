@@ -5,25 +5,12 @@
 </template>
 
 <script>
-const cfg = require('component-cfg')
-
 export default {
-  name: 'Button',
-  data() {
-    return {
-      cfg
-    }
-  },
+  name: 'TestButton',
   computed: {},
-
   watch: {},
-
   created() {},
-
-  mounted() {
-  },
-
-  methods: {
-  }
+  mounted() {},
+  methods: {}
 }
 </script>

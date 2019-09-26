@@ -2,8 +2,8 @@
   font-size: $font-14;
   list-style: none;
   display: flex;
-  height: 60px;
-  line-height: 60px;
+  height: $nav-height;
+  line-height: $nav-height;
   position: sticky;
   top: 0;
   border-bottom: 1px solid $clr-divider-color;

@@ -28,7 +28,7 @@ router.beforeEach((to, from, next) => {
 router.afterEach(() => {
   Vue.nextTick(() => {
     const blocks = document.querySelectorAll('pre code')
-    blocks.forEach(block => {
+    blocks.forEach((block) => {
       hljs.highlightBlock(block)
     })
   })

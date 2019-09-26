@@ -1,6 +1,5 @@
 /* global Vue */
 import { removeAllCookie } from 'common/auth'
-import globals from 'common/globals'
 
 export const errorPopMsg = {
   showTimeoutErrConfrim(errorObj) {

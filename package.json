@@ -22,7 +22,7 @@
     "buildForProd": "npm run clean:examples && node scripts/build.js production",
     "buildForTest": "npm run clean:examples && node scripts/build.js production test",
     "buildForPre": "npm run clean:examples && node scripts/build.js production pre",
-    "eslint": "eslint --config .eslintrc.js src/js/**/*.{js,vue}",
+    "eslint": "eslint src/components/**/* examples/js/**/*",
     "debug": "npm run clean:examples && node --inspect scripts/dev-server.js development",
     "build:compoent": "npm run clean:lib && webpack --config config/webpack.config.component.prod.js",
     "build:examples": "npm run clean:examples && npm run buildForProd",

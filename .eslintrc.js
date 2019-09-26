@@ -38,6 +38,8 @@ module.exports = {
     "func-names": 0,
     "vue/max-attributes-per-line": 0,
     "no-plusplus": 0,
-    "no-unused-expressions": 0
+    "no-unused-expressions": 0,
+    "max-len": 0,
+    "no-shadow": 0
   }
 };
