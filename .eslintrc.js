@@ -37,6 +37,7 @@ module.exports = {
     "operator-assignment": 0,
     "func-names": 0,
     "vue/max-attributes-per-line": 0,
-    "no-plusplus": 0
+    "no-plusplus": 0,
+    "no-unused-expressions": 0
   }
 };

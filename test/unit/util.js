@@ -1,11 +1,8 @@
-import Vue from 'vue';
-import Element from 'main/index.js';
+import Vue from 'vue'
 
-Vue.use(Element);
+let id = 0
 
-let id = 0;
-
-const createElm = function() {
+const createElm = function () {
   const elm = document.createElement('div');
 
   elm.id = 'app' + ++id;
@@ -18,11 +15,9 @@ const createElm = function() {
  * 回收 vm
  * @param  {Object} vm
  */
-export const destroyVM = function(vm) {
+export const destroyVM = function (vm) {
   vm.$destroy && vm.$destroy();
-  vm.$el &&
-  vm.$el.parentNode &&
-  vm.$el.parentNode.removeChild(vm.$el);
+  vm.$el && vm.$el.parentNode && vm.$el.parentNode.removeChild(vm.$el);
 };
 
 /**
@@ -31,7 +26,7 @@ export const destroyVM = function(vm) {
  * @param  {Boolean=false} mounted 是否添加到 DOM 上
  * @return {Object} vm
  */
-export const createVue = function(Compo, mounted = false) {
+export const createVue = function (Compo, mounted = false) {
   if (Object.prototype.toString.call(Compo) === '[object String]') {
     Compo = { template: Compo };
   }
@@ -46,7 +41,7 @@ export const createVue = function(Compo, mounted = false) {
  * @param  {Boolean=false} mounted  - 是否添加到 DOM 上
  * @return {Object} vm
  */
-export const createTest = function(Compo, propsData = {}, mounted = false) {
+export const createTest = function (Compo, propsData = {}, mounted = false) {
   if (propsData === true || propsData === false) {
     mounted = propsData;
     propsData = {};
@@ -63,7 +58,7 @@ export const createTest = function(Compo, propsData = {}, mounted = false) {
  * @param  {String} name
  * @param  {*} opts
  */
-export const triggerEvent = function(elm, name, ...opts) {
+export const triggerEvent = function (elm, name, ...opts) {
   let eventName;
 
   if (/^mouse|click/.test(name)) {
@@ -88,7 +83,7 @@ export const triggerEvent = function(elm, name, ...opts) {
  * @param {Element} elm
  * @param {*} opts
  */
-export const triggerClick = function(elm, ...opts) {
+export const triggerClick = function (elm, ...opts) {
   triggerEvent(elm, 'mousedown', ...opts);
   triggerEvent(elm, 'mouseup', ...opts);
 
@@ -100,7 +95,7 @@ export const triggerClick = function(elm, ...opts) {
  * @param {Element} elm
  * @param {keyCode} int
  */
-export const triggerKeyDown = function(el, keyCode) {
+export const triggerKeyDown = function (el, keyCode) {
   const evt = document.createEvent('Events');
   evt.initEvent('keydown', true, true);
   evt.keyCode = keyCode;
@@ -111,8 +106,8 @@ export const triggerKeyDown = function(el, keyCode) {
  * 等待 ms 毫秒，返回 Promise
  * @param {Number} ms
  */
-export const wait = function(ms = 50) {
-  return new Promise(resolve => setTimeout(() => resolve(), ms));
+export const wait = function (ms = 50) {
+  return new Promise((resolve) => setTimeout(() => resolve(), ms));
 };
 
 /**

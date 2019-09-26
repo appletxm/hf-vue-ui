@@ -11,10 +11,11 @@ module.exports = function(config) {
     },
     webpack: webpackConfig,
     webpackMiddleware: {
-      noInfo: true
+      noInfo: true,
+      stats: 'errors-only'
     },
     coverageReporter: {
-      dir: './coverage',
+      dir: '../../coverage',
       reporters: [
         { type: 'lcov', subdir: '.' },
         { type: 'text-summary' }

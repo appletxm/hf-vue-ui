@@ -23,11 +23,12 @@
     "buildForTest": "npm run clean:examples && node scripts/build.js production test",
     "buildForPre": "npm run clean:examples && node scripts/build.js production pre",
     "eslint": "eslint --config .eslintrc.js src/js/**/*.{js,vue}",
-    "test": "karma start test/unit/karma.conf.js --single-run",
     "debug": "npm run clean:examples && node --inspect scripts/dev-server.js development",
     "build:compoent": "npm run clean:lib && webpack --config config/webpack.config.component.prod.js",
     "build:examples": "npm run clean:examples && npm run buildForProd",
-    "release": "npm run build:compoent && node scripts/release.js production"
+    "release": "npm run build:compoent && node scripts/release.js production",
+    "test": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
+    "test:watch": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js"
   },
   "pre-commit": [],
   "devDependencies": {
@@ -45,6 +46,7 @@
     "chai": "^4.2.0",
     "chalk": "^2.4.2",
     "copy-webpack-plugin": "^5.0.4",
+    "cross-env": "^6.0.0",
     "css-loader": "^3.2.0",
     "eslint": "^5.0.0",
     "eslint-config-airbnb-base": "^14.0.0",

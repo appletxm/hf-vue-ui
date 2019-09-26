@@ -114,5 +114,7 @@ module.exports = {
   node: {
     buffer: false
   },
-  stats: 'normal'
+  stats: {
+    chunks: false
+  }
 }
