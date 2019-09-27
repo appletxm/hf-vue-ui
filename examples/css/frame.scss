@@ -6,7 +6,8 @@
     position: absolute;
     width: $page-width;
     top: $nav-height + 20px;
-    bottom: $footer-height + 20px;
+    // bottom: $footer-height + 20px;
+    bottom: 10px;
     left: 50%;
     margin-left: -$page-width/2;
 

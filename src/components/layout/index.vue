@@ -1,5 +1,5 @@
 <template>
-  <section :class="[(cfg.prefix + '-container'), isVertical ? 'is-vertical': '']">
+  <section :class="[(cfg.prefix + '-layout'), isVertical ? 'is-vertical': '']">
     <slot></slot>
   </section>
 </template>
@@ -7,8 +7,8 @@
 <script>
 /* global cfg */
 export default {
-  name: 'Container',
-  componentName: 'Container',
+  name: 'Layout',
+  componentName: 'Layout',
   props: {
     direction: {
       type: String,

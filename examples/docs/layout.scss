@@ -1,0 +1,150 @@
+.hf-ui-header{
+  background-color: $clr-main04-color;
+  text-align: center;
+  position: relative;
+  color: $clr-bg-content-color;
+  .logo {
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    background-color: $clr-main03-color;
+    color: $clr-bg-content-color;
+    position: absolute;
+    top: 10px;
+    left: 100px;
+  }
+
+  span {
+    display: inline-block;
+    line-height: $nav-height;
+    vertical-align: middle;
+  }
+}
+
+.hf-ui-footer {
+  color: $clr-bg-content-color;
+  text-align: center;
+  line-height: $footer-height;
+  background-color: $clr-main04-color;
+}
+
+.hf-ui-main {
+  color: $clr-bg-content-color;
+  height: 150px;
+  line-height: 150px;
+  background-color: $clr-main04-color;
+  text-align: center;
+}
+
+.hf-ui-aside {
+  color: $clr-bg-content-color;
+  background-color: $clr-main04-color;
+  text-align: center;
+}
+
+.hf-ui-layout {
+  color: $clr-bg-content-color;
+  background-color: $clr-main03-color;
+}
+
+.hf-ui-tab {
+  height: $tab-height;
+  display: block;
+  flex: 1;
+  list-style: none;
+  display: flex;
+  width: 80%;
+  background-color: $clr-main04-color;
+  margin: $gap auto;
+
+  li {
+    line-height: $tab-height;
+    min-width: 100px;
+    text-align: center;
+    color: $clr-bg-content-color;
+  }
+}
+
+.hf-ui-crumbread {
+  color: $clr-main04-color;
+  height: $crumbread-height;
+  line-height: 60px;
+}
+
+.hf-ui-doc-layout-demo-0 {
+  .hf-ui-layout {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-basis: auto;
+    box-sizing: border-box;
+    min-width: 0;
+    align-items: stretch;
+    line-height: 150px;
+    text-align: center;
+    width: 80%;
+    margin: $gap*2 auto $gap auto;
+  }
+
+  .hf-ui-aside {
+    margin-right: $gap;
+  }
+
+  .hf-ui-main {
+    flex: auto;
+  }
+}
+
+.hf-ui-doc-layout-demo-1 {
+  @extend .hf-ui-doc-layout-demo-0;
+  .hf-ui-layout {
+    margin-top: 0;
+  }
+}
+
+.hf-ui-doc-layout-demo-2 {
+  .hf-ui-main {
+    margin: $gap auto 0 auto;
+    width: 80%;
+
+    &:nth-of-type(2) {
+      margin-bottom: $gap;
+    }
+  }
+}
+
+.hf-ui-doc-layout-demo-3 {
+  .hf-ui-main {
+    margin: $gap auto 0 auto;
+    width: 80%;
+
+    &:nth-of-type(2) {
+      margin-bottom: $gap;
+    }
+  }
+}
+
+.hf-ui-doc-layout-demo-4 {
+  .hf-ui-layout {
+    margin: 0;
+    width: 100%;
+    display: flex;
+
+    .hf-ui-layout {
+      display: block;
+      width: 100%;
+      margin: 0 $gap $gap $gap;
+    }
+  }
+
+  .hf-ui-aside {
+    margin: 0; 
+    line-height: 200px;
+    background-color: $clr-main02-color;
+  }
+
+  .hf-ui-main {
+    margin: 0;
+  }
+}
