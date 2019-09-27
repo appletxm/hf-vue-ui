@@ -1,8 +1,10 @@
-@import "./globals";
+@import "../../src/theme/globals";
+@import "../../src/theme/variables";
+@import "../../src/theme/mixin";
+@import "../../src/theme/animate";
+@import "../../src/theme/extend";
+
 @import "./variables";
-@import "./mixin";
-@import "./animate";
-@import "./extend";
 @import "./common";
 @import "./frame";
 

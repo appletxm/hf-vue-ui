@@ -22,7 +22,7 @@ export default [
     module: 'Components',
     label: '组件',
     icon: 'hf-iconfont icon-chakuaidi',
-    path: '/components/basic/button',
+    path: '/components/basic/layout',
     children: [
       {
         id: '201',
