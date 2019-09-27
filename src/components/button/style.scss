@@ -1,0 +1,63 @@
+@import "_button-mixin";
+@include b(button) {
+  font-size: $button-default-font-size;
+  line-height: $button-default-height;
+  height: $button-default-height;
+  color: $clr-font-btn01-color;
+  background: $clr-error-color;
+  border: 1px solid $clr-error-color;
+  padding: 0px $button-default-padding-horizontal;
+  cursor: pointer;
+  border-radius: $button-default-border-radius;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: .1s;
+  /* size */
+  @include m(big) {
+    @include button-size($button-big-height, $button-big-padding-horizontal, $button-big-font-size, $button-big-border-radius);
+  }
+  @include m(medium) {
+    @include button-size($button-medium-height, $button-medium-padding-horizontal, $button-medium-font-size, $button-medium-border-radius);
+  }
+  @include m(small) {
+    @include button-size($button-small-height, $button-small-padding-horizontal, $button-small-font-size, $button-small-border-radius);
+  }
+  /* type */
+  @include m(primary) {
+    color: $clr-font-tips-color;
+    background: linear-gradient(to right,$clr-btn-left-color,$clr-btn-right-color);
+    background: -webkit-linear-gradient(left, $clr-btn-left-color,$clr-btn-right-color); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, $clr-btn-left-color,$clr-btn-right-color); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, $clr-btn-left-color,$clr-btn-right-color); /* Firefox 3.6 - 15 */
+    border: 0px;
+    &:hover{
+      color: $clr-font-tips-color;
+      background: $clr-main02-color;
+      border: 0px;
+    }
+    &:active {
+      color: $clr-font-tips-color;
+      background: $clr-main04-color;
+      border: 0px;
+    }
+    &.is-disabled {
+      color: $clr-font-tips-color;
+      background: $clr-main04-color;
+      border: 0px;
+    }
+  }
+
+  @include m(secondary) {
+    
+  }
+
+  @include m(commonly) {
+    
+  }
+  @include m(light) {
+    
+  }
+}

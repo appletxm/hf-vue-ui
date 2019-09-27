@@ -9,9 +9,9 @@
 
 ```html
 <div>
-  <hf-ui-button>默认按钮</hf-ui-button>
-  <hf-ui-button type="primary">主要按钮</hf-ui-button>
-  <hf-ui-button type="success">成功按钮</hf-ui-button>
+  <hf-ui-button size="big">默认按钮</hf-ui-button>
+  <hf-ui-button size="medium" type="primary">主要按钮</hf-ui-button>
+  <hf-ui-button size="small" type="success">成功按钮</hf-ui-button>
 </div>
 
 <script>
@@ -23,6 +23,22 @@
     }
   }
 </script>
+```
+:::
+
+### 不同尺寸
+
+Button 组件提供大中小的三种尺寸，可以在不同场景下选择合适的按钮尺寸。
+
+:::demo 尺寸：`big`、`medium`、`small`通过设置`size`属性来配置它们。
+
+```html
+<div class="hf-doc-button-demo">
+  <hf-ui-button>默认按钮</hf-ui-button>
+  <hf-ui-button size="big">大型按钮</hf-ui-button>
+  <hf-ui-button size="medium">中等按钮</hf-ui-button>
+  <hf-ui-button size="small">小型按钮</hf-ui-button>
+</div>
 ```
 :::
 

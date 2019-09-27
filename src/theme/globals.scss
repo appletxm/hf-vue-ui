@@ -1,7 +1,12 @@
 /*global*/
 $prefix: hf-ui;
+$element-separator: '__';
+$modifier-separator: '--';
+$state-prefix: 'is-';
 
 /*color*/
+$clr-btn-left-color: #CC9967;
+$clr-btn-right-color: #D79957;
 $clr-main01-color: rgb(204,153,103);
 $clr-main02-color: rgb(229,197,158);
 $clr-main03-color: rgb(210,190,159);
