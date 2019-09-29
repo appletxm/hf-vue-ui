@@ -1,9 +1,19 @@
 <template>
-  <button :class="[
-    cfg.prefix + '-button',
-    buttonSize ? cfg.prefix + '-button' + '--' + buttonSize : '',
-    type ? cfg.prefix + '-button' + '--' + type : '']"
+  <button
+    :disabled="buttonDisabled"
+    :autofocus="autofocus"
+    :type="nativeType"
+    :class="[
+      cfg.prefix + '-button',
+      buttonSize ? cfg.prefix + '-button' + '--' + buttonSize : '',
+      type ? cfg.prefix + '-button' + '--' + type : '',
+      {
+        'is-disabled': buttonDisabled,
+      }
+    ]"
+    @click="handleClick"
   >
+    <i v-if="icon" class="hf-ui-icon" :class="icon"></i>
     <span v-if="$slots.default"><slot></slot></span>
   </button>
 </template>
@@ -19,15 +29,29 @@ export default {
       type: String,
       default: ''
     },
+    disabled: Boolean,
+    icon: {
+      type: String,
+      default: ''
+    },
+    nativeType: {
+      type: String,
+      default: 'button'
+    },
+    autofocus: Boolean,
   },
   computed: {
     buttonSize() {
       return this.size;
     },
+    buttonDisabled() {
+      return this.disabled;
+    }
   },
-  watch: {},
-  created() {},
-  mounted() {},
-  methods: {}
+  methods: {
+    handleClick(evt) {
+      this.$emit('click', evt);
+    }
+  }
 }
 </script>

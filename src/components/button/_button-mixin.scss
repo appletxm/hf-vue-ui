@@ -6,8 +6,12 @@
   height: $height;
 }
 
-@mixin button-color($color, $background-color, $border-color) {
+@mixin button-color($color, $background-color, $border-color: '-') {
   color: $color;
   background-color: $background-color;
-  border: 1px solid $border-color;
+  @if $border-color == '-' {
+    border: 0px;
+  }@else {
+    border: 1px solid $border-color;
+  }
 }
