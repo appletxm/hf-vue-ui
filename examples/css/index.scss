@@ -7,7 +7,6 @@
 @import "./variables";
 @import "./common";
 @import "./frame";
-@import "./button";
 
 @import "../js/components/demo-block/style";
 @import "../js/components/navigator/style";
@@ -17,3 +16,5 @@
 @import "../js/pages/home/style";
 @import "../js/pages/about/style";
 @import "../js/pages/error/style";
+
+@import "../docs/button/style";
