@@ -1,5 +1,6 @@
 .hf-ui-header{
-  background-color: $clr-main04-color;
+  // @include getBgColorAlpha($clr-main04-num, 0.5);
+  background-color: rgba(#6699dd, 0.5);
   text-align: center;
   position: relative;
   color: $clr-bg-content-color;
