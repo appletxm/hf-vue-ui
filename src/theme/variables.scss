@@ -1,3 +1,4 @@
+@import "./globals";
 
 /*mask*/
 $clr-mask: rgba($clr-mask-color, 0.7);
@@ -29,3 +30,58 @@ $border-radius: 3px;
 /*gap*/
 $page-gap: .1px;
 $gap: 24px;
+$gap-secondary: 20px;
+$gap-third: 16px;
+$gap-fourth: 12px;
+$gap-fifth: 4px;
+
+
+:export {
+  appPrefix: $prefix;
+  mainClor: {
+    clr_main01: $clr-main01-color;
+    clr_main02: $clr-main02-color;
+    clr_main03: $clr-main03-color;
+    clr_main04: $clr-main04-color;
+  }
+  subColor: {
+    clr_sub_color: $clr-sub-color;
+    clr_success: $clr-success-color;
+    clr_warning: $clr-warning-color;
+    clr_error: $main-color-16;
+  }
+  normalColor: {
+    clr_font_title: $clr-font-title-color;
+    clr_font_text: $clr-font-color;
+    clr_font_describe: $clr-font-describe-color;
+    clr_font_tips: $clr-font-tips-color;
+    clr_font_btn01: $clr-font-btn01-color;
+    clr_font_btn2: $clr-font-btn2-color;
+    clr_divider: $clr-divider-color;
+    clr_border: $clr-border-color;
+    clr_icon: $clr-icon-color;
+    clr_uneditable: $clr-uneditable-color;
+    clr_bg_page: $clr-bg-page-color;
+    clr_bg_content: $clr-bg-content-color;
+    clr_mask: $clr-mask-color;
+    clr_projection: $clr-projection-color;
+  }
+  colorPanel: {
+    mainColor01: $main-color-01;
+    mainColor02: $main-color-02;
+    mainColor03: $main-color-03;
+    mainColor04: $main-color-04;
+    mainColor05: $main-color-05;
+    mainColor06: $main-color-06;
+    mainColor07: $main-color-07;
+    mainColor08: $main-color-08;
+    mainColor09: $main-color-09;
+    mainColor10: $main-color-10;
+    mainColor11: $main-color-11;
+    mainColor12: $main-color-12;
+    mainColor13: $main-color-13;
+    mainColor14: $main-color-14;
+    mainColor15: $main-color-15;
+    mainColor16: $main-color-16;
+  }
+}

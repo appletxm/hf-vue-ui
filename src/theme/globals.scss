@@ -2,59 +2,44 @@
 $prefix: hf-ui;
 
 /*color*/
-$clr-main01-color: #cc9967;
-$clr-main02-color: #e5c59e;
-$clr-main03-color: #d2be9f;
-$clr-main04-color: #b09375;
-$clr-sub-color: #333333;
-$clr-success-color: #69db4c;
-$clr-warning-color: #d6ca0f;
-$clr-error-color: #ec5327;
-$clr-font-title-color: #333333;
-$clr-font-color: #666666;
-$clr-font-describe-color: #999999;
-$clr-font-tips-color: #cccccc;
-$clr-font-btn01-color: #ffffff;
-$clr-font-btn2-color: #333333;
-$clr-divider-color:#eeeeee;
-$clr-border-color: #dddddd;
-$clr-icon-color: #666666;
-$clr-divider-color: #eeeeee;
-$clr-border-color: #dddddd;
-$clr-icon-color: #666666;
-$clr-uneditable-color: #f6f6f6;
-$clr-bg-page-color: #f8f8f8;
-$clr-bg-content-color: #ffffff;
-$clr-mask-color: #000000;
-$clr-projection-color: #000000; 
+$main-color-01: #CC9967;
+$main-color-02: #E5C59E;
+$main-color-03: #D2BE9F;
+$main-color-04: #B09375;
+$main-color-05: #333333;
+$main-color-06: #666666;
+$main-color-07: #999999;
+$main-color-08: #CCCCCC;
+$main-color-09: #DDDDDD;
+$main-color-10: #EEEEEE;
+$main-color-11: #F6F6F6;
+$main-color-12: #F8F8F8;
+$main-color-13: #FFFFFF;
+$main-color-14: #69DB4C;
+$main-color-15: #F1CA0F;
+$main-color-16: #EC5327;
+$main-color-17: #000000;
 
-$clr-main01-num: 204,153,103;
-$clr-main02-num: 229,197,158;
-$clr-main03-num: 210,190,159;
-$clr-main04-num: 176,147,117;
-$clr-sub-num: 51,51,51;
-$clr-success-num: 105,219,76;
-$clr-warning-num: 214,202,15;
-$clr-error-num: 236,83,39;
-$clr-font-title-num: 51,51,51;
-$clr-font-num: 102,102,102;
-$clr-font-describe-num: 153,153,153;
-$clr-font-tips-num: 204,204,204;
-$clr-font-btn01-num: 255,255,255;
-$clr-font-btn2-num: 51,51,51;
-$clr-divider-num:238,238,238;
-$clr-border-num: 221,221,221;
-$clr-icon-num: 102,102,102;
-$clr-divider-num:238,238,238;
-$clr-border-num: 221,221,221;
-$clr-icon-num: 102,102,102;
-$clr-uneditable-num: 246,246,246;
-$clr-bg-page-num: 248,248,248;
-$clr-bg-content-num:255,255,255;
-$clr-mask-num: 0,0,0;
-$clr-projection-num: 0,0,0;
-
-:export {
-  appPrefix: $prefix
-}
+$clr-main01-color: $main-color-01;
+$clr-main02-color: $main-color-02;
+$clr-main03-color: $main-color-03;
+$clr-main04-color: $main-color-04;
+$clr-sub-color: $main-color-05;
+$clr-success-color: $main-color-14;
+$clr-warning-color: $main-color-15;
+$clr-error-color: $main-color-16;
+$clr-font-title-color: $main-color-05;
+$clr-font-color: $main-color-06;
+$clr-font-describe-color: $main-color-07;
+$clr-font-tips-color: $main-color-08;
+$clr-font-btn01-color: $main-color-13;
+$clr-font-btn2-color: $main-color-05;
+$clr-border-color: $main-color-09;
+$clr-divider-color: $main-color-10;
+$clr-icon-color: $main-color-06;
+$clr-uneditable-color: $main-color-11;
+$clr-bg-page-color: $main-color-12;
+$clr-bg-content-color: $main-color-13;
+$clr-mask-color: $main-color-17;
+$clr-projection-color: $main-color-17;
 

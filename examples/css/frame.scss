@@ -20,11 +20,11 @@
 
     .content {
       @extend %absolute-position;
-      width: 85%;
+      width: 80%;
       right: auto;
       left: 15%;
       overflow: auto;
-      padding: 0 20px 0 0;
+      padding: 0 20px 0 20px;
     }
   }
 }

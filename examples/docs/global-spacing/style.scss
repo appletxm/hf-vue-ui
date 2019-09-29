@@ -1,0 +1,90 @@
+.hf-ui-doc-gaps-demo-0 {
+  .hf-ui-layout {
+    display: flex;
+    background-color: transparent;
+  }
+
+  .hf-ui-aside {
+    line-height: 150px;
+  }
+
+  .hf-ui-main {
+    flex: auto;
+    margin: $gap;
+  }
+}
+
+.hf-ui-doc-gaps-demo-1 {
+  list-style: none;
+  display: flex;
+
+  li {
+    flex: auto;
+    margin: $gap-secondary $gap-secondary $gap-secondary 0;
+    @include getBgColorAlpha($clr-main04-color, 0.2);
+    p {
+      font-size: $font-16;
+      color: $clr-font-btn01-color;
+      text-align: center;
+      line-height: 100px;
+      @include getBgColorAlpha($clr-main04-color, 0.2);
+    }
+
+    section {
+      margin: $gap-third;
+    }
+
+    div {
+      height: 20px;
+      margin-bottom: 10px;
+      @include getBgColorAlpha($clr-main04-color, 0.2);
+    }
+  }
+}
+
+.hf-ui-doc-gaps-demo-2{
+  $icon---height: 48px;
+
+  display: flex;
+  width: 464px;
+
+
+  dt {
+    width: $icon---height;
+    height: $icon---height;
+    color: $clr-font-btn01-color;
+    line-height: $icon---height;
+    text-align: center;
+    @include getBgColorAlpha($clr-main04-color, 0.2);
+  }
+
+  dd {
+    flex: auto;
+    margin-left: $gap-third;
+
+    article {
+      width: 400px - $gap-fifth;
+      p {
+        @include getBgColorAlpha($clr-main04-color, 0.2);
+        height: 12px;
+        margin-bottom: $gap-fifth;
+      }
+    }
+
+    section {
+      display: flex;
+      margin-top: $gap-fourth;
+      flex-wrap: wrap;
+      width: 400px;
+
+      p {
+        @include getBgColorAlpha($clr-main04-color, 0.2);
+        color: $clr-font-btn01-color;
+        line-height: $icon---height * 2;
+        width: $icon---height * 2;
+        text-align: center;
+        margin: 0 $gap-fifth $gap-fifth 0;
+      }
+    }
+  }
+}
