@@ -5,23 +5,22 @@
       <side-menu :side-menu-data="sildeMenuData"></side-menu>
       <router-view></router-view>
     </div>
-    <app-footer />
+    <!-- <app-footer /> -->
   </div>
 </template>
 
 <script>
 import AppNavigator from 'components-biz/navigator'
 import SideMenu from 'components-biz/side-menu'
-import AppFooter from 'components-biz/footer'
-// import { checkUserLogin } from 'common/auth'
+// import AppFooter from 'components-biz/footer'
 import { NAVIGATOR_LIST, CURRENT_MODULE, CURRENT_SUB_MODULE } from 'store/mutation-types'
 import { getNavigatorList, matchedNavItem, matchModuleFromUrl } from './models'
 
 export default {
   components: {
     AppNavigator,
-    SideMenu,
-    AppFooter
+    SideMenu
+    // AppFooter
   },
   data() {
     return {
