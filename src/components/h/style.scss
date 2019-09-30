@@ -1,6 +1,6 @@
 .#{$prefix}-h{
   $__weight-num: 100;
-  $__maxWeight-num: 1000;
+  $__max-weight-num: 1000;
   $__font-size-max: 20px;
   $__font-line-max: 30px;
   $_font-h-size: 1;
@@ -57,7 +57,7 @@
     $_font-h-size: $_font-h-size + 1;
   }
 
-  @while $__weight-num <= $__maxWeight-num {
+  @while $__weight-num <= $__max-weight-num {
     &--#{$__weight-num} {
       @include fontWeight($__weight-num);
     }
