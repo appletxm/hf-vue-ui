@@ -9,7 +9,8 @@ const MenuRoutes = {
   Breadcrumb: () => import(/* webpackChunkName: "DocBreadcrumbMenu" */ 'docs/Breadcrumb.md'),
   GlobalSpacing: () => import(/* webpackChunkName: "GlobalSpacing" */ 'docs/global-spacing/index.md'),
   Color: () => import(/* webpackChunkName: "Color" */ 'docs/color/index.md'),
-  Tab: () => import(/* webpackChunkName: "DocTab" */ 'docs/Tab.md')
+  Font: () => import(/* webpackChunkName: "Font" */ 'docs/Font/index.md'),
+  Tab: () => import(/* webpackChunkName: "DocTab" */ 'docs/Tab.md'),
 }
 
 function decorateRouteItem(item) {

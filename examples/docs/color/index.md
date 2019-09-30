@@ -1,14 +1,12 @@
 <script>
   import scssGlobals from 'theme/variables.scss'
   import { getColorsForColorPanel, getMainColors, getSubColors, getNormalColors } from './models'
-  console.info('=======', scssGlobals)
 
   const darkFonts = ['#DDDDDD', '#EEEEEE', '#F6F6F6', '#F8F8F8', '#FFFFFF']
 
   export default {
     created() {},
-    mounted() {
-    },
+    mounted() {},
     methods: {
       $isInDarkFontList(color) {
         return darkFonts.indexOf(color) >= 0

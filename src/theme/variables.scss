@@ -19,7 +19,7 @@ $font-20-lineheight: 30px;
 $font-18-lineheight: 28px;
 $font-16-lineheight: 24px;
 $font-14-lineheight: 22px;
-$font-12-lineheight: 16px;
+$font-12-lineheight: 20px;
 
 $font-weight-regular: 400;
 $font-weight-medium: 600;
@@ -57,6 +57,7 @@ $button-small-padding-horizontal: 10px !default;
 
 :export {
   appPrefix: $prefix;
+  fontFamily: $font-family;
   mainClor: {
     clr_main01: $clr-main01-color;
     clr_main02: $clr-main02-color;

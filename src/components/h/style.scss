@@ -1,0 +1,66 @@
+.#{$prefix}-h{
+  $__weight-num: 100;
+  $__maxWeight-num: 1000;
+  $__font-size-max: 20px;
+  $__font-line-max: 30px;
+  $_font-h-size: 1;
+
+  @mixin fontWeight($weight) {
+    font-weight: $weight;
+  }
+
+  %__display-block {
+    display: block;
+  }
+
+  // &__h1{
+  //   font-size: $font-20;
+  //   line-height: $font-20-lineheight;
+  //   @extend %__display-block;
+  // }
+
+  // &__h2 {
+  //   font-size: $font-18;
+  //   line-height: $font-18-lineheight;
+  //   @extend %__display-block;
+  // }
+
+  // &__h3 {
+  //   font-size: $font-16;
+  //   line-height: $font-16-lineheight;
+  //   @extend %__display-block;
+  // }
+
+  // &__h4 {
+  //   font-size: $font-14;
+  //   line-height: $font-14-lineheight;
+  //   @extend %__display-block;
+  // }
+
+  // &__h5 {
+  //   font-size: $font-12;
+  //   line-height: $font-12-lineheight;
+  //   @extend %__display-block;
+  // }
+
+  @while $_font-h-size <= 5 {
+    &__h#{$_font-h-size} {
+      font-size: $__font-size-max - ($_font-h-size - 1) * 2;
+      @if $_font-h-size >= 3 {
+        line-height: $__font-line-max - $_font-h-size * 2 ;
+      } @else {
+        line-height: $__font-line-max - ($_font-h-size - 1) * 2 ;
+      }
+      @extend %__display-block;
+    }
+
+    $_font-h-size: $_font-h-size + 1;
+  }
+
+  @while $__weight-num <= $__maxWeight-num {
+    &--#{$__weight-num} {
+      @include fontWeight($__weight-num);
+    }
+    $__weight-num: $__weight-num + 100;
+  }
+}
