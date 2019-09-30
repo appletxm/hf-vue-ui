@@ -2,11 +2,13 @@ import navigatorList from '../app/navigator-list'
 
 const MenuRoutes = {
   Principle: () => import(/* webpackChunkName: "DocPrinciple" */ 'docs/Principle.md'),
-  Layout: () => import(/* webpackChunkName: "DocLayout" */ 'docs/Layout.md'),
+  Layout: () => import(/* webpackChunkName: "DocLayout" */ 'docs/layout/index.md'),
   Grid: () => import(/* webpackChunkName: "DocGrid" */ 'docs/Grid.md'),
   Button: () => import(/* webpackChunkName: "DocButton" */ 'docs/button/index.md'),
   Menu: () => import(/* webpackChunkName: "DocMenu" */ 'docs/Menu.md'),
   Breadcrumb: () => import(/* webpackChunkName: "DocBreadcrumbMenu" */ 'docs/Breadcrumb.md'),
+  GlobalSpacing: () => import(/* webpackChunkName: "GlobalSpacing" */ 'docs/global-spacing/index.md'),
+  Color: () => import(/* webpackChunkName: "Color" */ 'docs/color/index.md'),
   Tab: () => import(/* webpackChunkName: "DocTab" */ 'docs/Tab.md')
 }
 

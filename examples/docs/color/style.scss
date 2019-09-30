@@ -1,0 +1,54 @@
+.hf-ui-color-theme-color{
+  color: $clr-main01-color!important;
+}
+
+.hf-ui-doc-color-panel {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0!important;
+
+  li {
+    width: 160px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: $main-color-13;
+    font-size: $font-14;
+    margin: 0 $gap-secondary $gap-secondary 0;
+  }
+
+  .dark-font {
+    color: $main-color-05;
+    border: 1px solid $main-color-09;
+  }
+}
+
+.hf-ui-doc-color-main {
+  @extend .hf-ui-doc-color-panel;
+  li {
+    height: auto;
+  }
+  span {
+    padding: 10px;
+  }
+  span, i {
+    display: block;
+    line-height: $font-14-lineheight;
+    text-align: left;
+    font-style: normal;
+  }
+  p {
+    text-align: right;
+    padding-right: 10px;
+    color: $main-color-13;
+  }
+
+  b {
+    display: block;
+    font-weight: normal;
+    color: $main-color-06;
+    text-align: left;
+    line-height: 36px;
+  }
+}

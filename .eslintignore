@@ -9,3 +9,5 @@ src/theme/*/*
 *.scss
 *.md
 *.json
+src/**/*.scss
+examples/docs/**/*.*

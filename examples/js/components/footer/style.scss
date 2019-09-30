@@ -6,6 +6,6 @@
   bottom: 0;
   @extend %fixed-position;
   top: auto;
-  height: $footer-height;
-  line-height: $footer-height;
+  height: $footer-height - 20px;
+  line-height: $footer-height - 20px;
 }

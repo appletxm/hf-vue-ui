@@ -17067,11 +17067,16 @@ textarea {
 .page-container h2 {
   font-size: 28px;
   color: #1f2d3d;
-  margin: 0
+  margin: 0 0 15px 0;
 }
 
 .page-container h3 {
   font-size: 22px
+}
+
+.page-container h4 {
+  font-size: 18px;
+  line-height: 36px;
 }
 
 .page-container h2,
@@ -17109,7 +17114,7 @@ textarea {
 .page-container p {
   font-size: 14px;
   color: #5e6d82;
-  line-height: 1.5em
+  line-height: 2em
 }
 
 .page-container .tip {

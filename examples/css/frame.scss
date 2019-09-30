@@ -6,7 +6,8 @@
     position: absolute;
     width: $page-width;
     top: $nav-height + 20px;
-    bottom: $footer-height + 20px;
+    // bottom: $footer-height + 20px;
+    bottom: 10px;
     left: 50%;
     margin-left: -$page-width/2;
 
@@ -19,11 +20,11 @@
 
     .content {
       @extend %absolute-position;
-      width: 85%;
+      width: 80%;
       right: auto;
       left: 15%;
       overflow: auto;
-      padding: 0 20px 0 0;
+      padding: 0 20px 0 20px;
     }
   }
 }

@@ -27,32 +27,59 @@ export default [
       {
         id: '201',
         module: 'Components_Bsic',
-        label: '基础',
+        label: '基础 Basic',
         icon: 'hf-iconfont icon-chakuaidi',
         children: [
           {
             id: '201001',
+            module: 'Components_Bsic_GlobalSpacing',
+            path: '/components/basic/globalSpacing',
+            label: '全局间距 GlobalSpacing',
+            icon: 'hf-iconfont icon-chakuaidi',
+            component: 'GlobalSpacing'
+          },
+
+          {
+            id: '201002',
+            module: 'Components_Bsic_Color',
+            path: '/components/basic/color',
+            label: '色彩 Color',
+            icon: 'hf-iconfont icon-chakuaidi',
+            component: 'Color'
+          },
+
+          {
+            id: '201003',
+            module: 'Components_Bsic_Font',
+            path: '/components/basic/Font',
+            label: '文字 Font',
+            icon: 'hf-iconfont icon-chakuaidi',
+            component: 'Font'
+          },
+
+          {
+            id: '201004',
             module: 'Components_Bsic_Layout',
             path: '/components/basic/layout',
-            label: '布局',
+            label: '布局 Layout',
             icon: 'hf-iconfont icon-chakuaidi',
             component: 'Layout'
           },
 
           {
-            id: '201002',
+            id: '201004',
             module: 'Components_Bsic_Grid',
             path: '/components/basic/grid',
-            label: '栅格',
+            label: '栅格 Grid',
             icon: 'hf-iconfont icon-chakuaidi',
             component: 'Grid'
           },
 
           {
-            id: '201003',
+            id: '201006',
             module: 'Components_Bsic_Button',
             path: '/components/basic/button',
-            label: '按钮',
+            label: '按钮 Button',
             icon: 'hf-iconfont icon-chakuaidi',
             component: 'Button'
           }
