@@ -1,0 +1,126 @@
+@import "_button-mixin";
+@include b(button) {
+  font-size: $button-default-font-size;
+  line-height: $button-default-height;
+  height: $button-default-height;
+  padding: 0px $button-default-padding-horizontal;
+  cursor: pointer;
+  border-radius: $button-default-border-radius;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: .1s;
+  color: $clr-font-btn2-color;
+  background: $clr-bg-content-color;
+  border: 1px solid $clr-border-color;
+  &:hover{
+    color: $clr-main02-color;
+    background: $clr-bg-content-color;
+    border: 1px solid $clr-main02-color;
+  }
+  &:active {
+    color: $clr-main04-color;
+    background: $clr-bg-content-color;
+    border: 1px solid $clr-main04-color;
+  }
+  &.is-disabled {
+    color: $clr-font-tips-color;
+    background: $clr-uneditable-color;
+    border: 1px solid $clr-border-color;
+  }
+  /* size */
+  @include m(big) {
+    @include button-size($button-big-height, $button-big-padding-horizontal, $button-big-font-size, $button-big-border-radius);
+  }
+  @include m(medium) {
+    @include button-size($button-medium-height, $button-medium-padding-horizontal, $button-medium-font-size, $button-medium-border-radius);
+  }
+  @include m(small) {
+    @include button-size($button-small-height, $button-small-padding-horizontal, $button-small-font-size, $button-small-border-radius);
+  }
+  /* type */
+  @include m(primary) {
+    color: $clr-font-tips-color;
+    background: linear-gradient(to right, #CC9967,#D79957);
+    background: -webkit-linear-gradient(left, #CC9967,#D79957); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #CC9967,#D79957); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #CC9967,#D79957); /* Firefox 3.6 - 15 */
+    border: 0px;
+    &:hover{
+      @include button-color($clr-font-tips-color, $clr-main02-color);
+    }
+    &:active {
+      @include button-color($clr-font-tips-color, $clr-main04-color);
+    }
+    &.is-disabled {
+      @include button-color($clr-font-tips-color, $clr-uneditable-color, $clr-border-color);
+    }
+  }
+
+  @include m(secondary) {
+    @include button-color($clr-main01-color, $clr-bg-content-color, $clr-main01-color);
+    &:hover{
+      @include button-color($clr-main02-color, $clr-bg-content-color, $clr-main02-color);
+    }
+    &:active {
+      @include button-color($clr-main04-color, $clr-bg-content-color, $clr-main04-color);
+    }
+    &.is-disabled {
+      @include button-color($clr-font-tips-color, $clr-uneditable-color, $clr-border-color);
+    }
+  }
+
+  @include m(commonly) {
+    @include button-color($clr-font-btn2-color, $clr-bg-content-color, $clr-border-color);
+    &:hover{
+      @include button-color($clr-main02-color, $clr-bg-content-color, $clr-main02-color);
+    }
+    &:active {
+      @include button-color($clr-main04-color, $clr-bg-content-color, $clr-main04-color);
+    }
+    &.is-disabled {
+      @include button-color($clr-font-tips-color, $clr-uneditable-color, $clr-border-color);
+    }
+    
+  }
+  @include m(light) {
+    @include button-color($clr-font-btn2-color, transparent);
+    &:hover{
+      @include button-color($clr-main02-color, transparent);
+    }
+    &:active {
+      @include button-color($clr-main04-color, transparent);
+    }
+    &.is-disabled {
+      @include button-color($clr-font-tips-color, transparent);
+    }
+  }
+  @include m(warning) {
+    @include button-color($clr-font-tips-color, $clr-error-color);
+    &:hover{
+      @include button-color($clr-font-tips-color, #EF7552);
+    }
+    &:active {
+      @include button-color($clr-font-tips-color, #BC421F);
+    }
+    &.is-disabled {
+      @include button-color($clr-font-tips-color, $clr-uneditable-color, $clr-border-color);
+    }
+  }
+  /* icon */
+  .hf-ui-icon {
+    font-size: inherit;
+  }
+  & [class*="ui-icon-"] {
+    & + span {
+      margin-left: 6px;
+    }
+  }
+  span {
+    & i[class*="ui-icon-"]  {
+      margin-left: 6px;
+    }
+  }
+}

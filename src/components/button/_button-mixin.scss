@@ -1,0 +1,17 @@
+@mixin button-size($height, $padding-horizontal, $font-size, $border-radius) {
+  padding: 0px $padding-horizontal;
+  font-size: $font-size;
+  border-radius: $border-radius;
+  line-height: $height;
+  height: $height;
+}
+
+@mixin button-color($color, $background-color, $border-color: '-') {
+  color: $color;
+  background-color: $background-color;
+  @if $border-color == '-' {
+    border: 0px;
+  }@else {
+    border: 1px solid $border-color;
+  }
+}
