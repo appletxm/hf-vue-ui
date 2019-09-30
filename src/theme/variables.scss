@@ -1,5 +1,10 @@
 @import "./globals";
 
+/*BEM*/
+$element-separator: '__';
+$modifier-separator: '--';
+$state-prefix: 'is-';
+
 /*mask*/
 $clr-mask: rgba($clr-mask-color, 0.7);
 
@@ -25,7 +30,7 @@ $font-weight-regular: 400;
 $font-weight-medium: 600;
 
 /*radius*/
-$border-radius: 3px;
+$border-radius: 4px;
 
 /*gap*/
 $page-gap: .1px;
@@ -34,26 +39,6 @@ $gap-secondary: 20px;
 $gap-third: 16px;
 $gap-fourth: 12px;
 $gap-fifth: 4px;
-/* Button */
-$button-default-font-size: 14px !default;
-$button-default-border-radius: 4px !default;
-$button-default-height: 36px !default;
-$button-default-padding-horizontal: 16px !default;
-
-$button-big-font-size: 14px !default;
-$button-big-border-radius: 4px !default;
-$button-big-height: 36px !default;
-$button-big-padding-horizontal: 16px !default;
-
-$button-medium-font-size: 14px !default;
-$button-medium-border-radius: 4px !default;
-$button-medium-height: 28px !default;
-$button-medium-padding-horizontal: 14px !default;
-
-$button-small-font-size: 12px !default;
-$button-small-border-radius: 4px !default;
-$button-small-height: 20px !default;
-$button-small-padding-horizontal: 10px !default;
 
 :export {
   appPrefix: $prefix;

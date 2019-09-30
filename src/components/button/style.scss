@@ -1,4 +1,5 @@
-@import "_button-mixin";
+@import "_variables";
+@import "_mixin";
 @include b(button) {
   font-size: $button-default-font-size;
   line-height: $button-default-height;
