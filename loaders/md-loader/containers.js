@@ -19,6 +19,21 @@ module.exports = md => {
     }
   });
 
+  // md.use(mdContainer, 'doc-layout-left', {
+  //   validate(params) {
+  //     return params.trim().match(/^doc-layout-left\s*(.*)$/);
+  //   },
+  //   render(tokens, idx) {
+  //     const key = 'doc-layout-left'
+  //     if (tokens[idx]['type'] === `container_${key}_open`) {
+  //       const desc = tokens[idx]['info']
+  //       return `<div class="${key}" ${desc}>`
+  //     } else if (tokens[idx]['type'] === `container_${key}_close`) {
+  //       return '</div>'
+  //     }
+  //   }
+  // });
+
   md.use(mdContainer, 'tip');
   md.use(mdContainer, 'warning');
   md.use(mdContainer, 'danger');

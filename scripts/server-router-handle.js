@@ -4,6 +4,7 @@ const formidable = require('formidable')
 const serverProxy = require('./server-proxy')
 let isMock = false
 const env = require('../config/env')
+const { generateTheme } = require('./server-define-theme')
 
 function getMockFile(reqPath, res) {
   try {
@@ -97,6 +98,10 @@ function assignRouter(req, res, next) {
     isMock = true
     console.log('mock reqPath', reqPath)
     getMockFile(reqPath + '.json', res)
+  } else {
+    if (req.originalUrl === '/api/defineTheme') {
+      generateTheme(req, res)
+    }
   }
   if (next) {
     next()

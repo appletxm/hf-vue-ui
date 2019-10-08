@@ -88,3 +88,19 @@ export const getNormalColors = (colors) => {
 
   return colorArr
 }
+
+export const getColorPanelMap = (colors) => {
+  const colorArr = []
+  const prefix = 'colorPanel-'
+  Object.keys(colors).forEach ((colorKey) => {
+    const prefixKey = colorKey.replace(prefix, '')
+    if (colorKey.indexOf(prefix) >= 0) {
+      colorArr.push({
+        key: prefixKey,
+        color: colors[colorKey]
+      })
+    }
+  })
+  
+  return colorArr
+}

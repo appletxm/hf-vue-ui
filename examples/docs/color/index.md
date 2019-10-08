@@ -2,7 +2,7 @@
   import scssGlobals from 'theme/variables.scss'
   import { getColorsForColorPanel, getMainColors, getSubColors, getNormalColors } from './models'
 
-  const darkFonts = ['#DDDDDD', '#EEEEEE', '#F6F6F6', '#F8F8F8', '#FFFFFF']
+  const darkFonts = ['#DDDDDD', '#EEEEEE', '#F6F6F6', '#F8F8F8', '#FFFFFF', '#fff']
 
   export default {
     created() {},

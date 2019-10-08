@@ -1,0 +1,37 @@
+.hf-ui-doc-theme-define {
+  display: flex;
+
+  h3 {
+    margin: 20px 0 10px 0;
+  }
+
+  .theme-define-left {
+    flex: 80%;
+  }
+
+  .theme-define-right {
+    flex: 20%;
+    border: 1px solid #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+
+    li {
+      line-height: 24px;
+      height: 24px;
+      margin: 0 0 5px 0;
+      border-radius: 2px;
+      position: relative;
+
+      input {
+        width: 100%;
+        opacity: 0;
+        cursor: pointer;
+        @extend %absolute-position;
+      }
+    }
+  }
+
+  .right-btn-row {
+    margin: 10px 0;
+  }
+}

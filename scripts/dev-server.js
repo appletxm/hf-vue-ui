@@ -1,11 +1,10 @@
 const express = require('express')
 const webpack = require('webpack')
-const path = require('path')
-const fs = require('fs')
+// const path = require('path')
+// const fs = require('fs')
 const chalk = require('chalk')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
-const httpProxyMiddleware = require('http-proxy-middleware')
 const envConfig = require('../config/env')
 const webpackConfig = require('../config/webpack.config')
 const serverRouter = require('./server-router')
@@ -13,7 +12,7 @@ const app = express()
 const compiler = webpack(webpackConfig)
 const host = envConfig['development']['host']
 const port = envConfig['development']['port']
-const proxyTarget = envConfig['development']['proxy']['url']
+// const proxyTarget = envConfig['development']['proxy']['url']
 
 // const multer = require('multer')
 // const upload = multer({ dest: 'uploads/' })
@@ -39,11 +38,7 @@ app.use('*', serverRouter['*'])
 // })
 
 app.use('/api',function (req, res) {
-  if(process.env.NODE_ENV === 'development') {
-    httpProxyMiddleware({target: proxyTarget, changeOrigin: true})(req, res)
-  } else {
-    serverRouter['/api'](req, res)
-  }
+  serverRouter['/api'](req, res)
 })
 
 app.use(['/*assets/images/*'], function (req, res) {
