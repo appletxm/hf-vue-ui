@@ -5,7 +5,7 @@
 
 基础的按钮用法。
 
-:::demo 类型：`primary`、`secondary`、`commonly`、`light`、`warning` 通过设置`type`属性来配置它们。
+:::demo 类型：`primary`、`secondary`、`commonly`、`light`、`important` 通过设置`type`属性来配置它们。
 
 ```html
 <div class="hf-doc-button-demo">
@@ -14,7 +14,7 @@
   <hf-ui-button type="secondary">次要按钮</hf-ui-button>
   <hf-ui-button type="commonly">次次要按钮</hf-ui-button>
   <hf-ui-button type="light">次次次要按钮</hf-ui-button>
-  <hf-ui-button type="warning">警示按钮</hf-ui-button>
+  <hf-ui-button type="important">重要按钮</hf-ui-button>
 </div>
 
 ```
@@ -33,7 +33,7 @@
   <hf-ui-button type="secondary" disabled>次要按钮</hf-ui-button>
   <hf-ui-button type="commonly" disabled>次次要按钮</hf-ui-button>
   <hf-ui-button type="light" disabled>次次次要按钮</hf-ui-button>
-  <hf-ui-button type="warning" disabled>警示按钮</hf-ui-button>
+  <hf-ui-button type="important" disabled>重要按钮</hf-ui-button>
 </div>
 
 ```
@@ -77,7 +77,7 @@ Button 组件提供大中小的三种尺寸，可以在不同场景下选择合�
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
 | size     | 尺寸   | string  |   big / medium / small            |    —     |
-| type     | 类型   | string    |   primary / secondary / commonly / light / warning |     —    |
+| type     | 类型   | string    |   primary / secondary / commonly / light / important |     —    |
 | disabled  | 是否禁用状态    | boolean   | —   | false   |
 | icon  | 图标类名 | string   |  —  |  —  |
 | autofocus  | 是否默认聚焦 | boolean   |  —  |  false  |
