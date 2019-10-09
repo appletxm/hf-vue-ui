@@ -1,7 +1,8 @@
-@import "_button-mixin";
+@import "variables";
+@import "mixin";
 @include b(button) {
   font-size: $button-default-font-size;
-  line-height: $button-default-height;
+  line-height: $button-default-height - 2px;
   height: $button-default-height;
   padding: 0px $button-default-padding-horizontal;
   cursor: pointer;
@@ -42,17 +43,17 @@
   }
   /* type */
   @include m(primary) {
-    color: $clr-font-tips-color;
-    background: linear-gradient(to right, #CC9967,#D79957);
-    background: -webkit-linear-gradient(left, #CC9967,#D79957); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, #CC9967,#D79957); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, #CC9967,#D79957); /* Firefox 3.6 - 15 */
-    border: 0px;
+    color: $clr-font-btn01-color;
+    background: linear-gradient(to right, $clr-btn-main-left,$clr-btn-main-right);
+    background: -webkit-linear-gradient(left, $clr-btn-main-left,$clr-btn-main-right); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, $clr-btn-main-left,$clr-btn-main-right); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, $clr-btn-main-left,$clr-btn-main-right); /* Firefox 3.6 - 15 */
+    border: 1px solid transparent;
     &:hover{
-      @include button-color($clr-font-tips-color, $clr-main02-color);
+      @include button-color($clr-font-btn01-color, $clr-main02-color);
     }
     &:active {
-      @include button-color($clr-font-tips-color, $clr-main04-color);
+      @include button-color($clr-font-btn01-color, $clr-main04-color);
     }
     &.is-disabled {
       @include button-color($clr-font-tips-color, $clr-uneditable-color, $clr-border-color);
@@ -97,13 +98,13 @@
       @include button-color($clr-font-tips-color, transparent);
     }
   }
-  @include m(warning) {
-    @include button-color($clr-font-tips-color, $clr-error-color);
+  @include m(important) {
+    @include button-color($clr-font-btn01-color, $clr-error-color);
     &:hover{
-      @include button-color($clr-font-tips-color, #EF7552);
+      @include button-color($clr-font-btn01-color, rgba($clr-error-color, .5));
     }
     &:active {
-      @include button-color($clr-font-tips-color, #BC421F);
+      @include button-color($clr-font-btn01-color, rgba($clr-error-color, .8));
     }
     &.is-disabled {
       @include button-color($clr-font-tips-color, $clr-uneditable-color, $clr-border-color);
@@ -116,6 +117,11 @@
   & [class*="ui-icon-"] {
     & + span {
       margin-left: 6px;
+    }
+  }
+  &.hf-ui-button--small [class*="ui-icon-"] {
+    & + span {
+      margin-left: 4px;
     }
   }
   span {
