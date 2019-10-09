@@ -2,7 +2,7 @@
   padding: 0px $padding-horizontal;
   font-size: $font-size;
   border-radius: $border-radius;
-  line-height: $height;
+  line-height: $height - 2px;
   height: $height;
 }
 
@@ -10,7 +10,7 @@
   color: $color;
   background-color: $background-color;
   @if $border-color == '-' {
-    border: 0px;
+    border: 1px solid transparent;
   }@else {
     border: 1px solid $border-color;
   }

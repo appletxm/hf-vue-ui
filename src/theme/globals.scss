@@ -1,8 +1,5 @@
 /*global*/
 $prefix: hf-ui;
-$element-separator: '__';
-$modifier-separator: '--';
-$state-prefix: 'is-';
 
 /*color*/
 $main-color-01: #CC9967;
@@ -22,6 +19,7 @@ $main-color-14: #69DB4C;
 $main-color-15: #F1CA0F;
 $main-color-16: #EC5327;
 $main-color-17: #000000;
+$main-color-18: #D79957;
 
 $clr-main01-color: $main-color-01;
 $clr-main02-color: $main-color-02;
@@ -45,4 +43,6 @@ $clr-bg-page-color: $main-color-12;
 $clr-bg-content-color: $main-color-13;
 $clr-mask-color: $main-color-17;
 $clr-projection-color: $main-color-17;
+$clr-btn-main-left: $main-color-01;
+$clr-btn-main-right: $main-color-18;
 
