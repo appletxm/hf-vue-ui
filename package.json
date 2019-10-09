@@ -29,7 +29,8 @@
     "build:examples": "npm run clean:examples && npm run buildForProd",
     "release": "npm run build:compoent && node scripts/release.js production",
     "test": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
-    "test:watch": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js"
+    "test:watch": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js",
+    "generatorTheme": "webpack --config config/webpack.config.component.theme.prod.js"
   },
   "pre-commit": [],
   "devDependencies": {
@@ -94,6 +95,7 @@
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.9",
     "webpack-dev-middleware": "^3.7.1",
+    "webpack-fix-style-only-entries": "^0.4.0",
     "webpack-hot-middleware": "^2.25.0"
   },
   "repository": {

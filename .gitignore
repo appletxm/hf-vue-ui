@@ -9,6 +9,8 @@ test/unit/coverage
 
 deploy/
 coverage
+themes
+dist/user-theme
 
 # Editor directories and files
 .idea
@@ -18,4 +20,3 @@ coverage
 *.sln
 *.tar
 *.gz
-themes

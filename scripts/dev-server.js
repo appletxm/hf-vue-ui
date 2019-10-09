@@ -45,6 +45,10 @@ app.use(['/*assets/images/*'], function (req, res) {
   serverRouter['image'](req, res, compiler)
 })
 
+app.use(['/dist/user-theme'], function(req, res) {
+  serverRouter['user-theme'](req, res, compiler)
+})
+
 app.use('/*.html', function (req, res) {
   serverRouter['html'](req, res, compiler)
 })

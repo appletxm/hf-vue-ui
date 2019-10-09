@@ -1,8 +1,8 @@
 const path = require('path')
 const fs = require('fs')
 const formidable = require('formidable')
-const serverProxy = require('./server-proxy')
-let isMock = false
+// const serverProxy = require('./server-proxy')
+// let isMock = false
 const env = require('../config/env')
 const { generateTheme } = require('./server-define-theme')
 
@@ -195,8 +195,16 @@ function routerHtmlPath(req, res, compiler) {
 }
 
 function routerJsFile(req, res, compiler) {
-  var filename = path.join(compiler.outputPath, req.baseUrl.replace('/', ''))
+  const filename = path.join(compiler.outputPath, req.baseUrl.replace('/', ''))
   getJsFile(compiler, filename, res)
+}
+
+function routerUserTheme(req, res) {
+  const filename = path.resolve('.' + req.originalUrl)
+  const result = fs.readFileSync(filename, 'utf8')
+  res.set('content-type', 'text/css')
+  res.send(result)
+  res.end()
 }
 
 module.exports = {
@@ -207,5 +215,6 @@ module.exports = {
   routerUploadSingleFile,
   routerImgPath,
   routerHtmlPath,
-  routerJsFile
+  routerJsFile,
+  routerUserTheme
 }

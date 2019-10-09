@@ -16,7 +16,9 @@ export default {
     $changeColor(eve, index) {
       this.colorPanelMap[index]['color'] = eve.target.value.toUpperCase()
       axios.post('/api/defineTheme', this.colorPanelMap).then(res => {
-        console.info(res)
+        if (res.data.cssFilePath) {
+          document.querySelector('#js-user-define-theme').setAttribute('href', res.data.cssFilePath)
+        }
       }).catch(err => {
         console.info('$changeColor:', err)
       })
@@ -24,6 +26,17 @@ export default {
     $initColor() {
       this.globals = JSON.parse(JSON.stringify(scssGlobals))
       this.colorPanelMap = getColorPanelMap(this.globals)
+    },
+    $resetTheme() {
+      this.$initColor()
+      document.querySelector('#js-user-define-theme').removeAttribute('href')
+    },
+    $saveTheme() {
+      axios.post('/api/saveTheme', this.colorPanelMap).then(res => {
+        
+      }).catch(err => {
+        console.info('$changeColor:', err)
+      })
     }
   },
   data() {
@@ -63,8 +76,8 @@ export default {
     <div class="theme-define-right">
       <p>用户自定义配色方案</p>
       <div class="right-btn-row">
-        <hf-ui-button type="default" size="medium">重置</hf-ui-button>
-        <hf-ui-button type="secondary" size="medium">保存方案</hf-ui-button>
+        <hf-ui-button type="default" size="medium" @click="$resetTheme">重置</hf-ui-button>
+        <hf-ui-button type="secondary" size="medium" @click="$saveTheme">保存方案</hf-ui-button>
       </div>
       <ul class="hf-ui-doc-color-panel">
         <li v-for="(colorHex, index) in colorPanelMap" :key="index" :style="{backgroundColor: colorHex.color}" :class="[$isInDarkFontList(colorHex.color) ? 'dark-font': '']">
