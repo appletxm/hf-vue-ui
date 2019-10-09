@@ -6,6 +6,7 @@ import Footer from 'components/footer'
 import Aside from 'components/aside'
 import Main from 'components/main'
 import Layout from 'components/layout'
+import CustomH from 'components/h'
 import locale from 'locale'
 
 const cfg = require('component-cfg')
@@ -19,7 +20,8 @@ const components = [
   Footer,
   Aside,
   Main,
-  Layout
+  Layout,
+  CustomH
 ]
 
 const install = function (Vue, opts = {}) {

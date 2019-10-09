@@ -1,28 +1,28 @@
 import { createTest, createVue, destroyVM } from '../util';
-import Container from 'components/layout';
+import Layout from 'components/layout';
 import Header from 'components/header';
 import Main from 'components/main';
 import Aside from 'components/aside';
 import Footer from 'components/footer';
 
-describe('Container', () => {
+describe('Layout', () => {
   let vm;
   afterEach(() => {
     destroyVM(vm);
   });
 
   it('create', () => {
-    vm = createTest(Container, true);
+    vm = createTest(Layout, true);
     expect(vm.$el).to.exist;
   });
 
   it('vertical', () => {
     vm = createVue({
       template: `
-        <hf-ui-container>
+        <hf-ui-layout>
           <hf-ui-header></hf-ui-header>
           <hf-ui-main></hf-ui-main>
-        </hf-ui-container>
+        </hf-ui-layout>
       `
     }, true);
     expect(vm.$children[0].$el.classList.contains('is-vertical')).to.true;
@@ -31,10 +31,10 @@ describe('Container', () => {
   it('direction', done => {
     vm = createVue({
       template: `
-        <hf-ui-container :direction="direction">
+        <hf-ui-layout :direction="direction">
           <hf-ui-header></hf-ui-header>
           <hf-ui-main></hf-ui-main>
-        </hf-ui-container>
+        </hf-ui-layout>
       `,
       data() {
         return {

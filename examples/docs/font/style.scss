@@ -1,0 +1,18 @@
+.hf-ui-doc-font {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    font-weight: normal;
+    line-height: 20px;
+    color: $clr-font-describe-color;
+    line-height: 40px;
+  }
+
+  td {
+    color: $clr-font-color;
+    height: 80px;
+    border-top: 1px solid $clr-divider-color;
+  }
+}
