@@ -15,7 +15,7 @@ export default {
     },
     $changeColor(eve, index) {
       this.colorPanelMap[index]['color'] = eve.target.value.toUpperCase()
-      axios.post('/api/defineTheme', this.colorPanelMap).then(res => {
+      axios.post('/api/defineTheme/change', this.colorPanelMap).then(res => {
         if (res.data.cssFilePath) {
           document.querySelector('#js-user-define-theme').setAttribute('href', res.data.cssFilePath)
         }
@@ -32,11 +32,13 @@ export default {
       document.querySelector('#js-user-define-theme').removeAttribute('href')
     },
     $saveTheme() {
-      axios.post('/api/saveTheme', this.colorPanelMap).then(res => {
+      // let oldColor = getColorPanelMap(JSON.parse(JSON.stringify(scssGlobals)))
+      // console.info(JSON.stringify(oldColor) === JSON.stringify(this.colorPanelMap))
+      // axios.post('/api/defineTheme/save', this.colorPanelMap).then(res => {
         
-      }).catch(err => {
-        console.info('$changeColor:', err)
-      })
+      // }).catch(err => {
+      //   console.info('$changeColor:', err)
+      // })
     }
   },
   data() {

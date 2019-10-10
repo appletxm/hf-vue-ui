@@ -8,10 +8,10 @@ const cfg = require('./component.config')
 const envKeyWord = 'development'
 const isDev = envKeyWord === 'development'
 const mode = envKeyWord === 'test' || envKeyWord === 'production' ? 'production' : 'development'
-const srcPath = './themes'
-const destPath = './dist/user-theme'
+let srcPath = `${cfg.userDefineTheme.src}/{ipAddress}`
+let destPath = `${cfg.userDefineTheme.out}/{ipAddress}`
 
-module.exports = {
+const config = {
   mode: mode,
   performance: {
     hints: isDev ? false : 'warning'
@@ -76,10 +76,6 @@ module.exports = {
     alias: {}
   },
   plugins: [
-    new CopyPlugin([{
-      from: path.resolve(`${srcPath}/font`),
-      to: path.resolve(`${destPath}/font`)
-    }]),
     new FixStyleOnlyEntries(),
     new MiniCssExtractPlugin({
       filename: `[name].min.css`
@@ -95,4 +91,23 @@ module.exports = {
     buffer: false
   },
   stats: 'normal'
+}
+
+function getConfig(ipAddress) {
+  srcPath = srcPath.replace('{ipAddress}', ipAddress)
+  destPath = destPath.replace('{ipAddress}', ipAddress)
+  config['entry'][cfg.prefix] = path.resolve(`${srcPath}/index.scss`)
+  config['output']['path'] = path.resolve(destPath)
+  config['plugins'].unshift(
+    new CopyPlugin([{
+      from: path.resolve(`${srcPath}/font`),
+      to: path.resolve(`${destPath}/font`)
+    }])
+  )
+
+  return config
+}
+
+module.exports = {
+  getConfig
 }

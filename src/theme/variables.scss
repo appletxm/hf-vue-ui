@@ -57,7 +57,7 @@ $gap-fifth: 4px;
   }
   normalColor: {
     clr_font_title: $clr-font-title-color;
-    clr_font_text: $clr-font-color;
+    clr_font_text: $clr-font-text-color;
     clr_font_describe: $clr-font-describe-color;
     clr_font_tips: $clr-font-tips-color;
     clr_font_btn01: $clr-font-btn01-color;
@@ -73,6 +73,7 @@ $gap-fifth: 4px;
   }
   colorPanel: {
     main_color_01: $main-color-01;
+    main_color_18: $main-color-18;
     main_color_02: $main-color-02;
     main_color_03: $main-color-03;
     main_color_04: $main-color-04;
