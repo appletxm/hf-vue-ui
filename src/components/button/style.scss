@@ -34,12 +34,21 @@
   /* size */
   @include m(big) {
     @include button-size($button-big-height, $button-big-padding-horizontal, $button-big-font-size, $button-big-border-radius);
+    &.hf-ui-button--primary {
+      line-height: $button-big-height;
+    }
   }
   @include m(medium) {
     @include button-size($button-medium-height, $button-medium-padding-horizontal, $button-medium-font-size, $button-medium-border-radius);
+    &.hf-ui-button--primary {
+      line-height: $button-medium-height;
+    }
   }
   @include m(small) {
     @include button-size($button-small-height, $button-small-padding-horizontal, $button-small-font-size, $button-small-border-radius);
+    &.hf-ui-button--primary {
+      line-height: $button-small-height;
+    }
   }
   /* type */
   @include m(primary) {
@@ -48,12 +57,15 @@
     background: -webkit-linear-gradient(left, $clr-btn-main-left,$clr-btn-main-right); /* Safari 5.1 - 6.0 */
     background: -o-linear-gradient(right, $clr-btn-main-left,$clr-btn-main-right); /* Opera 11.1 - 12.0 */
     background: -moz-linear-gradient(right, $clr-btn-main-left,$clr-btn-main-right); /* Firefox 3.6 - 15 */
-    border: 1px solid transparent;
+    border: 0px;
+    line-height: $button-default-height;
     &:hover{
       @include button-color($clr-font-btn01-color, $clr-main02-color);
+      border: 0px;
     }
     &:active {
       @include button-color($clr-font-btn01-color, $clr-main04-color);
+      border: 0px;
     }
     &.is-disabled {
       @include button-color($clr-font-tips-color, $clr-uneditable-color, $clr-border-color);
