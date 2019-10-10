@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const { zip } = require('zip-a-folder')
 const { exec, spawn } = require('child_process')
 const { copyFolder, checkDirIsOk } = require('./sync-copy-files')
 const cfg = require('../config/component.config')
@@ -25,8 +26,9 @@ function copyFolderForTheme(ipAddress) {
 function doGenerateGlobalFile(globals, ipAddress) {
   const globalFullPath = replaceIpAdress(globalFilePath, ipAddress)
   let globaFile = fs.readFileSync(globalFullPath, 'utf8')
+  
   globals.forEach(item => {
-    let key = '$' + (item.key.replace(/_/g, '-'))
+    let key = '$' + (item.key.replace(/_/g, '-')) + '-color'
     let matchReg = new RegExp(`(\\${key}\\:\\s*)([^\\:;]+)`, 'g')
     globaFile = globaFile.replace(matchReg, ($1, $2, $3) => {
       if ($3 === item.color) {
@@ -122,7 +124,7 @@ function addReqListener(req, cbFn) {
 }
 
 function generateTheme(req, res) {
-  const ipAddress = req.hostName || req.host || req.ip || '127.0.0.1'
+  const ipAddress = req.hostname || req.host || req.ip || '127.0.0.1'
   try {
     addReqListener(req, (body) => {
       let params = body && JSON.parse(body)
@@ -149,19 +151,33 @@ function generateTheme(req, res) {
 }
 
 async function zipTheme(filePath) {
-  console.info('==========', filePath)
+  const srcPath = filePath.replace(/\/[^\/]+\.css/g, '')
+  const destPath = srcPath + '.zip'
+  try {
+    await zip(path.resolve(srcPath), path.resolve(destPath))
+  } catch (err) {
+    throw err
+  }
+  return destPath
 }
 
 function saveTheme(req, res) {
+  const ipAddress = req.hostname || req.host || req.ip || '127.0.0.1'
   try {
     addReqListener(req, (body) => {
       let params = body && JSON.parse(body)
       if (params && params.length > 0) {
-        copyFolderForTheme()
-        doGenerateGlobalFile(params)
-        doGenerateIndexFile()
-        doOutputTheme().then(filePath => {
+        copyFolderForTheme(ipAddress)
+        doGenerateGlobalFile(params, ipAddress)
+        doGenerateIndexFile(ipAddress)
+        doOutputTheme(ipAddress).then(filePath => {
           return zipTheme(filePath)
+        }).then(zipFilePath => {
+          res.set('content-type', 'application/json')
+          res.send(JSON.stringify({
+            code: 200,
+            zipFilePath: zipFilePath
+          }))
         }).catch(err => {
           throw err
         })

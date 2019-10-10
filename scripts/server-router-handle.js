@@ -5,6 +5,7 @@ const formidable = require('formidable')
 // let isMock = false
 const env = require('../config/env')
 const { generateTheme, saveTheme } = require('./server-define-theme')
+const cfg = require('../config/component.config')
 
 function getMockFile(reqPath, res) {
   try {
@@ -202,11 +203,28 @@ function routerJsFile(req, res, compiler) {
 }
 
 function routerUserTheme(req, res) {
-  const filename = path.resolve('.' + req.originalUrl)
-  const result = fs.readFileSync(filename, 'utf8')
-  res.set('content-type', 'text/css')
-  res.send(result)
-  res.end()
+  const filePath = path.resolve('.' + req.originalUrl)
+  let result
+
+  if (filePath.indexOf('.css') >= 0) {
+    result = fs.readFileSync(filePath, 'utf8')
+    res.set('content-type', 'text/css')
+    res.send(result)
+    res.end()
+  } else if (filePath.indexOf('.zip') >= 0) {
+    result = fs.readFileSync(filePath)
+    res.set({
+      'content-type': 'application/octet-stream',
+      'content-disposition': 'attachment;filename=' + encodeURIComponent(cfg.prefix + '.zip')
+    })
+    result = fs.createReadStream(filePath)
+    result.on('data', (chunk) => {
+      res.write(chunk, 'binary')
+    })
+    result.on("end", () => {
+      res.end()
+    })
+  }
 }
 
 module.exports = {
