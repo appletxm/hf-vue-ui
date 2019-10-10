@@ -63,12 +63,12 @@ Button 组件提供大中小的三种尺寸，可以在不同场景下选择合�
 
 ```html
 <div class="hf-doc-button-demo">
-  <hf-ui-button icon="ui-icon-arrowdown">默认按钮</hf-ui-button>
-  <hf-ui-button size="big" icon="ui-icon-arrowdown">大型按钮</hf-ui-button>
-  <hf-ui-button size="medium" icon="ui-icon-arrowdown">中等按钮</hf-ui-button>
-  <hf-ui-button size="small" icon="ui-icon-arrowdown">小型按钮</hf-ui-button>
-  <hf-ui-button size="big" icon="ui-icon-arrowdown" type="light"></hf-ui-button>
-  <hf-ui-button>默认按钮<i class="hf-ui-icon ui-icon-arrowdown"></i></hf-ui-button>
+  <hf-ui-button icon="ui-icon-home">默认按钮</hf-ui-button>
+  <hf-ui-button size="big" icon="ui-icon-home">大型按钮</hf-ui-button>
+  <hf-ui-button size="medium" icon="ui-icon-home">中等按钮</hf-ui-button>
+  <hf-ui-button size="small" icon="ui-icon-home">小型按钮</hf-ui-button>
+  <hf-ui-button size="big" icon="ui-icon-home" type="light"></hf-ui-button>
+  <hf-ui-button>默认按钮<i class="hf-ui-icon ui-icon-home"></i></hf-ui-button>
 </div>
 ```
 :::
