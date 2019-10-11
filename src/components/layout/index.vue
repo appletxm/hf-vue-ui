@@ -5,14 +5,13 @@
 </template>
 
 <script>
-/* global cfg */
 export default {
   name: 'Layout',
   componentName: 'Layout',
   props: {
     direction: {
       type: String,
-      default: 'vertical'
+      default: '',
     }
   },
   computed: {
@@ -25,10 +24,12 @@ export default {
       return this.$slots && this.$slots.default
         ? this.$slots.default.some((vnode) => {
           const tag = vnode.componentOptions && vnode.componentOptions.tag;
-          return tag === `${cfg.prefix}-header` || tag === `${cfg.prefix}-footer`;
+          const tagValue = tag === `${this.cfg.prefix}-header` || tag === `${this.cfg.prefix}-footer`;
+          return tagValue;
         })
+
         : false;
     }
-  }
+  },
 };
 </script>

@@ -22,14 +22,12 @@
     vertical-align: middle;
   }
 }
-
 .hf-ui-footer {
   color: $clr-bg-content-color;
   text-align: center;
   line-height: $footer-height;
   @include getBgColorAlpha($clr-main04-color, 0.2);
 }
-
 .hf-ui-main {
   color: $clr-bg-content-color;
   height: 150px;
@@ -48,7 +46,6 @@
   color: $clr-bg-content-color;
   @include getBgColorAlpha($clr-main04-color, 0.3);
 }
-
 .hf-ui-tab {
   height: $tab-height;
   display: block;
@@ -66,7 +63,6 @@
     color: $clr-bg-content-color;
   }
 }
-
 .hf-ui-crumbread {
   color: $clr-main04-color;
   height: $crumbread-height;
@@ -76,12 +72,6 @@
 
 .hf-ui-doc-layout-demo-0 {
   .hf-ui-layout {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    flex-basis: auto;
-    box-sizing: border-box;
-    min-width: 0;
     align-items: stretch;
     line-height: 150px;
     text-align: center;
@@ -110,21 +100,17 @@
   .hf-ui-main {
     margin: $gap auto 0 auto;
     width: 80%;
-
-    &:nth-of-type(2) {
-      margin-bottom: $gap;
-    }
+    margin-bottom: $gap;
   }
 }
-
 .hf-ui-doc-layout-demo-3 {
+  .hf-ui-tab {
+    margin-bottom: 0;
+  }
   .hf-ui-main {
     margin: $gap auto 0 auto;
     width: 80%;
-
-    &:nth-of-type(2) {
-      margin-bottom: $gap;
-    }
+    margin-bottom: $gap;
   }
 }
 
