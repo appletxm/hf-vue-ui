@@ -43,9 +43,8 @@
     }
     &.#{$prefix + '-layout3'} {
       .#{$prefix + '-main'} {
-        margin: $gap auto 0 auto;
+        margin: $gap*2 auto $gap auto;
         width: 80%;
-        margin-bottom: $gap;
       }
     }
     &.#{$prefix + '-layout4'} {
@@ -53,9 +52,8 @@
         margin-bottom: 0;
       }
       .#{$prefix + '-main'} {
-        margin: $gap auto 0 auto;
+        margin: $gap auto $gap auto;
         width: 80%;
-        margin-bottom: $gap;
       }
     }
     &.#{$prefix + '-layout5'} {
