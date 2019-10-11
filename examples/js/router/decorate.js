@@ -10,7 +10,8 @@ const MenuRoutes = {
   GlobalSpacing: () => import(/* webpackChunkName: "GlobalSpacing" */ 'docs/global-spacing/index.md'),
   Color: () => import(/* webpackChunkName: "Color" */ 'docs/color/index.md'),
   Font: () => import(/* webpackChunkName: "Font" */ 'docs/Font/index.md'),
-  Tab: () => import(/* webpackChunkName: "DocTab" */ 'docs/Tab.md'),
+  Theme: () => import(/* webpackChunkNmae: "Theme" */ 'docs/theme/index.md'),
+  Tab: () => import(/* webpackChunkName: "DocTab" */ 'docs/Tab.md')
 }
 
 function decorateRouteItem(item) {

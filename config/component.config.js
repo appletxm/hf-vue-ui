@@ -3,5 +3,9 @@ module.exports = {
   distPath: './dist/lib',
   sourcePath: './src',
   prefix: 'hf-ui',
-  componentPrefix: 'HfUi'
+  componentPrefix: 'HfUi',
+  userDefineTheme: {
+    src: './tmp/themes',
+    out: './tmp/themes-out'
+  }
 }

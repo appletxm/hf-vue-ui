@@ -133,7 +133,7 @@ export default [
     id: 3,
     module: 'Theme',
     path: '/theme',
-    label: '资源',
+    label: '主题',
     icon: 'hf-iconfont icon-chakuaidi',
     component: 'Theme'
   }

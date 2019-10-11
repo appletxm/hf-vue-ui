@@ -1,8 +1,8 @@
 <template>
   <div :class="[$store.state.appPrefix + '-my-app', 'page-container', 'page-component']">
     <app-navigator />
-    <div :class="[$store.state.appPrefix + '-module-all']">
-      <side-menu :side-menu-data="sildeMenuData"></side-menu>
+    <div :class="[$store.state.appPrefix + '-module-all', sildeMenuData.length === 0 ? 'no-left-menu' : '']">
+      <side-menu v-if="sildeMenuData.length >= 1" :side-menu-data="sildeMenuData"></side-menu>
       <router-view></router-view>
     </div>
     <!-- <app-footer /> -->
