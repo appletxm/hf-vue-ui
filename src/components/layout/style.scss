@@ -10,4 +10,75 @@
   @include when(vertical) {
     flex-direction: column;
   }
+
+  @include when(has-type) {
+    .#{$prefix + '-tab'} {
+      display: block;
+      flex: 1;
+      list-style: none;
+      display: flex;
+      width: 80%;
+      margin: $gap auto;
+    }
+    &.#{$prefix + '-layout1'} {
+      .#{$prefix + '-layout'} {
+        align-items: stretch;
+        width: 80%;
+        margin: $gap*2 auto $gap auto;
+        background-color: transparent;
+      }
+      .hf-ui-aside {
+        margin-right: $gap;
+      }
+    
+      .hf-ui-main {
+        flex: auto;
+      }
+    }
+    &.#{$prefix + '-layout2'} {
+      @extend .#{$prefix + '-layout1'};
+      .#{$prefix + '-layout'} {
+        margin-top: 0;
+      }
+    }
+    &.#{$prefix + '-layout3'} {
+      .#{$prefix + '-main'} {
+        margin: $gap auto 0 auto;
+        width: 80%;
+        margin-bottom: $gap;
+      }
+    }
+    &.#{$prefix + '-layout4'} {
+      .#{$prefix + '-tab'} {
+        margin-bottom: 0;
+      }
+      .#{$prefix + '-main'} {
+        margin: $gap auto 0 auto;
+        width: 80%;
+        margin-bottom: $gap;
+      }
+    }
+    &.#{$prefix + '-layout5'} {
+      .#{$prefix + '-layout'} {
+        margin: 0;
+        width: 100%;
+        display: flex;
+    
+        .#{$prefix + '-layout'} {
+          display: block;
+          width: 100%;
+          margin: 0 $gap $gap $gap;
+        }
+      }
+    
+      .#{$prefix + '-aside'} {
+        margin: 0; 
+        line-height: 200px;
+      }
+    
+      .#{$prefix + '-main'} {
+        margin: 0;
+      }
+    }
+  }
 }

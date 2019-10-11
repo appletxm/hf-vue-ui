@@ -1,5 +1,10 @@
 <template>
-  <section :class="[(cfg.prefix + '-layout'), isVertical ? 'is-vertical': '']">
+  <section :class="[
+    (cfg.prefix + '-layout'),
+    type ? 'is-has-type' : '',
+    type ? (cfg.prefix + '-'+type) : '',
+    isVertical ? 'is-vertical': '']"
+  >
     <slot></slot>
   </section>
 </template>
@@ -12,7 +17,11 @@ export default {
     direction: {
       type: String,
       default: '',
-    }
+    },
+    type: {
+      type: String,
+      default: '',
+    },
   },
   computed: {
     isVertical() {
