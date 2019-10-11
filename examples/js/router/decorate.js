@@ -39,3 +39,10 @@ export function getRouteFromNav() {
   routeNavLoop(newList, newRoutes)
   return newRoutes
 }
+
+export function resetContentScroll() {
+  const outer = document.querySelector('.router-content')
+  if (outer) {
+    outer.scrollTop = 0
+  }
+}

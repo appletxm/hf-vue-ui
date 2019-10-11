@@ -1,14 +1,14 @@
 export default [
   {
     id: '1',
-    module: 'Guide',
+    module: 'Guid',
     label: '指南',
     icon: 'hf-iconfont icon-bianji',
     path: '/guid/principle',
     children: [
       {
         id: '101',
-        module: 'Guide_Principle',
+        module: 'Guid_Principle',
         path: '/guid/principle',
         label: '原则',
         icon: 'hf-iconfont icon-bianji',
@@ -26,13 +26,13 @@ export default [
     children: [
       {
         id: '201',
-        module: 'Components_Bsic',
+        module: 'Components_Basic',
         label: '基础 Basic',
         icon: 'hf-iconfont icon-chakuaidi',
         children: [
           {
             id: '201001',
-            module: 'Components_Bsic_GlobalSpacing',
+            module: 'Components_Basic_GlobalSpacing',
             path: '/components/basic/globalSpacing',
             label: '全局间距 GlobalSpacing',
             icon: 'hf-iconfont icon-chakuaidi',
@@ -41,7 +41,7 @@ export default [
 
           {
             id: '201002',
-            module: 'Components_Bsic_Color',
+            module: 'Components_Basic_Color',
             path: '/components/basic/color',
             label: '色彩 Color',
             icon: 'hf-iconfont icon-chakuaidi',
@@ -50,7 +50,7 @@ export default [
 
           {
             id: '201003',
-            module: 'Components_Bsic_Font',
+            module: 'Components_Basic_Font',
             path: '/components/basic/Font',
             label: '文字 Font',
             icon: 'hf-iconfont icon-chakuaidi',
@@ -59,7 +59,7 @@ export default [
 
           {
             id: '201004',
-            module: 'Components_Bsic_Layout',
+            module: 'Components_Basic_Layout',
             path: '/components/basic/layout',
             label: '布局 Layout',
             icon: 'hf-iconfont icon-chakuaidi',
@@ -68,7 +68,7 @@ export default [
 
           {
             id: '201004',
-            module: 'Components_Bsic_Grid',
+            module: 'Components_Basic_Grid',
             path: '/components/basic/grid',
             label: '栅格 Grid',
             icon: 'hf-iconfont icon-chakuaidi',
@@ -77,7 +77,7 @@ export default [
 
           {
             id: '201006',
-            module: 'Components_Bsic_Button',
+            module: 'Components_Basic_Button',
             path: '/components/basic/button',
             label: '按钮 Button',
             icon: 'hf-iconfont icon-chakuaidi',

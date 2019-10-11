@@ -1,6 +1,6 @@
 /* global Vue, VueRouter, hljs */
 
-import { getRouteFromNav } from './decorate'
+import { getRouteFromNav, resetContentScroll } from './decorate'
 
 const Home = () => import(/* webpackChunkName: "Home" */ 'pages/home')
 const About = () => import(/* webpackChunkName: "Home" */ 'pages/about')
@@ -21,7 +21,7 @@ routes.push({ path: '*', component: ErrorPage })
 const router = new VueRouter({ routes })
 
 router.beforeEach((to, from, next) => {
-  document.body.scrollTop = 0
+  resetContentScroll()
   next()
 })
 
