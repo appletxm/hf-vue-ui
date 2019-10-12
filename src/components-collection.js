@@ -2,6 +2,7 @@
 import TestButton from 'components/test-button'
 import Button from 'components/button'
 import Header from 'components/header'
+import Content from 'components/content'
 import Footer from 'components/footer'
 import Aside from 'components/aside'
 import Main from 'components/main'
@@ -17,6 +18,7 @@ const components = [
   TestButton,
   Button,
   Header,
+  Content,
   Footer,
   Aside,
   Main,

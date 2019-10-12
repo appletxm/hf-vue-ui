@@ -30,7 +30,6 @@
 }
 .hf-ui-main {
   color: $clr-bg-content-color;
-  height: 150px;
   line-height: 150px;
   @include getBgColorAlpha($clr-main04-color, 0.3);
   text-align: center;
@@ -42,14 +41,24 @@
   text-align: center;
   line-height: 150px;
 }
-
 .hf-ui-layout {
   color: $clr-bg-content-color;
   @include getBgColorAlpha($clr-main04-color, 0.3);
+  .aside-right {
+    width: calc(100% - 200px);
+    overflow: auto;
+    padding: 0 $gap $gap $gap;
+  }
 }
-.hf-ui-tab {
-  height: $tab-height;
+
+.tabs {
   @include getBgColorAlpha($clr-main04-color, 0.3);
+  color: $clr-bg-content-color;
+  ul {
+    display: flex;
+    flex: 1;
+    list-style: none;
+  }
   li {
     line-height: $tab-height;
     min-width: 100px;
@@ -57,9 +66,32 @@
     color: $clr-bg-content-color;
   }
 }
-.hf-ui-crumbread {
-  color: $clr-main04-color;
-  height: $crumbread-height;
-  line-height: 60px;
-  @include getBgColorAlpha($clr-main04-color, 0.1);
+.fullscreen-class {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.source {
+  position: relative;
+}
+.preview-btn {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #409eff;
+  cursor: pointer;
+  padding: 5px 10px;
+  display: none;
+  outline: none;
+  z-index: 1000;
+}
+.source:hover .preview-btn, .fullscreen-class:hover .preview-btn{
+  display: block;
 }

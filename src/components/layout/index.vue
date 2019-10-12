@@ -1,9 +1,11 @@
 <template>
-  <section :class="[
-    (cfg.prefix + '-layout'),
-    type ? 'is-has-type' : '',
-    type ? (cfg.prefix + '-'+type) : '',
-    isVertical ? 'is-vertical': '']"
+  <section
+    :class="[
+      (cfg.prefix + '-layout'),
+      type ? 'is-has-type' : '',
+      type ? (cfg.prefix + '-layout-'+type) : '',
+      isVertical ? 'is-vertical': '']"
+    :style="{'min-width': minWidth ? minWidth+'px' : minWidthC}"
   >
     <slot></slot>
   </section>
@@ -22,6 +24,10 @@ export default {
       type: String,
       default: '',
     },
+    minWidth: {
+      type: String,
+      default: '',
+    }
   },
   computed: {
     isVertical() {
@@ -38,7 +44,23 @@ export default {
         })
 
         : false;
+    },
+    minWidthC() {
+      let widthValue = '';
+      if (this.$slots && this.$slots.default) {
+        this.$slots.default.some((vnode) => {
+          const tag = vnode.componentOptions && vnode.componentOptions.tag;
+          const tagValue = tag === `${this.cfg.prefix}-content`;
+          if (tagValue) {
+            const width = vnode.componentOptions && vnode.componentOptions.propsData && vnode.componentOptions.propsData.width;
+            widthValue = width ? `${parseInt(width, 10) + 48}px` : '';
+          }
+          return tagValue;
+        })
+      }
+      return widthValue;
     }
+
   },
 };
 </script>
