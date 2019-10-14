@@ -1,5 +1,4 @@
 /* global window */
-import TestButton from 'components/test-button'
 import Button from 'components/button'
 import Header from 'components/header'
 import Footer from 'components/footer'
@@ -14,7 +13,6 @@ const cfg = require('component-cfg')
 window.Vue.prototype.cfg = cfg
 
 const components = [
-  TestButton,
   Button,
   Header,
   Footer,
@@ -47,7 +45,6 @@ export default {
   version: '1.0.0',
   locale: locale.use,
   i18n: locale.i18n,
-  TestButton,
   Header,
   Footer,
   Aside,

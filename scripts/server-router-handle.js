@@ -1,9 +1,11 @@
 const path = require('path')
 const fs = require('fs')
 const formidable = require('formidable')
-const serverProxy = require('./server-proxy')
-let isMock = false
+// const serverProxy = require('./server-proxy')
+// let isMock = false
 const env = require('../config/env')
+const { generateTheme, saveTheme } = require('./server-define-theme')
+const cfg = require('../config/component.config')
 
 function getMockFile(reqPath, res) {
   try {
@@ -97,6 +99,12 @@ function assignRouter(req, res, next) {
     isMock = true
     console.log('mock reqPath', reqPath)
     getMockFile(reqPath + '.json', res)
+  } else {
+    if (req.originalUrl === '/api/defineTheme/change') {
+      generateTheme(req, res)
+    } else if (req.originalUrl === '/api/defineTheme/save') {
+      saveTheme(req, res)
+    }
   }
   if (next) {
     next()
@@ -190,8 +198,33 @@ function routerHtmlPath(req, res, compiler) {
 }
 
 function routerJsFile(req, res, compiler) {
-  var filename = path.join(compiler.outputPath, req.baseUrl.replace('/', ''))
+  const filename = path.join(compiler.outputPath, req.baseUrl.replace('/', ''))
   getJsFile(compiler, filename, res)
+}
+
+function routerUserTheme(req, res) {
+  const filePath = path.resolve('.' + req.originalUrl)
+  let result
+
+  if (filePath.indexOf('.css') >= 0) {
+    result = fs.readFileSync(filePath, 'utf8')
+    res.set('content-type', 'text/css')
+    res.send(result)
+    res.end()
+  } else if (filePath.indexOf('.zip') >= 0) {
+    result = fs.readFileSync(filePath)
+    res.set({
+      'content-type': 'application/octet-stream',
+      'content-disposition': 'attachment;filename=' + encodeURIComponent(cfg.prefix + '.zip')
+    })
+    result = fs.createReadStream(filePath)
+    result.on('data', (chunk) => {
+      res.write(chunk, 'binary')
+    })
+    result.on("end", () => {
+      res.end()
+    })
+  }
 }
 
 module.exports = {
@@ -202,5 +235,6 @@ module.exports = {
   routerUploadSingleFile,
   routerImgPath,
   routerHtmlPath,
-  routerJsFile
+  routerJsFile,
+  routerUserTheme
 }

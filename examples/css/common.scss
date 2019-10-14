@@ -20,7 +20,13 @@ body {
 a {
   color: $clr-error-color;
   text-decoration: none;
+  font-size: $font-14;
+  &:hover {
+    @include getColorAlpha($clr-error-color, 0.5);
+    @include transition(all .5s ease);
+  }
 }
+
 input {
   height: .4rem;
   line-height: .4rem;

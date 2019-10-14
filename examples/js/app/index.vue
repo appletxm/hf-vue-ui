@@ -1,32 +1,35 @@
 <template>
   <div :class="[$store.state.appPrefix + '-my-app', 'page-container', 'page-component']">
     <app-navigator />
-    <div :class="[$store.state.appPrefix + '-module-all']">
-      <side-menu :side-menu-data="sildeMenuData"></side-menu>
-      <router-view></router-view>
+    <div :class="[$store.state.appPrefix + '-module-all', sildeMenuData.length === 0 ? 'no-left-menu' : '']">
+      <side-menu v-if="sildeMenuData.length >= 1" :side-menu-data="sildeMenuData"></side-menu>
+      <div class="router-content">
+        <router-view></router-view>
+        <app-footer :skip-gide-list="skipGideIndexList" />
+      </div>
     </div>
-    <!-- <app-footer /> -->
   </div>
 </template>
 
 <script>
 import AppNavigator from 'components-biz/navigator'
 import SideMenu from 'components-biz/side-menu'
-// import AppFooter from 'components-biz/footer'
+import AppFooter from 'components-biz/footer'
 import { NAVIGATOR_LIST, CURRENT_MODULE, CURRENT_SUB_MODULE } from 'store/mutation-types'
 import { getNavigatorList, matchedNavItem, matchModuleFromUrl } from './models'
 
 export default {
   components: {
     AppNavigator,
-    SideMenu
-    // AppFooter
+    SideMenu,
+    AppFooter
   },
   data() {
     return {
       isPopLoginShow: false,
       dialogVisible: true,
-      sildeMenuData: []
+      sildeMenuData: [],
+      skipGideIndexList: []
     }
   },
   watch: {
@@ -43,6 +46,7 @@ export default {
   methods: {
     $initModuleInfo(path) {
       const res = matchModuleFromUrl(path, this.$store.state.navigatorList)
+      this.skipGideIndexList = res.indexList
       this.$store.commit(CURRENT_MODULE, res.currentModuleName)
       this.$store.commit(CURRENT_SUB_MODULE, res.currentSubModuleName)
       this.$getSubData(res.currentModuleName)

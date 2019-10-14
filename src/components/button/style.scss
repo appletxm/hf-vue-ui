@@ -53,10 +53,10 @@
   /* type */
   @include m(primary) {
     color: $clr-font-btn01-color;
-    background: linear-gradient(to right, $clr-btn-main-left,$clr-btn-main-right);
-    background: -webkit-linear-gradient(left, $clr-btn-main-left,$clr-btn-main-right); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, $clr-btn-main-left,$clr-btn-main-right); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, $clr-btn-main-left,$clr-btn-main-right); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, $clr-btn-main-left-color,$clr-btn-main-right-color);
+    background: -webkit-linear-gradient(left, $clr-btn-main-left-color,$clr-btn-main-right-color); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, $clr-btn-main-left-color,$clr-btn-main-right-color); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, $clr-btn-main-left-color,$clr-btn-main-right-color); /* Firefox 3.6 - 15 */
     border: 0px;
     line-height: $button-default-height;
     &:hover{
