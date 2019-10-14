@@ -8,9 +8,9 @@ const cfg = require('../config/component.config')
 const webpack = require('webpack')
 const { getConfig } = require('../config/webpack.config.component.theme.prod.js')
 
-const tempSrc = path.resolve(`${cfg.userDefineTheme.src}/{ipAddress}`)
-const globalFilePath = path.resolve(tempSrc + '/globals.scss')
-const indexFilePath = path.resolve(tempSrc + '/index.scss')
+const tempSrc = `${cfg.userDefineTheme.src}/{ipAddress}`
+const globalFilePath = tempSrc + '/globals.scss'
+const indexFilePath = tempSrc + '/index.scss'
 
 function replaceIpAdress(str, ipAddress) {
   const fileName = str.replace('{ipAddress}', ipAddress)
@@ -38,7 +38,6 @@ function doGenerateGlobalFile(globals, ipAddress) {
       }
     })
   })
-
   fs.writeFileSync(globalFullPath, globaFile, {encoding: 'utf8'})
 }
 
