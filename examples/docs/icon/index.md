@@ -1,22 +1,30 @@
 <script>
-  import scssGlobals from 'theme/variables.scss'
   import DemoBlock from 'components-biz/demo-block'
 
   export default {
-    created() {},
+    created() {
+      this.$getAllIcons()
+    },
     mounted() {},
     components: {
       DemoBlock
     },
-    methods: {},
+    methods: {
+      $getAllIcons() {
+        axios.get('/api/iconsList/get').then(res => {
+         this.iconsList = res.data.icons
+        }).catch(err => {
+          console.info('$getAllIcons:', err)
+        })
+      }
+    },
     data() {
       return {
-        fontFamily: scssGlobals['fontFamily']
+        iconsList: []
       }
     },
     watch: {}
   }
-
 </script>
 
 <template>
@@ -53,5 +61,22 @@
       </pre>
     </div>
   </demo-block>
+  <h3 id="attributes"><a href="#attributes" aria-hidden="true" class="header-anchor">¶</a>Attributes</h3>
+  <table>
+    <thead>
+      <tr><th>参数</th> <th>说明</th> <th>类型</th> <th>可选值</th> <th>默认值</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>icon</td> <td>以下图标集合对应图标名称</td> <td>string</td> <td>-</td> <td>-</td></tr>
+    </tbody>
+  </table>
   <h3>图标集合</h3>
+  <div class="rf-ui-doc-icon-list">
+    <ul>
+      <li v-for="(icon, index) in iconsList" :key="index">
+        <span :class="['hf-ui-icon', icon.class]"></span>
+        <i>{{icon.lable}}</i>
+      </li>
+    </ul>
+  </div>
 </template>
