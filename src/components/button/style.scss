@@ -34,19 +34,19 @@
   /* size */
   @include m(big) {
     @include button-size($button-big-height, $button-big-padding-horizontal, $button-big-font-size, $button-big-border-radius);
-    &.hf-ui-button--primary {
+    &.#{$prefix}-button--primary {
       line-height: $button-big-height;
     }
   }
   @include m(medium) {
     @include button-size($button-medium-height, $button-medium-padding-horizontal, $button-medium-font-size, $button-medium-border-radius);
-    &.hf-ui-button--primary {
+    &.#{$prefix}-button--primary {
       line-height: $button-medium-height;
     }
   }
   @include m(small) {
     @include button-size($button-small-height, $button-small-padding-horizontal, $button-small-font-size, $button-small-border-radius);
-    &.hf-ui-button--primary {
+    &.#{$prefix}-button--primary {
       line-height: $button-small-height;
     }
   }
@@ -123,7 +123,7 @@
     }
   }
   /* icon */
-  .hf-ui-icon {
+  .#{$prefix}-icon {
     font-size: inherit;
   }
   & [class*="ui-icon-"] {
@@ -131,7 +131,7 @@
       margin-left: 6px;
     }
   }
-  &.hf-ui-button--small [class*="ui-icon-"] {
+  &.#{$prefix}-button--small [class*="ui-icon-"] {
     & + span {
       margin-left: 4px;
     }
