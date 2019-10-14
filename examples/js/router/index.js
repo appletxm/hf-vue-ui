@@ -1,19 +1,16 @@
 /* global Vue, VueRouter, hljs */
 
-import { getRouteFromNav, resetContentScroll } from './decorate'
+import { getRouteFromNav, resetContentScroll, getDocPageList } from './decorate'
 
-const Home = () => import(/* webpackChunkName: "Home" */ 'pages/home')
-const About = () => import(/* webpackChunkName: "Home" */ 'pages/about')
 const ErrorPage = () => import(/* webpackChunkName: "Error" */ 'pages/error')
-const DocTest = () => import(/* webpackChunkName: "DocTest" */ 'docs/test.md')
 
 const decorateRoutes = getRouteFromNav()
+const { Principle } = getDocPageList()
 
 let routes = [
-  { path: '/', component: DocTest },
-  { path: '/#/', component: Home },
-  { path: '/home', component: Home },
-  { path: '/about', component: About }
+  { path: '/', component: Principle },
+  { path: '/#/', component: Principle },
+  { path: '/home', component: Principle }
 ]
 routes = routes.concat(decorateRoutes)
 routes.push({ path: '*', component: ErrorPage })

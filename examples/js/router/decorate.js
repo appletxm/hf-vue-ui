@@ -46,3 +46,7 @@ export function resetContentScroll() {
     outer.scrollTop = 0
   }
 }
+
+export function getDocPageList() {
+  return MenuRoutes
+}

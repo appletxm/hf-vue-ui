@@ -36,7 +36,8 @@ export default [
             path: '/components/basic/globalSpacing',
             label: '全局间距 GlobalSpacing',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'GlobalSpacing'
+            component: 'GlobalSpacing',
+            next: '1_0_1'
           },
 
           {
@@ -45,7 +46,9 @@ export default [
             path: '/components/basic/color',
             label: '色彩 Color',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Color'
+            component: 'Color',
+            next: '1_0_2',
+            prev: '1_0_0'
           },
 
           {
@@ -54,7 +57,9 @@ export default [
             path: '/components/basic/Font',
             label: '文字 Font',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Font'
+            component: 'Font',
+            next: '1_0_3',
+            prev: '1_0_1'
           },
 
           {
@@ -63,7 +68,9 @@ export default [
             path: '/components/basic/layout',
             label: '布局 Layout',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Layout'
+            component: 'Layout',
+            next: '1_0_4',
+            prev: '1_0_2'
           },
 
           {
@@ -72,7 +79,9 @@ export default [
             path: '/components/basic/grid',
             label: '栅格 Grid',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Grid'
+            component: 'Grid',
+            next: '1_0_5',
+            prev: '1_0_3'
           },
 
           {
@@ -81,7 +90,9 @@ export default [
             path: '/components/basic/button',
             label: '按钮 Button',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Button'
+            component: 'Button',
+            next: '1_1_0',
+            prev: '1_0_4'
           }
         ]
       },
@@ -98,7 +109,9 @@ export default [
             path: '/components/navigation/menu',
             label: '导航',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Menu'
+            component: 'Menu',
+            next: '1_1_1',
+            prev: '1_0_5'
           },
           {
             id: '202002',
@@ -106,7 +119,9 @@ export default [
             path: '/components/navigation/breadcrumb',
             label: '面包屑',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Breadcrumb'
+            component: 'Breadcrumb',
+            next: '1_1_1',
+            prev: '1_1_3'
           },
           {
             id: '202003',
@@ -114,7 +129,9 @@ export default [
             path: '/components/navigation/Tab',
             label: '标签页',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Tab'
+            component: 'Tab',
+            // next: '1_2_0',
+            prev: '1_1_2'
           }
         ]
       },

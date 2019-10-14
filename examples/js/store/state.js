@@ -1,6 +1,6 @@
 const detault = {
-  currentModule: 'Components',
-  currentSubModule: 'Components_Bsic_Layout',
+  currentModule: 'Guid',
+  currentSubModule: 'Guid_Principle',
   navigatorList: [],
   appPrefix: ''
 }

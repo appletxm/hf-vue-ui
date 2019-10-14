@@ -10,33 +10,6 @@ function getSkipIndexList(matchName, navList, indexList) {
   })
 }
 
-export function getPreviousAndNext(indexList, navList) {
-  console.info(indexList, navList)
-  const skipGuide = {
-    pre: '',
-    next: ''
-  }
-
-  if (indexList.length <= 1) {
-    return skipGuide
-  }
-
-  // const lastIndex = indexList[indexList.length - 1]
-  // const tmpArra = JSON.parse(JSON.stringify(indexList))
-  // const str = tmpArra.pop().map((item) => `[${item}]`).join('')
-
-  // console.info(lastIndex, str)
-
-  // const indexList = []
-
-  // if (!moduleName || moduleName === subModuleName) {
-  //   return skipGuide
-  // }
-  // getSkipIndexList(moduleName, navList, indexList)
-
-  return skipGuide
-}
-
 export function matchIndexListFromPath(path, navList) {
   const indexList = []
   const fullModuleName = path.replace(/\//g, '_').substr(1, path.length - 1)
@@ -51,6 +24,26 @@ export function matchIndexListFromPath(path, navList) {
     }
     getSkipIndexList(matchName, navList, indexList)
   })
+  return indexList
+}
 
-  console.info(indexList)
+export function matchedPosItems(pos, navList) {
+  if (!pos) {
+    return {}
+  }
+
+  const posIndexs = pos.split('_')
+  let loopItems = navList
+  let matchedItem
+
+  posIndexs.forEach((item) => {
+    const tmpItem = loopItems[item]
+    if (tmpItem && tmpItem.children && tmpItem.children.length > 0) {
+      loopItems = tmpItem.children
+    } else {
+      matchedItem = tmpItem
+    }
+  })
+
+  return matchedItem
 }
