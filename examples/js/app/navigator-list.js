@@ -1,15 +1,15 @@
 export default [
   {
     id: '1',
-    module: 'Guid',
+    module: 'Guide',
     label: '指南',
     icon: 'hf-iconfont icon-bianji',
-    path: '/guid/principle',
+    path: '/guide/principle',
     children: [
       {
         id: '101',
-        module: 'Guid_Principle',
-        path: '/guid/principle',
+        module: 'Guide_Principle',
+        path: '/guide/principle',
         label: '原则',
         icon: 'hf-iconfont icon-bianji',
         component: 'Principle'
@@ -120,8 +120,8 @@ export default [
             label: '面包屑',
             icon: 'hf-iconfont icon-chakuaidi',
             component: 'Breadcrumb',
-            next: '1_1_1',
-            prev: '1_1_3'
+            next: '1_1_2',
+            prev: '1_1_0'
           },
           {
             id: '202003',
@@ -131,7 +131,7 @@ export default [
             icon: 'hf-iconfont icon-chakuaidi',
             component: 'Tab',
             // next: '1_2_0',
-            prev: '1_1_2'
+            prev: '1_1_1'
           }
         ]
       },

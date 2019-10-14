@@ -1,10 +1,10 @@
 <template>
-  <div :class="[$store.state.appPrefix + '-c-footer']">
-    <router-link v-if="prev.path" :class="[$store.state.appPrefix + '-c-footer' + '__link']" :to="prev.path">
+  <div :class="[prefix]">
+    <router-link v-if="prev.path" class="link" :to="prev.path">
       <span class="hf-ui-icon ui-icon-arrowup"></span>
       {{ prev.label }}
     </router-link>
-    <router-link v-if="next.path" :class="[$store.state.appPrefix + '-c-footer' + '__link']" :to="next.path">
+    <router-link v-if="next.path" :class="['link', 'link__next']" :to="next.path">
       {{ next.label }}
       <span class="hf-ui-icon ui-icon-arrowup"></span>
     </router-link>
@@ -37,7 +37,11 @@ export default {
       }
     }
   },
-  computed: {},
+  computed: {
+    prefix() {
+      return this.$store.state.appPrefix + '-c-footer'
+    }
+  },
 
   watch: {
     '$route.path'(val) {

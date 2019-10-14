@@ -4,19 +4,37 @@
   margin: 20px 0 50px 0;
   display: flex;
 
-  &__link{
+  .link {
     cursor: pointer;
     flex: 50% 1 1;
+    flex-basis: 50%;
 
     span {
       transform: rotate(-90deg);
     }
-    
-    &:last-of-type {
+
+    &__next {
       text-align: right;
       span {
         transform: rotate(90deg);
       }
     }
   }
+
+  // &__link{
+  //   cursor: pointer;
+  //   flex: 50% 1 1;
+  //   flex-basis: 50%;
+
+  //   span {
+  //     transform: rotate(-90deg);
+  //   }
+    
+  //   &--next {
+  //     text-align: right;
+  //     span {
+  //       transform: rotate(90deg);
+  //     }
+  //   }
+  // }
 }
