@@ -1,29 +1,71 @@
 <template>
-  <div :class="[$store.state.appPrefix + '-c-footer']">
-    这是说明的底总，请补充相关信息
+  <div :class="[prefix]">
+    <router-link v-if="prev.path" class="link" :to="prev.path">
+      <span class="hf-ui-icon ui-icon-arrowup"></span>
+      {{ prev.label }}
+    </router-link>
+    <router-link v-if="next.path" :class="['link', 'link__next']" :to="next.path">
+      {{ next.label }}
+      <span class="hf-ui-icon ui-icon-arrowup"></span>
+    </router-link>
   </div>
 </template>
 
 <script>
+import { matchedPosItems } from './models'
+import { matchModuleFromUrl } from '../../app/models'
+
 export default {
   components: {},
-  data() {
-    return {}
+  props: {
+    skipGideList: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
   },
-  computed: {},
+  data() {
+    return {
+      next: {
+        label: '',
+        path: ''
+      },
+      prev: {
+        label: '',
+        path: ''
+      }
+    }
+  },
+  computed: {
+    prefix() {
+      return this.$store.state.appPrefix + '-c-footer'
+    }
+  },
 
   watch: {
-    // '$store.state.currentModule'(val) {
-    //   console.info('====', val)
-    // }
+    '$route.path'(val) {
+      const { moduleList } = matchModuleFromUrl(val, this.$store.state.navigatorList)
+      this.$findPosItems(moduleList)
+    }
   },
 
   created() {},
 
-  mounted() {
-  },
+  mounted() {},
 
   methods: {
+    $findPosItems(moduleList) {
+      const currentItem = moduleList[moduleList.length - 1]
+      const { next, prev } = currentItem
+      const navList = this.$store.state.navigatorList
+      const nextItem = matchedPosItems(next, navList)
+      const prevItem = matchedPosItems(prev, navList)
+      this.next.label = nextItem.label
+      this.next.path = nextItem.path
+      this.prev.label = prevItem.label
+      this.prev.path = prevItem.path
+    }
   }
 }
 </script>

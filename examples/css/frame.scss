@@ -13,22 +13,22 @@
 
     .#{$prefix}-c-side-menu {
       @extend %absolute-position;
-      width: 15%;
+      width: 206px;
       right: auto;
       overflow: auto;
     }
 
-    .content {
+    .router-content {
       @extend %absolute-position;
-      width: 80%;
+      width: $page-width - 230px;
       right: auto;
-      left: 15%;
+      left: 230px;
       overflow: auto;
-      padding: 0 20px 0 20px;
+      padding: 0 20px;
     }
 
     &.no-left-menu {
-      .content {
+      .router-content {
         width: 100%;
         left: 0;
       }

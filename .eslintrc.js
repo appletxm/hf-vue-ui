@@ -40,6 +40,7 @@ module.exports = {
     "no-plusplus": 0,
     "no-unused-expressions": 0,
     "max-len": 0,
-    "no-shadow": 0
+    "no-shadow": 0,
+    "prefer-destructuring": 0
   }
 };

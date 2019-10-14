@@ -4,12 +4,12 @@ export default [
     module: 'Guide',
     label: '指南',
     icon: 'hf-iconfont icon-bianji',
-    path: '/guid/principle',
+    path: '/guide/principle',
     children: [
       {
         id: '101',
         module: 'Guide_Principle',
-        path: '/guid/principle',
+        path: '/guide/principle',
         label: '原则',
         icon: 'hf-iconfont icon-bianji',
         component: 'Principle'
@@ -26,62 +26,73 @@ export default [
     children: [
       {
         id: '201',
-        module: 'Components_Bsic',
+        module: 'Components_Basic',
         label: '基础 Basic',
         icon: 'hf-iconfont icon-chakuaidi',
         children: [
           {
             id: '201001',
-            module: 'Components_Bsic_GlobalSpacing',
+            module: 'Components_Basic_GlobalSpacing',
             path: '/components/basic/globalSpacing',
             label: '全局间距 GlobalSpacing',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'GlobalSpacing'
+            component: 'GlobalSpacing',
+            next: '1_0_1'
           },
 
           {
             id: '201002',
-            module: 'Components_Bsic_Color',
+            module: 'Components_Basic_Color',
             path: '/components/basic/color',
             label: '色彩 Color',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Color'
+            component: 'Color',
+            next: '1_0_2',
+            prev: '1_0_0'
           },
 
           {
             id: '201003',
-            module: 'Components_Bsic_Font',
+            module: 'Components_Basic_Font',
             path: '/components/basic/Font',
             label: '文字 Font',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Font'
+            component: 'Font',
+            next: '1_0_3',
+            prev: '1_0_1'
           },
 
           {
             id: '201004',
-            module: 'Components_Bsic_Layout',
+            module: 'Components_Basic_Layout',
             path: '/components/basic/layout',
             label: '布局 Layout',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Layout'
+            component: 'Layout',
+            next: '1_0_4',
+            prev: '1_0_2'
           },
 
           {
             id: '201004',
-            module: 'Components_Bsic_Grid',
+            module: 'Components_Basic_Grid',
             path: '/components/basic/grid',
             label: '栅格 Grid',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Grid'
+            component: 'Grid',
+            next: '1_0_5',
+            prev: '1_0_3'
           },
 
           {
             id: '201006',
-            module: 'Components_Bsic_Button',
+            module: 'Components_Basic_Button',
             path: '/components/basic/button',
             label: '按钮 Button',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Button'
+            component: 'Button',
+            next: '1_1_0',
+            prev: '1_0_4'
           }
         ]
       },
@@ -98,7 +109,9 @@ export default [
             path: '/components/navigation/menu',
             label: '导航',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Menu'
+            component: 'Menu',
+            next: '1_1_1',
+            prev: '1_0_5'
           },
           {
             id: '202002',
@@ -106,7 +119,9 @@ export default [
             path: '/components/navigation/breadcrumb',
             label: '面包屑',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Breadcrumb'
+            component: 'Breadcrumb',
+            next: '1_1_2',
+            prev: '1_1_0'
           },
           {
             id: '202003',
@@ -114,7 +129,9 @@ export default [
             path: '/components/navigation/Tab',
             label: '标签页',
             icon: 'hf-iconfont icon-chakuaidi',
-            component: 'Tab'
+            component: 'Tab',
+            // next: '1_2_0',
+            prev: '1_1_1'
           }
         ]
       },
