@@ -1,5 +1,4 @@
 .#{$prefix}-my-app{
-  width: $page-width;
   margin: 0 auto;
   
   .#{$prefix}-module-all {
@@ -13,16 +12,16 @@
 
     .#{$prefix}-c-side-menu {
       @extend %absolute-position;
-      width: 15%;
+      width: 16%;
       right: auto;
       overflow: auto;
     }
 
     .content {
       @extend %absolute-position;
-      width: 80%;
+      width: 84%;
       right: auto;
-      left: 15%;
+      left: 16%;
       overflow: auto;
       padding: 0 20px 0 20px;
     }

@@ -19,6 +19,7 @@
     "clean:lib": "rimraf dist/lib/*",
     "start": "npm run clean:examples && node scripts/dev-server.js development",
     "dev": "npm run clean:examples && node scripts/dev-server.js development",
+    "nodeServer": "npm run clean:examples && node scripts/dev-server.js production",
     "build": "npm run clean:examples && node scripts/build.js production test current-branch",
     "buildForProd": "npm run clean:examples && node scripts/build.js production",
     "buildForTest": "npm run clean:examples && node scripts/build.js production test",

@@ -82,6 +82,15 @@ export default [
             label: '按钮 Button',
             icon: 'hf-iconfont icon-chakuaidi',
             component: 'Button'
+          },
+
+          {
+            id: '201006',
+            module: 'Components_Bsic_Icon',
+            path: '/components/basic/icon',
+            label: '图标 Icon',
+            icon: 'hf-iconfont icon-chakuaidi',
+            component: 'Icon'
           }
         ]
       },

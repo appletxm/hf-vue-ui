@@ -1,0 +1,14 @@
+.hf-ui-doc-icon {
+  .icon-html-example {
+    .hf-ui-icon {
+      padding: 10px;
+      &:before {
+        font-size: $font-24;
+      }
+    }
+  }
+
+  .html{
+    margin: -30px auto auto -70px!important;
+  }
+}
