@@ -91,8 +91,19 @@ export default [
             label: '按钮 Button',
             icon: 'hf-iconfont icon-chakuaidi',
             component: 'Button',
-            next: '1_1_0',
+            next: '1_0_6',
             prev: '1_0_4'
+          },
+
+          {
+            id: '201007',
+            module: 'Components_Bsic_Icon',
+            path: '/components/basic/icon',
+            label: '图标 Icon',
+            icon: 'hf-iconfont icon-chakuaidi',
+            component: 'Icon',
+            next: '1_1_0',
+            prev: '1_0_5'
           }
         ]
       },
@@ -111,7 +122,7 @@ export default [
             icon: 'hf-iconfont icon-chakuaidi',
             component: 'Menu',
             next: '1_1_1',
-            prev: '1_0_5'
+            prev: '1_0_6'
           },
           {
             id: '202002',

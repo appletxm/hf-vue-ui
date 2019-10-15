@@ -11,6 +11,7 @@ const MenuRoutes = {
   Color: () => import(/* webpackChunkName: "Color" */ 'docs/color/index.md'),
   Font: () => import(/* webpackChunkName: "Font" */ 'docs/Font/index.md'),
   Theme: () => import(/* webpackChunkNmae: "Theme" */ 'docs/theme/index.md'),
+  Icon: () => import(/* webpackChunkNmae: "Icon" */ 'docs/icon/index.md'),
   Tab: () => import(/* webpackChunkName: "DocTab" */ 'docs/Tab.md')
 }
 

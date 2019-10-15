@@ -5,6 +5,7 @@ const formidable = require('formidable')
 // let isMock = false
 const env = require('../config/env')
 const { generateTheme, saveTheme } = require('./server-define-theme')
+const { getIcons } = require('./server-icons')
 const cfg = require('../config/component.config')
 
 function getMockFile(reqPath, res) {
@@ -104,6 +105,8 @@ function assignRouter(req, res, next) {
       generateTheme(req, res)
     } else if (req.originalUrl === '/api/defineTheme/save') {
       saveTheme(req, res)
+    } else if (req.originalUrl === '/api/iconsList/get') {
+      getIcons(req, res)
     }
   }
   if (next) {

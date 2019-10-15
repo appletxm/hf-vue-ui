@@ -1,0 +1,50 @@
+.hf-ui-doc-icon {
+  .icon-html-example {
+    .hf-ui-icon {
+      padding: 10px;
+      &:before {
+        font-size: $font-24;
+      }
+    }
+  }
+
+  .html{
+    margin: -30px auto auto -70px!important;
+  }
+}
+
+.rf-ui-doc-icon-list {
+  margin-bottom: 20px;
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border: 1px solid $clr-border-color;
+    border-radius: 3px;
+
+    li {
+      width: 150px;
+      height: 100px;
+      text-align: center;
+      color: $clr-font-text-color;
+      @include transition(all .5s ease);
+
+      .hf-ui-icon {
+        display: block;
+        line-height: 60px;
+        font-weight: 600;
+        &:before {
+          font-size: $font-24;
+        }
+      }
+      i {
+        font-style: normal;
+      }
+
+      &:hover {
+        color: $clr-error-color;
+      }
+    }
+  }
+}

@@ -1,16 +1,18 @@
 <template>
-  <ul :class="[$store.state.appPrefix + '-c-navigator']">
-    <li
-      v-for="item in $store.state.navigatorList"
-      :key="item.id"
-      :class="[$store.state.currentModule === item.module ? 'actived' : '']"
-      @click="(event) => { $gotoPage(event, item) }"
-    >
-      <span class="text-inner">
-        <span :class="[item.icon]"></span>{{ item.label }}
-      </span>
-    </li>
-  </ul>
+  <div :class="[$store.state.appPrefix + '-c-navigator']">
+    <ul>
+      <li
+        v-for="item in $store.state.navigatorList"
+        :key="item.id"
+        :class="[$store.state.currentModule === item.module ? 'actived' : '']"
+        @click="(event) => { $gotoPage(event, item) }"
+      >
+        <span class="text-inner">
+          <span :class="[item.icon]"></span>{{ item.label }}
+        </span>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
