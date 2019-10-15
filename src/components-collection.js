@@ -51,5 +51,7 @@ export default {
   Footer,
   Aside,
   Main,
-  Layout
+  Layout,
+  CustomH,
+  Icon
 }

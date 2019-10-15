@@ -75,7 +75,7 @@
     <ul>
       <li v-for="(icon, index) in iconsList" :key="index">
         <span :class="['hf-ui-icon', icon.class]"></span>
-        <i>{{icon.lable}}</i>
+        <i>{{icon.label}}</i>
       </li>
     </ul>
   </div>
