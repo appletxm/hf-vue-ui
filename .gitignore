@@ -9,6 +9,9 @@ test/unit/coverage
 
 deploy/
 coverage
+themes
+dist/user-theme
+tmp
 
 # Editor directories and files
 .idea

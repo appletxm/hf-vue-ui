@@ -34,29 +34,29 @@
   /* size */
   @include m(big) {
     @include button-size($button-big-height, $button-big-padding-horizontal, $button-big-font-size, $button-big-border-radius);
-    &.hf-ui-button--primary {
+    &.#{$prefix}-button--primary {
       line-height: $button-big-height;
     }
   }
   @include m(medium) {
     @include button-size($button-medium-height, $button-medium-padding-horizontal, $button-medium-font-size, $button-medium-border-radius);
-    &.hf-ui-button--primary {
+    &.#{$prefix}-button--primary {
       line-height: $button-medium-height;
     }
   }
   @include m(small) {
     @include button-size($button-small-height, $button-small-padding-horizontal, $button-small-font-size, $button-small-border-radius);
-    &.hf-ui-button--primary {
+    &.#{$prefix}-button--primary {
       line-height: $button-small-height;
     }
   }
   /* type */
   @include m(primary) {
     color: $clr-font-btn01-color;
-    background: linear-gradient(to right, $clr-btn-main-left,$clr-btn-main-right);
-    background: -webkit-linear-gradient(left, $clr-btn-main-left,$clr-btn-main-right); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, $clr-btn-main-left,$clr-btn-main-right); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, $clr-btn-main-left,$clr-btn-main-right); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, $clr-btn-main-left-color,$clr-btn-main-right-color);
+    background: -webkit-linear-gradient(left, $clr-btn-main-left-color,$clr-btn-main-right-color); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, $clr-btn-main-left-color,$clr-btn-main-right-color); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, $clr-btn-main-left-color,$clr-btn-main-right-color); /* Firefox 3.6 - 15 */
     border: 0px;
     line-height: $button-default-height;
     &:hover{
@@ -123,7 +123,7 @@
     }
   }
   /* icon */
-  .hf-ui-icon {
+  .#{$prefix}-icon {
     font-size: inherit;
   }
   & [class*="ui-icon-"] {
@@ -131,7 +131,7 @@
       margin-left: 6px;
     }
   }
-  &.hf-ui-button--small [class*="ui-icon-"] {
+  &.#{$prefix}-button--small [class*="ui-icon-"] {
     & + span {
       margin-left: 4px;
     }

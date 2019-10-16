@@ -1,0 +1,78 @@
+.hf-ui-doc-theme-define {
+  @extend %absolute-position;
+
+  h3 {
+    margin: 20px 0 10px 0;
+  }
+
+  .theme-define-left {
+    @extend %absolute-position;
+    width: 80%;
+    overflow: auto;
+    padding-bottom: 30px;
+
+    .hf-ui-doc-color-main {
+      width: 80%;
+    }
+  }
+
+  .theme-define-right {
+    @extend %absolute-position;
+    width: 18%;
+    left: auto;
+    right: 0;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    border-radius: 3px;
+
+    p {
+      padding: 0 0 0 10px;
+    }
+
+    .btn-row {
+      margin: 10px;
+    }
+  
+    .hf-ui-doc-change {
+      @extend %absolute-position;
+      top: 90px;
+      overflow: auto;
+      height: auto;
+      bottom: 10px;
+      left: 10px;
+      width: auto;
+
+      li {
+        margin: 0 0 5px 0;
+        border-radius: 2px;
+        position: relative;
+        font-size: 12px;
+        width: 96%;
+        text-align: left;
+        height: auto;
+        line-height: 30px;
+  
+        input {
+          width: 100%;
+          opacity: 0;
+          cursor: pointer;
+          @extend %absolute-position;
+        }
+
+        span {
+          margin-left: 10px;
+        }
+  
+        i {
+          font-style: normal;
+          margin-right: 10px;
+          display: inline-block;
+
+          &:first-of-type {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+}

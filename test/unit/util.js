@@ -3,11 +3,11 @@ import Vue from 'vue'
 window.Vue = Vue
 const cfg = require('component-cfg')
 const componentsCollection = require('../../src/components-collection')
-const { version } = componentsCollection
+
 let id = 0
 Vue.prototype.cfg = cfg
 
-console.info('Now will test components: ', version)
+console.info('Now will test components: ', componentsCollection.default ? componentsCollection.default.version : componentsCollection.version)
 
 const createElm = function () {
   const elm = document.createElement('div');

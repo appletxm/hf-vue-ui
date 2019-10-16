@@ -1,9 +1,10 @@
 import navigatorList from './navigator-list'
 
 function matchedSubItem(path, data, res) {
-  data.forEach((item) => {
+  data.forEach((item, index) => {
     if (item.path === path) {
-      res.push(item)
+      res.moduleList.push(item)
+      res.indexList.push(index)
     }
     if (item.children && item.children.length > 0) {
       matchedSubItem(path, item.children, res)
@@ -28,18 +29,21 @@ export function matchedNavItem(moduleName, nav) {
 
 export function matchModuleFromUrl(path, navigatorList) {
   /* eslint-disable prefer-destructuring */
-  const res = []
+  const res = {
+    indexList: [],
+    moduleList: []
+  }
   const resObj = {
     currentModuleName: '',
     currentSubModuleName: ''
   }
   matchedSubItem(path, navigatorList, res)
-  if (res.length > 0) {
-    const moduleName = res[res.length - 1]['module']
+  if (res.moduleList.length > 0) {
+    const moduleName = res['moduleList'][res.moduleList.length - 1]['module']
     const splitOjb = moduleName.split('_')
     resObj.currentModuleName = splitOjb[0]
     resObj.currentSubModuleName = moduleName
   }
-  return resObj
+  return { ...resObj, ...res }
   /* eslint-enable prefer-destructuring */
 }

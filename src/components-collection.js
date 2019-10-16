@@ -1,5 +1,4 @@
 /* global window */
-import TestButton from 'components/test-button'
 import Button from 'components/button'
 import Header from 'components/header'
 import Content from 'components/content'
@@ -8,6 +7,7 @@ import Aside from 'components/aside'
 import Main from 'components/main'
 import Layout from 'components/layout'
 import CustomH from 'components/h'
+import Icon from 'components/icon'
 import locale from 'locale'
 
 const cfg = require('component-cfg')
@@ -15,7 +15,6 @@ const cfg = require('component-cfg')
 window.Vue.prototype.cfg = cfg
 
 const components = [
-  TestButton,
   Button,
   Header,
   Content,
@@ -23,7 +22,8 @@ const components = [
   Aside,
   Main,
   Layout,
-  CustomH
+  CustomH,
+  Icon
 ]
 
 const install = function (Vue, opts = {}) {
@@ -49,10 +49,11 @@ export default {
   version: '1.0.0',
   locale: locale.use,
   i18n: locale.i18n,
-  TestButton,
   Header,
   Footer,
   Aside,
   Main,
-  Layout
+  Layout,
+  CustomH,
+  Icon
 }

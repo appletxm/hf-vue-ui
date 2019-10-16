@@ -18,6 +18,7 @@ $font-14: 14px;
 $font-16: 16px;
 $font-18: 18px;
 $font-20: 20px;
+$font-24: 24px;
 $font-32: 32px;
 
 $font-20-lineheight: 30px;
@@ -56,8 +57,10 @@ $gap-fifth: 4px;
     clr_error: $main-color-16;
   }
   normalColor: {
+    clr_btn_main_left: $clr-btn-main-left-color;
+    clr_btn_main_right: $clr-btn-main-right-color;
     clr_font_title: $clr-font-title-color;
-    clr_font_text: $clr-font-color;
+    clr_font_text: $clr-font-text-color;
     clr_font_describe: $clr-font-describe-color;
     clr_font_tips: $clr-font-tips-color;
     clr_font_btn01: $clr-font-btn01-color;
@@ -72,21 +75,22 @@ $gap-fifth: 4px;
     clr_projection: $clr-projection-color;
   }
   colorPanel: {
-    mainColor01: $main-color-01;
-    mainColor02: $main-color-02;
-    mainColor03: $main-color-03;
-    mainColor04: $main-color-04;
-    mainColor05: $main-color-05;
-    mainColor06: $main-color-06;
-    mainColor07: $main-color-07;
-    mainColor08: $main-color-08;
-    mainColor09: $main-color-09;
-    mainColor10: $main-color-10;
-    mainColor11: $main-color-11;
-    mainColor12: $main-color-12;
-    mainColor13: $main-color-13;
-    mainColor14: $main-color-14;
-    mainColor15: $main-color-15;
-    mainColor16: $main-color-16;
+    main_color_01: $main-color-01;
+    main_color_18: $main-color-18;
+    main_color_02: $main-color-02;
+    main_color_03: $main-color-03;
+    main_color_04: $main-color-04;
+    main_color_05: $main-color-05;
+    main_color_06: $main-color-06;
+    main_color_07: $main-color-07;
+    main_color_08: $main-color-08;
+    main_color_09: $main-color-09;
+    main_color_10: $main-color-10;
+    main_color_11: $main-color-11;
+    main_color_12: $main-color-12;
+    main_color_13: $main-color-13;
+    main_color_14: $main-color-14;
+    main_color_15: $main-color-15;
+    main_color_16: $main-color-16;
   }
 }

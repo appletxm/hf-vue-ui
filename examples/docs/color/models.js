@@ -1,3 +1,5 @@
+export const darkFonts = ['#DDDDDD', '#EEEEEE', '#F6F6F6', '#F8F8F8', '#FFFFFF', '#fff']
+
 export const getColorsForColorPanel = (colors) => {
   const colorArr = []
   const prefix = 'colorPanel-'
@@ -73,7 +75,9 @@ export const getNormalColors = (colors) => {
     'clr_bg_page': '页面背景色',
     'clr_bg_content': '内容背景色',
     'clr_mask': '遮罩层',
-    'clr_projection': '投影'
+    'clr_projection': '投影',
+    'clr_btn_main_left': '主要按钮背景渐变色(左)',
+    'clr_btn_main_right': '主要按钮背景渐变色(右)'
   }
   Object.keys(colors).forEach ((colorKey) => {
     if (colorKey.indexOf(prefix) >= 0) {
@@ -86,5 +90,21 @@ export const getNormalColors = (colors) => {
     }
   })
 
+  return colorArr
+}
+
+export const getColorPanelMap = (colors) => {
+  const colorArr = []
+  const prefix = 'colorPanel-'
+  Object.keys(colors).forEach ((colorKey) => {
+    const prefixKey = colorKey.replace(prefix, '')
+    if (colorKey.indexOf(prefix) >= 0) {
+      colorArr.push({
+        key: prefixKey,
+        color: colors[colorKey]
+      })
+    }
+  })
+  
   return colorArr
 }

@@ -1,7 +1,7 @@
 import { createTest, createVue, destroyVM } from '../util';
 import H from 'components/h';
 
-describe.only('Custom H', () => {
+describe('Custom H', () => {
   let vm;
   afterEach(() => {
     destroyVM(vm);

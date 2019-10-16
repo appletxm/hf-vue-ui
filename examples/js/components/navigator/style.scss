@@ -1,13 +1,19 @@
 .#{$prefix}-c-navigator{
   font-size: $font-14;
-  list-style: none;
-  display: flex;
-  height: $nav-height;
-  line-height: $nav-height;
   position: sticky;
   top: 0;
   border-bottom: 1px solid $clr-divider-color;
   background-color: $clr-bg-page-color;
+  box-shadow: 0 0 5px rgba(0,0,0,.05);
+
+  ul {
+    list-style: none;
+    display: flex;
+    height: $nav-height;
+    line-height: $nav-height;
+    width: $page-width;
+    margin: 0 auto;
+  }
 
   li {
     flex: 50% 1 1;
@@ -26,13 +32,14 @@
       &:after {
         content: "";
         display: block;
-        height: 4px;
+        height: 2px;
         background-color: $clr-error-color;
         position: absolute;
-        bottom: -20px;
+        bottom: 0;
         left: 0;
         right: 0;
-        transition: all .2s ease-in-out;
+        transition: all .5s ease-in-out;
+        opacity: 0;
       }  
     }
 
@@ -40,13 +47,9 @@
       .text-inner {
         color: $clr-error-color;
         &:after {
-          bottom: 0;
+          opacity: 1;
         }
       }
-    }
-
-    span {
-      margin-right: 5px;
     }
 
     &.actived {

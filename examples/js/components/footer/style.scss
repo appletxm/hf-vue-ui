@@ -1,11 +1,40 @@
 .#{$prefix}-c-footer{
-  text-align: center;
   color: $clr-font-describe-color;
   font-size: $font-12;
-  border-top: 1px solid $clr-divider-color;
-  bottom: 0;
-  @extend %fixed-position;
-  top: auto;
-  height: $footer-height - 20px;
-  line-height: $footer-height - 20px;
+  margin: 20px 0 50px 0;
+  display: flex;
+
+  .link {
+    cursor: pointer;
+    flex: 50% 1 1;
+    flex-basis: 50%;
+
+    span {
+      transform: rotate(-90deg);
+    }
+
+    &__next {
+      text-align: right;
+      span {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  // &__link{
+  //   cursor: pointer;
+  //   flex: 50% 1 1;
+  //   flex-basis: 50%;
+
+  //   span {
+  //     transform: rotate(-90deg);
+  //   }
+    
+  //   &--next {
+  //     text-align: right;
+  //     span {
+  //       transform: rotate(90deg);
+  //     }
+  //   }
+  // }
 }
