@@ -95,3 +95,18 @@
 .source:hover .preview-btn, .fullscreen-class:hover .preview-btn{
   display: block;
 }
+.hf-ui-layout-sidebar {
+  .hf-ui-layout {
+    background-color: transparent;
+    .hf-ui-aside {
+      @include getBgColorAlpha($clr-main04-color, 0.4);
+    }
+    .hf-ui-breadcrumb {
+      @include getBgColorAlpha($clr-main04-color, 0.1);
+      color: $clr-main04-color;
+    }
+    .hf-ui-main {
+      @include getBgColorAlpha($clr-main04-color, 0.4);
+    }
+  }
+}
