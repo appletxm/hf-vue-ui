@@ -25,8 +25,8 @@ export default {
       default: '',
     },
     minWidth: {
-      type: String,
-      default: '',
+      type: Number,
+      default: 0,
     }
   },
   computed: {
