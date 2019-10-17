@@ -1,6 +1,7 @@
 /* global window */
 import Button from 'components/button'
 import Header from 'components/header'
+import Content from 'components/content'
 import Footer from 'components/footer'
 import Aside from 'components/aside'
 import Main from 'components/main'
@@ -16,6 +17,7 @@ window.Vue.prototype.cfg = cfg
 const components = [
   Button,
   Header,
+  Content,
   Footer,
   Aside,
   Main,

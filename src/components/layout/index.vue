@@ -1,18 +1,32 @@
 <template>
-  <section :class="[(cfg.prefix + '-layout'), isVertical ? 'is-vertical': '']">
+  <section
+    :class="[
+      (cfg.prefix + '-layout'),
+      type ? 'is-has-type' : '',
+      type ? (cfg.prefix + '-layout-'+type) : '',
+      isVertical ? 'is-vertical': '']"
+    :style="{'min-width': minWidth ? minWidth+'px' : minWidthC}"
+  >
     <slot></slot>
   </section>
 </template>
 
 <script>
-/* global cfg */
 export default {
   name: 'Layout',
   componentName: 'Layout',
   props: {
     direction: {
       type: String,
-      default: 'vertical'
+      default: '',
+    },
+    type: {
+      type: String,
+      default: '',
+    },
+    minWidth: {
+      type: Number,
+      default: 0,
     }
   },
   computed: {
@@ -25,10 +39,28 @@ export default {
       return this.$slots && this.$slots.default
         ? this.$slots.default.some((vnode) => {
           const tag = vnode.componentOptions && vnode.componentOptions.tag;
-          return tag === `${cfg.prefix}-header` || tag === `${cfg.prefix}-footer`;
+          const tagValue = tag === `${this.cfg.prefix}-header` || tag === `${this.cfg.prefix}-footer`;
+          return tagValue;
         })
+
         : false;
+    },
+    minWidthC() {
+      let widthValue = '';
+      if (this.$slots && this.$slots.default) {
+        this.$slots.default.some((vnode) => {
+          const tag = vnode.componentOptions && vnode.componentOptions.tag;
+          const tagValue = tag === `${this.cfg.prefix}-content`;
+          if (tagValue) {
+            const width = vnode.componentOptions && vnode.componentOptions.propsData && vnode.componentOptions.propsData.width;
+            widthValue = width ? `${parseInt(width, 10) + 48}px` : '';
+          }
+          return tagValue;
+        })
+      }
+      return widthValue;
     }
-  }
+
+  },
 };
 </script>

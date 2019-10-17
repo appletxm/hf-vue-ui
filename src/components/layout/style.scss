@@ -1,3 +1,94 @@
-.#{$prefix}-layout {
+@include b(layout) {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  flex-basis: auto;
+  box-sizing: border-box;
+  min-width: 0;
   font-size: $font-14;
+  height:100%;
+  width: 100%;
+  .#{$prefix + '-content'} {
+    display: flex;
+  }
+
+  @include when(vertical) {
+    flex-direction: column;
+  }
+
+  @include when(has-type) {
+    .tabs {
+      width: 100%;
+      height: 50px;
+      margin-bottom: $gap-third;
+    }
+    &.#{$prefix + '-layout-api'} {
+      margin: $gap*2 auto $gap auto;
+      background-color: transparent;
+      align-items: stretch;
+      height: calc(100% - #{$gap*3});
+      .#{$prefix + '-aside'} {
+        margin-right: $gap;
+      }
+    
+      .#{$prefix + '-main'} {
+        flex: auto;
+      }
+    }
+    &.#{$prefix + '-layout-api-tab'} {
+      @extend .#{$prefix + '-layout-api'};
+      margin: $gap-third auto $gap auto;
+      flex-direction: column;
+      height: calc(100% - #{$gap-third} - #{$gap});
+      .#{$prefix + '-layout'} {
+        margin-top: 0;
+      }
+    }
+    &.#{$prefix + '-layout-portal'} {
+      margin: $gap*2 auto $gap auto;
+      background-color: transparent;
+      height: calc(100% - #{$gap*3});
+      .#{$prefix + '-main'} {
+        width: 100%;
+      }
+    }
+    &.#{$prefix + '-layout-portal-tab'} {
+      margin: $gap-third auto $gap auto;
+      flex-direction: column;
+      background-color: transparent;
+      height: calc(100% - #{$gap-third} - #{$gap});
+      .#{$prefix + '-main'} {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &.#{$prefix + '-layout-sidebar'} {
+      .#{$prefix + '-layout'} {
+        margin: 0;
+        width: 100%;
+        display: flex;
+    
+        .#{$prefix + '-layout'} {
+          display: block;
+          width: 100%;
+          // margin: 0 $gap $gap $gap;
+          height: 100%;
+        }
+      }
+    
+      .#{$prefix + '-aside'} {
+        margin: 0; 
+        line-height: 200px;
+      }
+    
+      .#{$prefix + '-main'} {
+        margin: 0;
+        height: calc(100% - #{$gap-secondary * 3});
+      }
+      .#{$prefix + '-breadcrumb'} {
+        height: $gap-secondary * 3;
+        line-height: $gap-secondary * 3;
+      }
+    }
+  }
 }
