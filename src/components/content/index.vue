@@ -10,8 +10,8 @@ export default {
   componentName: 'Content',
   props: {
     width: {
-      type: String,
-      default: ''
+      type: Number,
+      default: 0
     }
   }
 };
