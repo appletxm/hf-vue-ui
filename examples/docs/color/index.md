@@ -1,6 +1,6 @@
 <script>
   import scssGlobals from 'theme/variables.scss'
-  import { getColorsForColorPanel, getMainColors, getSubColors, getNormalColors, darkFonts } from './models'
+  import { parseGlobals, getColorsForColorPanel, getMainColors, getSubColors, getNormalColors, darkFonts } from './models'
 
   export default {
     created() {},
@@ -20,11 +20,13 @@
       }
     },
     data() {
+      const globalColors = parseGlobals(scssGlobals)
+
       return {
-        colorPanel: getColorsForColorPanel(scssGlobals),
-        mainColor: getMainColors(scssGlobals),
-        subColor: getSubColors(scssGlobals),
-        normalColor: getNormalColors(scssGlobals)
+        colorPanel: getColorsForColorPanel(globalColors),
+        mainColor: getMainColors(globalColors),
+        subColor: getSubColors(globalColors),
+        normalColor: getNormalColors(globalColors)
       }
     },
     watch: {

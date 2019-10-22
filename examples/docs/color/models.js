@@ -1,4 +1,17 @@
-export const darkFonts = ['#DDDDDD', '#EEEEEE', '#F6F6F6', '#F8F8F8', '#FFFFFF', '#fff']
+export const darkFonts = ['#DDDDDD', '#EEEEEE', '#F6F6F6', '#F8F8F8', '#FFFFFF']
+
+function getShowColor(color) {
+  let colorStr
+
+  colorStr = color.replace('#', '')
+  if (colorStr.length === 3) {
+    colorStr = colorStr.replace(/^(.)(.)(.)$/, ($1, $2, $3, $4) => {
+      return $2.toUpperCase() + $2.toUpperCase() + $3.toUpperCase() + $3.toUpperCase() + $4.toUpperCase() + $4.toUpperCase()
+    })
+  }
+
+  return ('#' + colorStr).toUpperCase()
+}
 
 export const getColorsForColorPanel = (colors) => {
   const colorArr = []
@@ -107,4 +120,16 @@ export const getColorPanelMap = (colors) => {
   })
   
   return colorArr
+}
+
+export const parseGlobals = (colors) => {
+  const keys = Object.keys(colors)
+  keys.forEach(key => {
+    let val = colors[key]
+    if (val.indexOf('#') >= 0) {
+      colors[key] = getShowColor(colors[key])
+    }
+  })
+
+  return colors
 }

@@ -30,7 +30,8 @@
     "build:examples": "npm run clean:examples && npm run buildForProd",
     "release": "npm run build:compoent && node scripts/release.js production",
     "test": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
-    "test:watch": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js"
+    "test:watch": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js",
+    "demo": "npm run clean:examples && node scripts/dev-server.js production"
   },
   "pre-commit": [],
   "devDependencies": {
@@ -62,6 +63,7 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "http-proxy-middleware": "^0.20.0",
+    "ip": "^1.1.5",
     "karma": "^4.3.0",
     "karma-chrome-launcher": "^3.1.0",
     "karma-coverage": "^2.0.1",

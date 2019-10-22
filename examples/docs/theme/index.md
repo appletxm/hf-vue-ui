@@ -1,7 +1,9 @@
 <script>
 import scssGlobals from 'theme/variables.scss'
-import { getMainColors, getSubColors, getNormalColors, darkFonts } from 'docs/color/models'
+import { parseGlobals, getMainColors, getSubColors, getNormalColors, darkFonts } from 'docs/color/models'
 import { getChangeColorFile } from './models'
+
+const globalColors = parseGlobals(scssGlobals)
 
 export default {
   created() {
@@ -27,10 +29,10 @@ export default {
       })
     },
     $initColor() {
-      this.globals = JSON.parse(JSON.stringify(scssGlobals))
-      this.mainColor = getMainColors(scssGlobals)
-      this.subColor = getSubColors(scssGlobals)
-      this.normalColor = getNormalColors(scssGlobals)
+      this.globals = JSON.parse(JSON.stringify(globalColors))
+      this.mainColor = getMainColors(globalColors)
+      this.subColor = getSubColors(globalColors)
+      this.normalColor = getNormalColors(globalColors)
     },
     $resetTheme() {
       this.$initColor()
