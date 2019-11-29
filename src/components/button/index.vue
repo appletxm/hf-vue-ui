@@ -13,7 +13,7 @@
     ]"
     @click="handleClick"
   >
-    <i v-if="icon" class="hf-ui-icon" :class="icon"></i>
+    <i v-if="icon" :class="[cfg.prefix + '-icon', icon]"></i>
     <span v-if="$slots.default"><slot></slot></span>
   </button>
 </template>

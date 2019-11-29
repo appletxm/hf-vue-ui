@@ -34,7 +34,7 @@ module.exports = {
       webpackConfig.devtool = 'inline-source-map'
     } else {
       webpackConfig.entry.app = [appJs]
-      webpackConfig.devtool = 'cheap-source-map'
+      // webpackConfig.devtool = 'cheap-source-map'
     }
 
     return webpackConfig
@@ -70,7 +70,7 @@ module.exports = {
           maxAsyncRequests: 5,
           maxInitialRequests: 3,
           name: true,
-          chunks: 'all',
+          // chunks: 'all',
           cacheGroups: {
             // styles: {
             //   name: 'styles',
@@ -98,18 +98,19 @@ module.exports = {
   },
 
   getPluginConfig: function (envKeyWord, webpack, webpackConfig, env) {
-    var cssPath, cssChunkPath
+    let cssPath
+    // let cssChunkPath
     const isDev = envKeyWord === 'development' || envKeyWord === 'mock'
 
     if (isDev === true) {
       cssPath = 'css/[name].css'
-      cssChunkPath = 'css/[id].css'
+      // cssChunkPath = 'css/[id].css'
       webpackConfig.plugins.push(
         new webpack.HotModuleReplacementPlugin()
       )
     } else {
       cssPath = 'css/[name].min.[contenthash:7].css'
-      cssChunkPath = 'css/[id].min.[chunkhash:7].css'
+      // cssChunkPath = 'css/[id].min.[chunkhash:7].css'
 
       webpackConfig.plugins.push(
         new webpack.optimize.OccurrenceOrderPlugin()

@@ -1,0 +1,163 @@
+@import "../pop-tip/popper";
+
+$clr-projection-dropdown-shadow: 0 2px 8px 2px rgba($clr-projection-color, 0.1) !default;
+
+@include b(dropdown) {
+  display: inline-block;
+  position: relative;
+  color: $clr-font-text-color;
+  font-size: $font-14;
+  outline: none;
+
+  .#{$prefix}-button-group {
+    display: block;
+    .#{$prefix}-button {
+      float: none;
+    }
+    .#{$prefix}-dropdown__icon {
+      margin-left: $gap-fifth * 2;
+      margin-right: $gap-third;
+    }
+  }
+  .#{$prefix}-button-group.is-expand {
+    .#{$prefix}-dropdown__icon {
+      transform: rotateZ(-180deg);
+      display: inline-block;
+      position: relative;
+      bottom: 1px;
+    }
+  }
+  .#{$prefix}-button-group:hover {
+    .#{$prefix}-dropdown__caret-button::before {
+      width: 0px;
+    }
+  }
+
+  & &__caret-button {
+    padding-left: $gap-fifth * 2;
+    padding-right: $gap-fifth * 2;
+    position: relative;
+    border-left-color: transparent;
+
+    &::before {
+      $gap: $gap-fifth;
+
+      content: '';
+      position: absolute;
+      display: block;
+      width: 1px;
+      top: $gap;
+      bottom: $gap;
+      left: 0;
+    }
+    &.#{$prefix}-button--primary::before {
+      background-color: $clr-font-btn01-color;
+    }
+    &.#{$prefix}-button--secondary::before {
+      background-color: $clr-main01-color;
+    }
+    &.#{$prefix}-button--commonly::before {
+      background-color: $clr-border-color;
+    }
+    &.#{$prefix}-button--light::before {
+      background-color: $clr-font-btn2-color;
+      width: 0px;
+    }
+    &.#{$prefix}-button--important::before {
+      background-color: $clr-font-btn01-color;
+    }
+    &:hover {
+      &::before {
+        // top: 0;
+        // bottom: 0;
+        width: 0px;
+      }
+    }
+    &.#{$prefix}-button--commonly:hover,
+    &.#{$prefix}-button--secondary:hover {
+      border-left-color: inherit;
+    }
+
+    & .#{$prefix}-dropdown__icon {
+      padding-left: 0;
+      margin-left: 0;
+      margin-right: 0;
+      display: inline-block;
+      transition: transform .3s, -webkit-transform .3s;
+    }
+  }
+
+  @include e(icon) {
+    font-size: $font-12;
+  }
+
+  .#{$prefix}-dropdown-selfdefine { // 自定义
+    cursor: pointer;
+    .#{$prefix}-icon--right {
+      margin-left: $gap-fifth * 2;
+      font-size: $font-12;
+      transition: transform .3s, -webkit-transform .3s;
+      display: inline-block;
+    }
+    &:focus:active, &:focus:not(.focusing) {
+      outline-width: 0;
+      outline: none;
+    }
+  }
+  & :not(.#{$prefix}-button).#{$prefix}-dropdown-selfdefine {
+    color: $clr-sub-color;
+  }
+
+  &.is-expand .#{$prefix}-dropdown-selfdefine {
+    color: $clr-main01-color;
+  }
+
+  &.is-expand .#{$prefix}-dropdown-selfdefine .#{$prefix}-icon--right {
+    transform: rotateZ(-180deg);
+    display: inline-block;
+    position: relative;
+    bottom: 1px;
+  }
+
+}
+
+@include b(dropdown-menu) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  margin: 5px 0;
+  background-color: $clr-bg-content-color;
+  border-radius: $border-radius;
+  box-shadow: $clr-projection-dropdown-shadow;
+
+  @include e(item) {
+    list-style: none;
+    line-height: $gap * 2;
+    padding: 0 $gap;
+    margin: 0;
+    font-size: $font-14;
+    color: $clr-font-text-color;
+    cursor: pointer;
+    outline: none;
+    &:not(.is-disabled):hover, &:focus {
+      background-color: rgba($clr-main02-color, 0.1);
+      color: $clr-main01-color;
+    }
+
+    i {
+      margin-right: $gap-fifth * 2;
+    }
+
+    @include m(divided) {
+      position: relative;
+      border-top: 1px solid $clr-divider-color;
+    }
+
+    @include when(disabled) {
+      cursor: default;
+      color: $clr-font-tips-color;
+      pointer-events: none;
+    }
+  }
+}

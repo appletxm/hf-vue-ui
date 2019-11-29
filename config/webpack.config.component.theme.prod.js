@@ -5,7 +5,7 @@ const FixStyleOnlyEntries = require('webpack-fix-style-only-entries')
 const CopyPlugin = require('copy-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const cfg = require('./component.config')
-const envKeyWord = 'development'
+let envKeyWord = process.env.NODE_ENV
 const isDev = envKeyWord === 'development'
 const mode = envKeyWord === 'test' || envKeyWord === 'production' ? 'production' : 'development'
 let srcPath = `${cfg.userDefineTheme.src}/{ipAddress}`
@@ -29,13 +29,23 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.(png|jpe?g|gif)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+          context: 'client',
+          name: '[name].[ext]',
+          outputPath: 'images'
+        }
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 8192,
           context: 'client',
           name: '[name].[ext]',
-          outputPath: 'theme/font/'
+          outputPath: 'font'
         }
       },
       {
@@ -45,7 +55,7 @@ const config = {
           limit: 8192,
           context: 'client',
           name: '[name].[ext]',
-          outputPath: 'theme/font/'
+          outputPath: 'font'
         }
       },
       {
@@ -85,7 +95,7 @@ const config = {
     minimize: true,
     minimizer: [
       new OptimizeCSSAssetsPlugin()
-    ],
+    ]
   },
   node: {
     buffer: false
@@ -96,6 +106,7 @@ const config = {
 function getConfig(ipAddress) {
   srcPath = srcPath.replace('{ipAddress}', ipAddress)
   destPath = destPath.replace('{ipAddress}', ipAddress)
+
   config['entry'][cfg.prefix] = path.resolve(`${srcPath}/index.scss`)
   config['output']['path'] = path.resolve(destPath)
   config['plugins'].unshift(

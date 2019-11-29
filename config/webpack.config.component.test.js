@@ -1,10 +1,10 @@
 const path = require('path')
-const MiniCssExtractPlugin  = require('mini-css-extract-plugin')
+// const MiniCssExtractPlugin  = require('mini-css-extract-plugin')
 const autoprefixer = require('autoprefixer')
 const cfg = require('./component.config')
 const isDev = true
 const mode = 'development'
-const CopyPlugin = require('copy-webpack-plugin')
+// const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   mode: mode,
@@ -18,11 +18,11 @@ module.exports = {
   output: {
     filename: `${cfg.prefix + (isDev ? '' : '.min')}.js`,
     path: path.resolve(cfg.distPath),
-    publicPath: cfg.publicPath,
-    pathinfo: isDev,
-    libraryTarget:'umd',
-    library: `${cfg.componentPrefix}`,
-    libraryExport: 'default'
+    publicPath: cfg.publicPath
+    // pathinfo: isDev,
+    // libraryTarget:'umd',
+    // library: `${cfg.componentPrefix}`,
+    // libraryExport: 'default'
   },
   module: {
     rules: [
@@ -35,7 +35,8 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [path.join(__dirname, '..', 'src'), path.join(__dirname, '..', 'test')]
+        include: [path.join(__dirname, '..', 'src'), path.join(__dirname, '..', 'test')],
+        exclude: [path.resolve('src/utils/popper.js')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -60,13 +61,14 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: isDev,
-              reloadAll: true
-            },
-          },
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          //   options: {
+          //     hmr: isDev,
+          //     reloadAll: true
+          //   },
+          // },
+          'style-loader',
           'css-loader', 
           {
             loader: 'postcss-loader',
@@ -101,14 +103,16 @@ module.exports = {
     }
   },
   plugins: [
-    new CopyPlugin([{
-      from: path.resolve(cfg.sourcePath + '/theme/font'),
-      to: path.resolve(cfg.distPath + '/theme/font')
-    }]),
+    // new CopyPlugin([{
+    //   from: path.resolve(cfg.sourcePath + '/theme/font'),
+    //   to: path.resolve(cfg.distPath + '/theme/font')
+    // }]),
 
-    new MiniCssExtractPlugin({
-      filename: `theme/${cfg.prefix}${isDev ? '' : '.min'}.css`
-    })
+    // new MiniCssExtractPlugin({
+    //   // filename: `theme/${cfg.prefix}${isDev ? '' : '.min'}.css`
+    //   filename: '[name].css',
+    //   chunkFilename: '[id].css',
+    // })
   ],
   node: {
     buffer: false

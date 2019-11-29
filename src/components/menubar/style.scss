@@ -1,0 +1,74 @@
+@import "../menu/variables";
+@include b(menubar) {
+  &.#{$prefix}-menubar--horizontal {
+    width: 100%;
+    height: $menu-item-horizontal-height;
+    padding: 0 $gap;
+    background:$clr-menu-top-bg;
+    box-shadow: $clr-menu-top-projection;
+    @include e(wrap) {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 auto;
+    }
+    @include e(logo) {
+      @include m(img) {
+        height: $menu-logo-height;
+      }
+    }
+    .#{$prefix}-menu {
+      margin-right: $gap * 2;
+    }
+    @include e(right) {
+      display: flex;
+      align-items: center;
+      @include m(userinfo) {
+        display: flex;
+        align-items: center;
+        @include m(avatar) {
+          height: $menu-avatar-width;
+          width: $menu-avatar-width;
+          margin-right: $gap-fifth * 2;
+        }
+      }
+    }
+  }
+  &.#{$prefix}-menubar--vertical {
+    width: $menu-width;
+    height: 100%;
+    &.#{$prefix}-menubar--collapse {
+      width: $menu-collapse-width;
+      height: 100%;
+    }
+    @include e(wrap) {
+      width: 100%;
+      height: 100%;
+      background: $clr-menu-top-bg;
+      @include m(menus) {
+        width: 100%;
+        height: calc(100% - #{$menu-item-vertical-height});
+        overflow: auto;
+        overflow-x: hidden;
+        background: $clr-menu-top-bg;
+      }
+      @include m(foldicon) {
+        width: 100%;
+        height: $menu-item-vertical-height;
+        background-color: rgba($menu-fold, 0.05);
+        color: rgba($menu-fold, 0.5);
+        border-top: 1px solid rgba($menu-fold, 0.1);
+        font-size: $font-20;
+        line-height: $menu-item-vertical-height;
+        text-align: center;
+        cursor: pointer;
+        .#{$prefix}-icon {
+          font-size: $font-20;
+        }
+      }
+    }
+
+  }
+}

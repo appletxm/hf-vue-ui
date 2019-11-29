@@ -21,7 +21,7 @@
     background: $clr-bg-content-color;
     border: 1px solid $clr-main02-color;
   }
-  &:active {
+  &:active, &.is-active {
     color: $clr-main04-color;
     background: $clr-bg-content-color;
     border: 1px solid $clr-main04-color;
@@ -63,7 +63,7 @@
       @include button-color($clr-font-btn01-color, $clr-main02-color);
       border: 0px;
     }
-    &:active {
+    &:active, &.is-active {
       @include button-color($clr-font-btn01-color, $clr-main04-color);
       border: 0px;
     }
@@ -77,7 +77,7 @@
     &:hover{
       @include button-color($clr-main02-color, $clr-bg-content-color, $clr-main02-color);
     }
-    &:active {
+    &:active, &.is-active {
       @include button-color($clr-main04-color, $clr-bg-content-color, $clr-main04-color);
     }
     &.is-disabled {
@@ -90,7 +90,7 @@
     &:hover{
       @include button-color($clr-main02-color, $clr-bg-content-color, $clr-main02-color);
     }
-    &:active {
+    &:active, &.is-active {
       @include button-color($clr-main04-color, $clr-bg-content-color, $clr-main04-color);
     }
     &.is-disabled {
@@ -103,7 +103,7 @@
     &:hover{
       @include button-color($clr-main02-color, transparent);
     }
-    &:active {
+    &:active, &.is-active {
       @include button-color($clr-main04-color, transparent);
     }
     &.is-disabled {
@@ -115,7 +115,7 @@
     &:hover{
       @include button-color($clr-font-btn01-color, rgba($clr-error-color, .5));
     }
-    &:active {
+    &:active, &.is-active {
       @include button-color($clr-font-btn01-color, rgba($clr-error-color, .8));
     }
     &.is-disabled {

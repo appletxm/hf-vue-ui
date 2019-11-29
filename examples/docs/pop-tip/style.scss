@@ -1,0 +1,15 @@
+.hf-ui-poptip-demo {
+  .hf-ui-icon {
+    cursor: pointer;
+  }
+  .row {
+    margin-bottom: $gap;
+    display: flex;
+    .col {
+      width: 200px;
+    }
+  }
+  .hf-ui-button {
+    margin-right: $gap-third;
+  }
+}

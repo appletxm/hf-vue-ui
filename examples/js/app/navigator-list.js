@@ -22,7 +22,7 @@ export default [
     module: 'Components',
     label: '组件',
     icon: 'hf-iconfont icon-chakuaidi',
-    path: '/components/basic/layout',
+    path: '/components/basic/globalSpacing',
     children: [
       {
         id: '201',
@@ -104,7 +104,7 @@ export default [
             component: 'Icon',
             next: '1_1_0',
             prev: '1_0_5'
-          }
+          },
         ]
       },
 
@@ -118,7 +118,7 @@ export default [
             id: '202001',
             module: 'Components_Navigation_Menu',
             path: '/components/navigation/menu',
-            label: '导航',
+            label: '导航菜单 Menu',
             icon: 'hf-iconfont icon-chakuaidi',
             component: 'Menu',
             next: '1_1_1',
@@ -128,7 +128,7 @@ export default [
             id: '202002',
             module: 'Components_Navigation_Breadcrumb',
             path: '/components/navigation/breadcrumb',
-            label: '面包屑',
+            label: '面包屑 Breadcrumb',
             icon: 'hf-iconfont icon-chakuaidi',
             component: 'Breadcrumb',
             next: '1_1_2',
@@ -138,12 +138,22 @@ export default [
             id: '202003',
             module: 'Components_Navigation_Tab',
             path: '/components/navigation/Tab',
-            label: '标签页',
+            label: '标签页 Tabs',
             icon: 'hf-iconfont icon-chakuaidi',
             component: 'Tab',
-            // next: '1_2_0',
+            next: '1_1_3',
             prev: '1_1_1'
-          }
+          },
+          {
+            id: '202004',
+            module: 'Components_Navigation_Dropdown',
+            path: '/components/navigation/Dropdown',
+            label: '下拉菜单 Dropdown',
+            icon: 'hf-iconfont icon-chakuaidi',
+            component: 'Dropdown',
+            // next: '1_1_3',
+            prev: '1_1_2'
+          },
         ]
       },
 
@@ -154,7 +164,36 @@ export default [
         label: '数据录入',
         icon: 'hf-iconfont icon-chakuaidi'
         // component: 'Data'
-      }
+      },
+
+      {
+        id: '204',
+        module: 'Components_Data',
+        // path: '/components/data',
+        label: '数据展示',
+        icon: 'hf-iconfont icon-chakuaidi'
+        // component: 'Data'
+      },
+      {
+        id: '205',
+        module: 'Components_Feedback',
+        // path: '/components/data',
+        label: '操作反馈',
+        icon: 'hf-iconfont icon-chakuaidi',
+        // component: 'Data',
+        children: [
+          {
+            id: '205001',
+            module: 'Components_Feedback_Poptip',
+            path: '/components/Feedback/Poptip',
+            label: '气泡提示 Poptip',
+            icon: 'hf-iconfont icon-chakuaidi',
+            component: 'PopTip',
+            // next: '1_4_1',
+            prev: '1_1_2'
+          }
+        ]
+      },
     ]
   },
   {

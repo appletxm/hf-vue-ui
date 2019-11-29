@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const { zip } = require('zip-a-folder')
-const { exec, spawn } = require('child_process')
+// const { exec, spawn } = require('child_process')
 const { copyFolder, checkDirIsOk } = require('./sync-copy-files')
 const cfg = require('../config/component.config')
 

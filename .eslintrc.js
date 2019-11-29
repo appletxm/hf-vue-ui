@@ -41,6 +41,11 @@ module.exports = {
     "no-unused-expressions": 0,
     "max-len": 0,
     "no-shadow": 0,
-    "prefer-destructuring": 0
+    "prefer-destructuring": 0,
+    "prefer-spread": 0,
+    "no-useless-escape": 0,
+    "no-underscore-dangle": 0,
+    "no-mixed-operators": 0,
+    "vue/require-default-prop": 0,
   }
 };

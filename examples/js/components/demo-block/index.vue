@@ -128,7 +128,7 @@ export default {
     },
 
     iconClass() {
-      return this.isExpanded ? 'hf-ui-icon ui-icon-arrowup' : 'hf-ui-icon ui-icon-arrowdown';
+      return this.isExpanded ? 'hf-ui-icon ui-icon-fill-direction-up' : 'hf-ui-icon ui-icon-fill-direction-down';
     },
 
     controlText() {

@@ -1,9 +1,6 @@
 const path = require('path')
 const fs = require('fs')
 const formidable = require('formidable')
-// const serverProxy = require('./server-proxy')
-// let isMock = false
-const env = require('../config/env')
 const { generateTheme, saveTheme } = require('./server-define-theme')
 const { getIcons } = require('./server-icons')
 const cfg = require('../config/component.config')
@@ -32,6 +29,7 @@ function getMockFile(reqPath, res) {
 }
 
 function recieveImageFile(req, res, next) {
+  const envCfg = require('../config/env-' + process.env.NODE_ENV || 'development')
   var body = ''
   var file, fileObj, saveImgPath
   // create an incoming form object
@@ -82,7 +80,7 @@ function recieveImageFile(req, res, next) {
             if (err) {
               fileObj.detailMessage = JSON.stringify(err)
             }
-            fileObj.data = 'http://' + env['development']['host'] + ':' + env['development']['port'] + '/uploads/' + file.name
+            fileObj.data = 'http://' + envCfg['host'] + ':' + envCfg['port'] + '/uploads/' + file.name
             res.send(JSON.stringify(fileObj))
             res.end()
           })
@@ -169,6 +167,26 @@ function getJsFile(compiler, filename, res, next) {
   })
 }
 
+function getCssFile(compiler, filename, res, next) {
+  var newFs = compiler ? compiler.outputFileSystem : fs
+
+  console.info('[get css path]', filename)
+
+  newFs.readFile(filename, function (err, result) {
+    if (err) {
+      res.send(err)
+    } else {
+      res.set('content-type', '	text/css')
+      res.send(result)
+    }
+    res.end()
+
+    if (next) {
+      next()
+    }
+  })
+}
+
 function routerRootPath(req, res, compiler) {
   // TODO compiler.outputPath is equal to the webpack publickPath
   var filename = path.join(compiler.outputPath, 'app.html')
@@ -205,6 +223,11 @@ function routerJsFile(req, res, compiler) {
   getJsFile(compiler, filename, res)
 }
 
+function routerCssFile(req, res, compiler) {
+  const filename = path.join(compiler.outputPath, req.baseUrl.replace('/', ''))
+  getCssFile(compiler, filename, res)
+}
+
 function routerUserTheme(req, res) {
   const filePath = path.resolve('.' + req.originalUrl)
   let result
@@ -239,5 +262,6 @@ module.exports = {
   routerImgPath,
   routerHtmlPath,
   routerJsFile,
+  routerCssFile,
   routerUserTheme
 }

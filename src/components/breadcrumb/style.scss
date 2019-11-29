@@ -1,0 +1,55 @@
+@include b(breadcrumb) {
+  font-size: 14px;
+  line-height: 1;
+  @include utils-clearfix;
+
+  @include e(separator) {
+    margin: 0 8px;
+    font-weight: bold;
+    color: $clr-font-describe-color;
+
+    &[class*=icon] {
+      margin: 0 6px;
+      font-weight: normal;
+      font-size: 12px;
+    }
+  }
+
+  @include e(item) {
+    float: left;
+
+    @include e(inner) {
+      color: $clr-font-text-color;
+
+      &.is-link, & a {
+        font-weight: bold;
+        text-decoration: none;
+        transition: $--color-transition-base;
+        color: $clr-font-text-color;
+
+        &:hover {
+          color: $clr-main02-color;
+          cursor: pointer;
+        }
+        &:active {
+          color: $clr-main04-color;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &:last-child {
+      .#{$prefix}-breadcrumb__inner,
+      .#{$prefix}-breadcrumb__inner a {
+        &, &:hover {
+          font-weight: normal;
+          cursor: text;
+        }
+      }
+
+      .#{$prefix}-breadcrumb__separator {
+        display: none;
+      }
+    }
+  }
+}

@@ -2,13 +2,12 @@ const packageOperations = require('./release-package-operations')
 const tagOperations = require('./release-tag-operations')
 const releaseCodeOperations = require('./release-code-operations')
 const { getVerionNo } = require('./release-version')
-let version = process.argv ? (process.argv)[3] : ''
+const version = getVerionNo(process.argv ? (process.argv)[3] : '')
 const desc = (process.argv ? (process.argv)[4] : 'version update') || 'version update'
 const ora = require('ora')
 const chalk = require('chalk')
 let spinner
 
-version = getVerionNo(version)
 console.info('****releasing', version, desc)
 spinner = ora('Releasing version: ' + version)
 

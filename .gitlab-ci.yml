@@ -1,0 +1,30 @@
+stages:
+  - install
+  - test
+  - build
+  - deploy
+
+intallJob:
+  stage: install
+  script:
+    - git checkout develement
+    - git pull
+    - npm install
+  only:
+    - development
+
+testJob:
+  stage: test
+  script:
+    - npm run eslint
+    - npm run test
+  only:
+    - development
+
+buildJob:
+  stage: build
+  script:
+    - npm run build
+    - npm run createTar
+  only:
+    - development

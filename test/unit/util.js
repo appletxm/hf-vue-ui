@@ -1,3 +1,5 @@
+import '@babel/polyfill'
+import 'theme/index.scss'
 import Vue from 'vue'
 
 window.Vue = Vue

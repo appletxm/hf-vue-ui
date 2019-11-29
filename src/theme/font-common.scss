@@ -1,0 +1,8 @@
+// .hf-ui-icon {
+//   line-height: 1;
+//   display: inline-block;
+// }
+[class*="ui-icon-"]:before {
+  line-height: 1;
+  display: inline-block;
+}

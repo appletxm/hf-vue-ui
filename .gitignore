@@ -7,7 +7,7 @@ yarn-debug.log*
 yarn-error.log*
 test/unit/coverage
 
-deploy/
+deploy
 coverage
 themes
 dist/user-theme

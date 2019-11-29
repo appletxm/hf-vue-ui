@@ -31,15 +31,16 @@ module.exports = {
     rules: [
       {
         enforce: 'pre',
-        test: /\.(js|vue)$/,
+        test: /\.(js|vue|jsx?)$/,
         loader: 'eslint-loader',
-        exclude: /node_modules/
+        exclude: /node_modules|utils\/popper\.js|utils\/date\.js/
       },
       
       {
-        test: /\.js$/,
+        test: /\.(js|jsx?)$/,
         loader: 'babel-loader',
-        include: [path.join(__dirname, '..', 'src'), path.join(__dirname, '..', 'test')]
+        include: [path.join(__dirname, '..', 'src'), path.join(__dirname, '..', 'test')],
+        exclude: [path.resolve('src/utils/popper.js')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -115,13 +116,13 @@ module.exports = {
     })
   ],
   optimization: {
-    namedModules: true,
+    namedModules: false,
     namedChunks: true,
     minimize: true,
     minimizer: [
       new TerserJSPlugin({
         extractComments: '/@extract/i',
-        sourceMap: true
+        sourceMap: false
       }), 
       new OptimizeCSSAssetsPlugin()
     ],

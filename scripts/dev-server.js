@@ -1,7 +1,5 @@
 const express = require('express')
 const webpack = require('webpack')
-// const path = require('path')
-// const fs = require('fs')
 const chalk = require('chalk')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
@@ -10,12 +8,14 @@ const webpackConfig = require('../config/webpack.config')
 const serverRouter = require('./server-router')
 const app = express()
 const compiler = webpack(webpackConfig)
-const host = envConfig['development']['host']
+const host = require('ip').address()
 const port = envConfig['development']['port']
 // const proxyTarget = envConfig['development']['proxy']['url']
 
 // const multer = require('multer')
 // const upload = multer({ dest: 'uploads/' })
+
+process.env.NODE_ENV = process.argv && process.argv.length >= 2 ? (process.argv)[2] : 'development'
 
 const middleWare = webpackDevMiddleware(compiler, {
   // Notice: public path should be the same with webpack config
@@ -24,8 +24,6 @@ const middleWare = webpackDevMiddleware(compiler, {
   noInfo: true,
   stats: 'errors-only'
 })
-
-process.env.NODE_ENV = process.argv && process.argv.length >= 2 ? (process.argv)[2] : 'development'
 
 app.use(middleWare)
 app.use(webpackHotMiddleware(compiler))
@@ -57,7 +55,7 @@ app.use('/', function (req, res) {
   serverRouter['/'](req, res, compiler)
 })
 
-app.listen(port, host, function (arg) {
+app.listen(port, function (arg) {
   var url = 'http://' + host + ':' + port
   console.info(`${chalk.magenta('dev server started at: ')}${chalk.blue(url)}`)
 })

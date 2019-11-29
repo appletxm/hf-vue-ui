@@ -1,0 +1,32 @@
+$tabs-item-text-color-normal: $clr-font-describe-color; // tab-item正常状态默认颜色
+$tabs-item-text-color-hover: $clr-main02-color; // tab-item hover状态 字体颜色
+$tabs-item-text-color-disabled: $clr-font-tips-color; // tab-item disabled状态 字体颜色
+$tabs-index-normal: 1 !default;
+$tabs-divider-color: $clr-divider-color; // tab 线条颜色
+
+$tabs-item-ellipse-height: 50px; // 全局标签页的高度
+$tabs-item-ellipse-active-height: 32px; // 全局标签页的活跃高度
+$tabs-item-ellipse-active-padding: 16px; // 全局标签页的padding
+$tabs-item-ellipse-active-bottom: 9px; // 全局标签页的bottom
+$tabs-item-ellipse-active-bgcolor: $clr-main01-color; //  全局标签页的活跃背景色
+$tabs-item-ellipse-active-color: $clr-font-btn01-color; // 全局标签页的活跃字体色
+
+
+$tabs-item-line-height: 60px; // 一级标签页的高度
+$tabs-item-line-padding: 20px; // 一级标签页左右间距
+$tabs-item-line-text-color-active: $clr-font-title-color; // 一级标签页 tab-item 选中状态 字体颜色
+$tabs-item-line-border-color-active: $clr-main01-color; // 一级标签页 tab-item 选中状态 border颜色
+$tabs-item-line-border-height: 4px; // 一级标签页 tab-item 选中状态 border高度
+
+$tabs-item-text-color-active: $clr-main01-color; // 二级标签页 tab-item 选中状态 字体颜色
+
+$tabs-card-bgcolor: $clr-bg-content-color; // 选项卡样式标签页的背景颜色
+$tabs-item-card-height: 40px; // 选项卡样式标签页的高度
+$tabs-item-card-border-color-active: $clr-bg-content-color; // 选项卡样式标签页的高度 tab-item 选中状态 border颜色
+
+$tabs-border-card-bgcolor: $clr-bg-content-color; // 卡片标签页的背景颜色
+$tabs-border-card-header-bgcolor: $clr-uneditable-color; // 卡片标签页的头部颜色
+$tabs-border-card-color-active: $clr-main01-color; // 卡片标签页 tab-item 选中状态 字体颜色
+$tabs-border-card-header-bgcolor-active: $clr-bg-content-color; // 卡片标签页选中状态的背景颜色
+$tabs-item-border-card-height: 40px; // 卡片标签页样式标签页的高度
+

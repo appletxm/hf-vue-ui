@@ -1,5 +1,7 @@
+const host = require('ip').address()
+
 module.exports = {
-  host: '127.0.0.1',
+  host: host,
   port: 8091,
   api: '/api',
   publicPath: '',

@@ -45,9 +45,9 @@
   color: $clr-bg-content-color;
   @include getBgColorAlpha($clr-main04-color, 0.3);
   .aside-right {
-    width: calc(100% - 200px);
     overflow: auto;
     padding: 0 $gap $gap $gap;
+    flex: 1;
   }
 }
 

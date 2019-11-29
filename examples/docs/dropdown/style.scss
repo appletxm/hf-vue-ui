@@ -1,0 +1,21 @@
+.hf-ui-dropdown + .hf-ui-dropdown {
+  margin-left: $gap-fourth;
+}
+.hf-ui-dropdown-demo-2 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  .col {
+    flex: 1;
+    text-align: center;
+  }
+  .col:first-child {
+    border-right: 1px solid $clr-border-color;
+  }
+  .demonstration {
+    display: block;
+    color: $clr-font-tips-color;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+}

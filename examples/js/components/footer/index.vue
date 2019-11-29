@@ -1,12 +1,12 @@
 <template>
   <div :class="[prefix]">
     <router-link v-if="prev.path" class="link" :to="prev.path">
-      <span class="hf-ui-icon ui-icon-arrowup"></span>
+      <span class="hf-ui-icon ui-icon-line-direction-arrowleft"></span>
       {{ prev.label }}
     </router-link>
     <router-link v-if="next.path" :class="['link', 'link__next']" :to="next.path">
       {{ next.label }}
-      <span class="hf-ui-icon ui-icon-arrowup"></span>
+      <span class="hf-ui-icon ui-icon-line-direction-arrowright"></span>
     </router-link>
   </div>
 </template>

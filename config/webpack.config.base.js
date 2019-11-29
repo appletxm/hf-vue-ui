@@ -23,14 +23,15 @@ module.exports = function (envKeyWord, env) {
       rules: [
         {
           enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
+          test: /\.(js|vue|jsx?)$/,
+          loader: 'eslint-loader?fix=true',
           exclude: /node_modules/
         },
         {
-          test: /\.js$/,
+          test: /\.(js|jsx?)$/,
           loader: 'babel-loader',
-          include: [path.join(__dirname, '..', 'src'), path.join(__dirname, '..', 'test')]
+          include: [path.join(__dirname, '..', 'src'), path.join(__dirname, '..', 'test')],
+          exclude: [path.resolve('src/utils/popper.js')]
         },
         {
           test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -39,8 +40,8 @@ module.exports = function (envKeyWord, env) {
             limit: 8192,
             context: 'client',
             name: isDev ? '[path][name].[ext]' : 'assets/images/[name].[ext]',
-            outputPath: isDev ? '' : 'assets/images/',
-            publicPath: isDev ? '../' : '../'
+            // outputPath: isDev ? '' : 'assets/images/',
+            publicPath: '../'
           }
         },
         {
@@ -50,8 +51,8 @@ module.exports = function (envKeyWord, env) {
             limit: 8192,
             context: 'client',
             name: isDev ? '[path][name].[ext]' : 'assets/fonts/[name].[hash:7].[ext]',
-            outputPath: isDev ? '' : 'assets/fonts/',
-            publicPath: isDev ? '../' : '../'
+            // outputPath: isDev ? '' : 'assets/fonts/',
+            publicPath: '../'
           }
         },
         {

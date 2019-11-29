@@ -5,6 +5,7 @@ const {
   routerImgPath,
   routerHtmlPath,
   routerJsFile,
+  routerCssFile,
   routerUserTheme
 } = require('./server-router-handle')
 
@@ -23,6 +24,8 @@ const serverRouter = {
   'image': routerImgPath,
 
   'js': routerJsFile,
+
+  'css': routerCssFile,
 
   'uploadSingleFile': routerUploadSingleFile,
 

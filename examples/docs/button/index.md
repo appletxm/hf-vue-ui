@@ -63,13 +63,32 @@ Button 组件提供大中小的三种尺寸，可以在不同场景下选择合�
 
 ```html
 <div class="hf-doc-button-demo">
-  <hf-ui-button icon="ui-icon-home">默认按钮</hf-ui-button>
-  <hf-ui-button size="big" icon="ui-icon-home">大型按钮</hf-ui-button>
-  <hf-ui-button size="medium" icon="ui-icon-home">中等按钮</hf-ui-button>
-  <hf-ui-button size="small" icon="ui-icon-home">小型按钮</hf-ui-button>
-  <hf-ui-button size="big" icon="ui-icon-home" type="light"></hf-ui-button>
-  <hf-ui-button>默认按钮<i class="hf-ui-icon ui-icon-home"></i></hf-ui-button>
+  <hf-ui-button icon="ui-icon-line-currency-user">默认按钮</hf-ui-button>
+  <hf-ui-button size="big" icon="ui-icon-line-currency-user">大型按钮</hf-ui-button>
+  <hf-ui-button size="medium" icon="ui-icon-line-currency-user">中等按钮</hf-ui-button>
+  <hf-ui-button size="small" icon="ui-icon-line-currency-user">小型按钮</hf-ui-button>
+  <hf-ui-button size="big" icon="ui-icon-line-currency-user" type="light"></hf-ui-button>
+  <hf-ui-button>默认按钮<i class="hf-ui-icon ui-icon-line-currency-user"></i></hf-ui-button>
 </div>
+```
+:::
+
+### 按钮组
+
+以按钮组的方式出现，常用于多项类似操作。
+
+:::demo 使用`<hf-ui-button-group>`标签来嵌套你的按钮。
+
+```html
+<hf-ui-button-group>
+  <hf-ui-button icon="ui-icon-line-direction-doubleleft">上一页</hf-ui-button>
+  <hf-ui-button >下一页<i class="hf-ui-icon ui-icon-line-direction-doubleright"></i></hf-ui-button>
+</hf-ui-button-group>
+<hf-ui-button-group>
+  <hf-ui-button icon="ui-icon-line-currency-user"></hf-ui-button>
+  <hf-ui-button icon="ui-icon-line-currency-user"></hf-ui-button>
+  <hf-ui-button icon="ui-icon-line-currency-user"></hf-ui-button>
+</hf-ui-button-group>
 ```
 :::
 

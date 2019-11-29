@@ -6,6 +6,9 @@ mock/*/*.*
 scripts/*.js
 src/assets/js/*.js
 src/theme/*/*
+src/utils/*
+src/transitions/*.js
+src/mixins/*.js
 *.scss
 *.md
 *.json
