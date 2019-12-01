@@ -110,7 +110,7 @@ async function boot() {
     copyThemeComponentsStyleFile()
     copyConfigFile()
     genServerScriptFile()
-    copyRegistryFile()
+    // copyRegistryFile()
     await createTarPackage(tempPkgPath, temPkgName)
   } catch (err) {
     console.error('tar error:', err)
