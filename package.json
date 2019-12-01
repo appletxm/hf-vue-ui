@@ -28,7 +28,7 @@
     "clean:lib": "rimraf dist/lib/*",
     "start": "npm run clean:examples && node scripts/dev-server.js development",
     "dev": "npm run clean:examples && node scripts/dev-server.js development",
-    "eslint": "eslint --fix src/components/**/* examples/js/**/*",
+    "eslint": "eslint --fix src/components/**/*",
     "debug": "npm run clean:examples && node --inspect scripts/dev-server.js development",
     "build:compoent": "npm run clean:lib && webpack --config config/webpack.config.component.prod.js",
     "build:examples": "npm run clean:examples && node scripts/build.js production",
