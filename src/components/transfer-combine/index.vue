@@ -14,10 +14,6 @@ export default {
   mixins: [Emitter, Locale, Migrating],
 
   props: {
-    loadingFn: {
-      type: Function,
-      default: null
-    },
     menuData: {
       type: Array,
       default() {
@@ -169,15 +165,20 @@ export default {
       } else if (which === 'right') {
         this.$refs.rightPanel.query = '';
       }
+    },
+
+    getMenuNode() {
+      return (<p>99999dddd999</p>)
     }
   },
 
   render() {
     /* eslint-disable */
     const css = this.cfg.prefix + '-transfer' + ' ' + this.cfg.prefix + '-transfer-combine'
+    const menuNode = this.getMenuNode()
     return (
       <div className={css}>
-        999999999999999
+        { menuNode }
       </div>
     )
     /* eslint-enable */

@@ -195,7 +195,13 @@
     placement="top"
     v-model="visible"
     @show="showTransfer">
-    <hf-ui-transfer-combine>
+    <hf-ui-transfer-combine
+      :menu-data="menuData"
+      v-model="value"
+      :data="data"
+      :titles="titles"
+      @loading="loadingFn"
+    >
       <span class="transfer-footer-opt" slot="right-footer">
         <hf-ui-button type="primary" @click="confirmChange">确定</hf-ui-button>
         <hf-ui-button type="text" @click="visible = false">取消</hf-ui-button>
@@ -208,6 +214,141 @@
 </template>
 
 <script>
+  const menuData = [
+    {
+      id: '0',
+      module: 'Guide',
+      label: '指南',
+      icon: 'hf-iconfont icon-bianji',
+      path: '/guide/principle',
+      children: [
+        {
+          id: '0_0',
+          module: 'Guide_Principle',
+          path: '/guide/principle',
+          label: '原则',
+          icon: 'hf-iconfont icon-bianji',
+          component: 'Principle'
+        }
+      ]
+    },
+
+    {
+      id: '1',
+      module: 'Components',
+      label: '组件',
+      icon: 'hf-iconfont icon-chakuaidi',
+      path: '/components/basic/globalSpacing',
+      children: [
+        {
+          id: '1_0',
+          module: 'Components_Basic',
+          label: '基础 Basic',
+          icon: 'hf-iconfont icon-chakuaidi',
+          children: [
+            {
+              id: '1_0_0',
+              module: 'Components_Basic_GlobalSpacing',
+              path: '/components/basic/globalSpacing',
+              label: '全局间距 GlobalSpacing',
+              icon: 'hf-iconfont icon-chakuaidi',
+              component: 'GlobalSpacing',
+              next: '1_0_1'
+            },
+
+            {
+              id: '1_0_1',
+              module: 'Components_Basic_Color',
+              path: '/components/basic/color',
+              label: '色彩 Color',
+              icon: 'hf-iconfont icon-chakuaidi',
+              component: 'Color',
+              next: '1_0_2',
+              prev: '1_0_0'
+            },
+
+            {
+              id: '1_0_2',
+              module: 'Components_Basic_Font',
+              path: '/components/basic/Font',
+              label: '文字 Font',
+              icon: 'hf-iconfont icon-chakuaidi',
+              component: 'Font',
+              next: '1_0_3',
+              prev: '1_0_1'
+            }
+          ]
+        },
+
+        {
+          id: '1_1',
+          module: 'Components_Navigation',
+          label: '导航 Navigation',
+          icon: 'hf-iconfont icon-chakuaidi',
+          children: [
+            {
+              id: '1_1_0',
+              module: 'Components_Navigation_Menu',
+              path: '/components/navigation/menu',
+              label: '导航菜单 Menu',
+              icon: 'hf-iconfont icon-chakuaidi',
+              component: 'Menu',
+              next: '1_1_1',
+              prev: '1_0_6'
+            },
+            {
+              id: '1_1_1',
+              module: 'Components_Navigation_Breadcrumb',
+              path: '/components/navigation/breadcrumb',
+              label: '面包屑 Breadcrumb',
+              icon: 'hf-iconfont icon-chakuaidi',
+              component: 'Breadcrumb',
+              next: '1_1_2',
+              prev: '1_1_0'
+            }
+          ]
+        },
+
+        {
+          id: '1_2',
+          module: 'Components_Data',
+          label: '数据录入 DataEntry',
+          icon: 'hf-iconfont icon-chakuaidi',
+          children: [
+            {
+              id: '1_2_0',
+              module: 'Components_Data_Radio',
+              path: '/components/data/radio',
+              label: '单选框 Radio',
+              icon: 'hf-iconfont icon-chakuaidi',
+              component: 'Radio',
+              next: '1_2_1',
+              prev: '1_1_4'
+            },
+            {
+              id: '1_2_1',
+              module: 'Components_Data_CheckBox',
+              path: '/components/data/checkbox',
+              label: '复选框 Checkbox',
+              icon: 'hf-iconfont icon-chakuaidi',
+              component: 'Checkbox',
+              next: '1_2_2',
+              prev: '1_2_0'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: 3,
+      module: 'Theme',
+      path: '/theme',
+      label: '主题',
+      icon: 'hf-iconfont icon-chakuaidi',
+      component: 'Theme'
+    }
+  ]
+
   function mapValueForKey(keys, data) {
     const val = []
     data.forEach(item => {
@@ -218,26 +359,28 @@
     return val
   }
 
+  function generateData() {
+    const data = [];
+    for (let i = 1; i <= 15; i++) {
+      data.push({
+        key: i,
+        label: `备选项 ${ i }`,
+        disabled: i % 4 === 0
+      });
+    }
+    return data;
+  }
+
   export default {
     data() {
-      const generateData = _ => {
-        const data = [];
-        for (let i = 1; i <= 15; i++) {
-          data.push({
-            key: i,
-            label: `备选项 ${ i }`,
-            disabled: i % 4 === 0
-          });
-        }
-        return data;
-      };
       return {
         data: generateData(),
         value: [1, 4],
         titles: ['备选列表', '已选列表'],
         visible: false,
         labels: [],
-        input2: []
+        input2: [],
+        menuData
       };
     },
 
@@ -248,6 +391,10 @@
     },
 
     methods: {
+      loadingFn() {
+        debugger
+      },
+
       confirmChange() {
         this.input2 = this.value
         this.labels = mapValueForKey(this.input2, this.data)
