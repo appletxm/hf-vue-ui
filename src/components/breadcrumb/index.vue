@@ -18,12 +18,16 @@ export default {
     separatorClass: {
       type: String,
       default: ''
-    }
+    },
+    theme: {
+      // 可选值 white
+      type: String,
+    },
   },
 
   computed: {
     classList() {
-      return `${cfg.prefix}-breadcrumb`;
+      return [`${cfg.prefix}-breadcrumb`, this.theme || ''];
     },
   },
 

@@ -1,0 +1,8 @@
+@include b(breadcrumb) {
+  &.white {
+    @include getBgColorAlpha($clr-bg-content-color, .6);
+    height: 32px;
+    line-height: 32px;
+    margin-bottom: 16px;
+  }
+}

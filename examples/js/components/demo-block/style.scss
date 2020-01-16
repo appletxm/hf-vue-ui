@@ -85,28 +85,27 @@
     margin-top: -1px;
     color: #d3dce6;
     cursor: pointer;
-    position: relative;
+    transition: boxShadow 0.23s ease-in-out;
   
     &.is-fixed {
       position: fixed;
-      bottom: 0;
-      width: 868px;
+      bottom: 5px;
+      width: 922px;
       z-index: 50;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
     }
 
     i {
       font-size: 16px;
       line-height: 44px;
       transition: .3s;
+      font-size: 12px;
       &.hovering {
-        // transform: translateX(-40px);
         opacity: 1;
       }
     }
 
     > span {
-      position: absolute;
-      transform: translateX(5px);
       font-size: 14px;
       line-height: 44px;
       transition: .3s;
@@ -114,24 +113,8 @@
     }
 
     &:hover {
-      color: #409EFF;
+      color: $clr-main01-color;
       background-color: #f9fafc;
-    }
-
-    & .text-slide-enter,
-    & .text-slide-leave-active {
-      opacity: 0;
-      // transform: translateX(10px);
-    }
-    
-    .control-button {
-      line-height: 26px;
-      position: absolute;
-      top: 0;
-      right: 0;
-      font-size: 14px;
-      padding-left: 5px;
-      padding-right: 25px;
     }
   }
 }

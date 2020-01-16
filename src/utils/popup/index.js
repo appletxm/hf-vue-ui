@@ -1,5 +1,4 @@
 /* global Vue */
-// import Vue from 'vue';
 import merge from '../merge';
 import PopupManager from './popup-manager';
 import getScrollBarWidth from '../scrollbar-width';

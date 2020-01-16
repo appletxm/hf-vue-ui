@@ -1,0 +1,143 @@
+@import "./variables.scss";
+
+@include b(tree) {
+  position: relative;
+  cursor: default;
+  color: $clr-font-title-color;
+  font-size: $font-14;
+
+  @include e(empty-block) {
+    position: relative;
+    min-height: 60px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  @include e(empty-text) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @include e(drop-indicator) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    @include getBgColorAlpha($clr-main01-color, 0.3);
+  }
+}
+
+@include b(tree-node) {
+  white-space: nowrap;
+  outline: none;
+
+  &:focus { /* focus */
+    > .#{$prefix}-tree-node__content {
+      @include getBgColorAlpha($clr-main02-color, 0.1);
+    }
+  }
+
+  @include when(drop-inner) {
+    > .#{$prefix}-tree-node__content .#{$prefix}-tree-node__label {
+      @include getBgColorAlpha($clr-main01-color, 0.3);
+      color: $clr-font-btn01-color;
+    }
+  }
+
+  @include when(current) {
+    > .#{$prefix}-tree-node__content {
+      @include getBgColorAlpha($clr-main01-color, 1);
+      color: $clr-font-btn01-color;
+      span[class*="ui-icon"] {
+        color: $clr-font-btn01-color;
+      }
+    }
+  }
+
+  @include e(content) {
+    display: flex;
+    align-items: center;
+    height: $__treeNodeHeight;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    & > .#{$prefix}-tree-node__expand-icon {
+      padding: 0 20px;
+    }
+    & > label.#{$prefix}-checkbox {
+      margin-right: 8px;
+    }
+    &:hover {
+      @include getBgColorAlpha($clr-main02-color, 0.1);
+      color: $clr-font-title-color;
+      span[class*="ui-icon"] {
+        color: $clr-font-title-color;
+      }
+    }
+
+    .#{$prefix}-tree.is-dragging & {
+      cursor: move;
+
+      & * {
+        pointer-events: none;
+      }
+    }
+
+    .#{$prefix}-tree.is-dragging.is-drop-not-allow & {
+      cursor: not-allowed;
+    }
+  }
+
+  @include e(expand-icon) {
+    cursor: pointer;
+    color: $clr-icon-color;
+    font-size: $font-12;
+
+    transform: rotate(0deg);
+    transition: all 0.3s ease-in-out;
+
+    &:before {
+      transform: scale($__treeIconScale);
+      display: inline-block;
+      line-height: $font-12;
+    }
+
+    &.expanded {
+      transform: rotate(90deg);
+    }
+
+    &.is-leaf {
+      color: transparent;
+      cursor: default;
+      visibility: hidden;
+    }
+  }
+
+  @include e(label) {
+    font-size: $font-14;
+  }
+
+  @include e(loading-icon) {
+    margin-right: 8px;
+    font-size: $font-14;
+    color: $clr-icon-color;
+    font-size: $font-12
+  }
+
+  & > .#{$prefix}-tree-node__children {
+    overflow: hidden;
+    background-color: transparent;
+  }
+
+  &.is-expanded > .#{$prefix}-tree-node__children {
+    display: block;
+  }
+}
+
+.#{$prefix}-tree--highlight-current .#{$prefix}-tree-node.is-current > .#{$prefix}-tree-node__content {
+  @include getBgColorAlpha($clr-main01-color, 1);
+  color: $clr-font-btn01-color;
+}

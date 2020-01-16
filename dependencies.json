@@ -1,5 +1,5 @@
 {
-  "name": "hf-vue-pc",
+  "name": "hf-vue-ui",
   "dependencies": {
     "javascript": {
       "0-@babel/polyfill": {

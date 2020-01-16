@@ -7,11 +7,11 @@
 :::demo 在`hf-ui-breadcrumb`中使用`hf-ui-breadcrumb-item`标签表示从首页开始的每一级。Element 提供了一个separator属性，在`hf-ui-breadcrumb`标签中设置它来决定分隔符，它只能是字符串，默认为斜杠/。
 
 ```html
-<div class="hf-doc-button-demo">
+<div class="hf-doc-breadcrumb-demo">
   <hf-ui-breadcrumb separator="/">
     <hf-ui-breadcrumb-item :to="{ path: '/' }">首页</hf-ui-breadcrumb-item>
     <hf-ui-breadcrumb-item><a href="/">活动管理</a></hf-ui-breadcrumb-item>
-    <hf-ui-breadcrumb-item>活动列表</hf-ui-breadcrumb-item>
+    <hf-ui-breadcrumb-item :to="{ path: '/list' }">活动列表</hf-ui-breadcrumb-item>
     <hf-ui-breadcrumb-item>活动详情</hf-ui-breadcrumb-item>
   </hf-ui-breadcrumb>
 </div>
@@ -23,11 +23,11 @@
 :::demo 通过设置 `separator-class` 可使用相应的 `iconfont` 作为分隔符，注意这将使 `separator` 设置失效
 
 ```html
-<div class="hf-doc-button-demo">
+<div class="hf-doc-breadcrumb-demo">
   <hf-ui-breadcrumb separator-class="hf-ui-icon ui-icon-line-direction-right">
-    <hf-ui-breadcrumb-item :to="{ path: '/' }">首页</hf-ui-breadcrumb-item>
-    <hf-ui-breadcrumb-item>活动管理</hf-ui-breadcrumb-item>
-    <hf-ui-breadcrumb-item>活动列表</hf-ui-breadcrumb-item>
+    <hf-ui-breadcrumb-item :to="{ path: '/home' }">首页</hf-ui-breadcrumb-item>
+    <hf-ui-breadcrumb-item :to="{ path: '/manage' }">活动管理</hf-ui-breadcrumb-item>
+    <hf-ui-breadcrumb-item :to="{ path: '/list' }">活动列表</hf-ui-breadcrumb-item>
     <hf-ui-breadcrumb-item>活动详情</hf-ui-breadcrumb-item>
   </hf-ui-breadcrumb>
 </div>
@@ -35,11 +35,28 @@
 :::
 
 
+### 主题
+
+:::demo 通过 `theme` 属性可设置主题样式
+
+```html
+<div class="hf-doc-breadcrumb-demo theme">
+  <hf-ui-breadcrumb theme="white">
+    <hf-ui-breadcrumb-item :to="{ path: '/home' }">首页</hf-ui-breadcrumb-item>
+    <hf-ui-breadcrumb-item :to="{ path: '/manage' }">活动管理</hf-ui-breadcrumb-item>
+    <hf-ui-breadcrumb-item :to="{ path: '/list' }">活动列表</hf-ui-breadcrumb-item>
+    <hf-ui-breadcrumb-item>活动详情</hf-ui-breadcrumb-item>
+  </hf-ui-breadcrumb>
+</div>
+```
+:::
+
 ### Breadcrumb Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
 | separator     | 分隔符	   | string |   -      |    斜杠'/'     |
 | separator-class     | 图标分隔符 class   | string    |   - |     —    |
+| theme     | 主题样式   | string    |   white |     —    |
 
 ### Breadcrumb Item Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |

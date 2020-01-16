@@ -1,5 +1,4 @@
 /* global Vue */
-// import Vue from 'vue';
 let scrollBarWidth;
 
 export default function() {

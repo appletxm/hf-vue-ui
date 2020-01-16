@@ -1,0 +1,112 @@
+@import "../button/mixin";
+@import "../button/variables";
+
+@include b(radio-button) {
+  position: relative;
+  display: inline-block;
+  outline: none;
+
+  @include e(inner) {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    vertical-align: middle;
+    background: $clr-divider-color;
+    border: $border-radius;
+    font-weight: $font-weight-regular;
+    border-left: 0;
+    color: $clr-font-text-color;
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+    transition: $--all-transition;
+
+    @include button-size($--radio-bordered-height, $button-default-padding-horizontal, $button-default-font-size, 0);
+
+    &:hover {
+      color: $--radio-checked-input-border-color;
+    }
+
+    & [class*="#{$prefix}-icon-"] {
+      line-height: 0.9;
+
+      & + span {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  &:first-child {
+    .#{$prefix}-radio-button__inner {
+      border-left: $border-radius;
+      border-radius: $border-radius 0 0 $border-radius;
+      box-shadow: none !important;
+    }
+  }
+
+  @include e(orig-radio) {
+    opacity: 0;
+    outline: none;
+    position: absolute;
+    z-index: -1;
+
+    &:checked {
+      & + .#{$prefix}-radio-button__inner {
+        color: $clr-menu-font01-color;
+        background-color: $--radio-button-checked-background-color;
+        border-color: $--radio-button-checked-border-color;
+        box-shadow: -1px 0 0 0 $--radio-button-checked-border-color;
+      }
+    }
+
+    &:disabled {
+      & + .#{$prefix}-radio-button__inner {
+        color: $--radio-disabled-icon-color;
+        cursor: not-allowed;
+        background-image: none;
+        background-color: $--radio-disabled-input-background-color;
+        border-color: $--radio-disabled-input-border-color;
+        box-shadow: none;
+      }
+      &:checked + .#{$prefix}-radio-button__inner {
+        background-color: $--radio-button-disabled-checked-fill;
+      }
+    }
+  }
+
+  &:last-child {
+    .#{$prefix}-radio-button__inner {
+      border-radius: 0 $border-radius $border-radius 0;
+    }
+  }
+
+  &:first-child:last-child {
+    .#{$prefix}-radio-button__inner {
+      border-radius: $border-radius;
+    }
+  }
+
+  @include m(medium) {
+    & .#{$prefix}-radio-button__inner {
+      @include button-size($--radio-bordered-medium-height, $button-medium-padding-horizontal, $button-medium-font-size, 0);
+    }
+  }
+  @include m(small) {
+    & .#{$prefix}-radio-button__inner {
+      @include button-size($--radio-bordered-small-height, $button-small-padding-horizontal, $button-small-font-size, 0);
+    }
+  }
+  @include m(mini) {
+    & .#{$prefix}-radio-button__inner {
+      @include button-size($--radio-bordered-mini-height, 15px, 12px, 0);
+    }
+  }
+
+  &:focus:not(.is-focus):not(:active):not(.is-disabled){ /*获得焦点时 样式提醒*/
+    box-shadow: 0 0 2px 2px $--radio-button-checked-border-color;
+  }
+}

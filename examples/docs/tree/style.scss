@@ -1,0 +1,38 @@
+.hf-ui-tree-demo {
+  .buttons {
+    margin-top: 20px;
+  }
+}
+
+.custom-tree-container {
+  display: flex;
+  .block {
+    flex: 1 1 50%;
+
+    &:first-of-type {
+      border-right: 1px solid $main-color-12;
+      padding-right: 30px;
+      margin-right: 30px;
+
+      button {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .custom-tree-node {
+    display: flex;
+    width: 100%;
+    span {
+      flex: 1 1 60%;
+      &:last-of-type {
+        flex-basis: 40%;
+        text-align: right;
+
+        button {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

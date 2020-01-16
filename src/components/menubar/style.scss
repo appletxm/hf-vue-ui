@@ -4,7 +4,7 @@
     width: 100%;
     height: $menu-item-horizontal-height;
     padding: 0 $gap;
-    background:$clr-menu-top-bg;
+    background:$clr-menu-top-bg-color;
     box-shadow: $clr-menu-top-projection;
     @include e(wrap) {
       width: 100%;
@@ -46,20 +46,20 @@
     @include e(wrap) {
       width: 100%;
       height: 100%;
-      background: $clr-menu-top-bg;
+      background:  $clr-menu-nav-bg-color;
       @include m(menus) {
         width: 100%;
         height: calc(100% - #{$menu-item-vertical-height});
         overflow: auto;
         overflow-x: hidden;
-        background: $clr-menu-top-bg;
+        background: $clr-menu-nav-bg-color;
       }
       @include m(foldicon) {
         width: 100%;
         height: $menu-item-vertical-height;
-        background-color: rgba($menu-fold, 0.05);
-        color: rgba($menu-fold, 0.5);
-        border-top: 1px solid rgba($menu-fold, 0.1);
+        background-color: rgba($clr-menu-fold-color, 0.05);
+        color: rgba($clr-menu-fold-color, 0.5);
+        border-top: 1px solid rgba($clr-menu-fold-color, 0.1);
         font-size: $font-20;
         line-height: $menu-item-vertical-height;
         text-align: center;

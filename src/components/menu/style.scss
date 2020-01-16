@@ -4,7 +4,7 @@
   height: $menu-item-vertical-height;
   line-height: $menu-item-vertical-height;
   font-size: $menu-item-font-size;
-  color: $menu-font02;
+  color: $clr-menu-font02-color;
   padding: 0 $gap;
   list-style: none;
   cursor: pointer;
@@ -18,7 +18,7 @@
   // }
 
   i {
-    color: $menu-font02;
+    color: $clr-menu-font02-color;
     margin-right: 8px;
     font-size: $font-20;
   }
@@ -29,7 +29,7 @@
     float: left;
   }
   i.#{$prefix}-submenu__icon-arrow {
-    color: rgba($menu-font02, 0.5);
+    color: rgba($clr-menu-font02-color, 0.5);
     margin-right: 0;
     font-size: $font-12;
   }
@@ -37,16 +37,16 @@
   &:hover,
   &:focus {
     outline: none;
-    background-color: rgba($menu-main02, 0.1);
+    background-color: rgba($clr-menu-main02-color, 0.1);
   }
   @include when(active) {
-    background-color: $menu-main01;
-    color: $menu-font01;
+    background-color: $clr-menu-main01-color;
+    color: $clr-menu-font01-color;
     i {
-      color: $menu-font01;
+      color: $clr-menu-font01-color;
     }
     i.#{$prefix}-submenu__icon-arrow {
-      color: $menu-font01;
+      color: $clr-menu-font01-color;
     }
   }
 
@@ -64,7 +64,7 @@
   @include e(title) {
     @include menu-item;
     &:hover {
-      background-color: rgba($menu-main02, 0.1);
+      background-color: rgba($clr-menu-main02-color, 0.1);
     }
   }
   & .#{$prefix}-menu {
@@ -72,7 +72,7 @@
   }
   @include m(vertical) {
     .#{$prefix}-menu--popup {
-      border-left: 1px solid rgba($menu-line, 0.1);
+      border-left: 1px solid rgba($clr-menu-line-color, 0.1);
     }
   }
 
@@ -92,13 +92,13 @@
   }
   @include when(active) {
     &:not(.is-tree) > .#{$prefix}-submenu__title {
-      background-color: $menu-main01;
-      color: $menu-font01;
+      background-color: $clr-menu-main01-color;
+      color: $clr-menu-font01-color;
       i {
-        color: $menu-font01;
+        color: $clr-menu-font01-color;
       }
       i.#{$prefix}-submenu__icon-arrow {
-        color: $menu-font01;
+        color: $clr-menu-font01-color;
       }
     }
   }
@@ -128,7 +128,7 @@
     height: $menu-item-vertical-height;
     line-height: $menu-item-vertical-height;
     padding: 0 $gap;
-    color: rgba($menu-font02, 0.3);
+    color: rgba($clr-menu-font02-color, 0.3);
     font-size: $font-14;
   }
 }
@@ -138,13 +138,21 @@
   position: relative;
   margin: 0;
   padding-left: 0;
-  background-color: $clr-menu-top-bg;
+  // background-color: $clr-menu-top-bg-color;
   @include utils-clearfix;
+
+  &.#{$prefix}-submenu--content {
+    background-color: $clr-menu-subnav-bg-color;
+  }
 
   @include m(vertical) {
     width: $menu-width;
+    background-color: $clr-menu-nav-bg-color;
+    &.#{$prefix}-submenu--content {
+      background-color: $clr-menu-subnav-bg-color;
+    }
     .#{$prefix}-menu--popup {
-      border-left: 1px solid rgba($menu-line, 0.1);
+      border-left: 1px solid rgba($clr-menu-line-color, 0.1);
       box-shadow: none;
       border-radius: 0px;
     }
@@ -152,28 +160,29 @@
       height: $menu-item-vertical-height;
       line-height: $menu-item-vertical-height;
       padding: 0 $gap;
-      color: rgba($menu-font02, 0.3);
+      color: rgba($clr-menu-font02-color, 0.3);
     }
     & .is-opened.is-tree {
       .#{$prefix}-submenu__title.is-first-level {
-        border-left: $menu-border-width solid $menu-main01;
-        color: $menu-main01;
-        background-color: rgba($menu-main01, 0.1);
+        border-left: $menu-border-width solid $clr-menu-main01-color;
+        color: $clr-menu-main01-color;
+        background-color: rgba($clr-menu-main01-color, 0.1);
         padding-left: calc(#{$gap} - #{$menu-border-width}) !important;
         i {
-          color: $menu-main01;
+          color: $clr-menu-main01-color;
         }
       }
     }
   }
   @include m(horizontal) {
     border-right: none;
+    background-color: $clr-menu-top-bg-color;
     & > .#{$prefix}-menu-item {
       float: left;
       height: $menu-item-horizontal-height;
       line-height: $menu-item-horizontal-height;
       margin-right: $gap-secondary * 2;
-      color: $clr-menu-top-n;
+      color: $clr-menu-top-n-color;
       padding: 0;
 
       a,
@@ -183,7 +192,7 @@
 
       &:not(.is-disabled):hover,
       &:not(.is-disabled):focus{
-        background-color: #fff;
+        background-color: transparent;
       }
     }
     & > .#{$prefix}-menu-item:last-child {
@@ -197,20 +206,20 @@
       &:hover {
         outline: none;
         .#{$prefix}-submenu__title {
-          color: $clr-menu-top-h;
+          color: $clr-menu-top-h-color;
+          background-color: transparent;
           i {
-            color: $clr-menu-top-h;
+            color: $clr-menu-top-h-color;
           }
         }
       }
-
       &.is-active,&.is-active:hover,&.is-active:focus {
         .#{$prefix}-submenu__title {
-          border-bottom: $menu-border-width solid $clr-menu-top-a;
-          color: $clr-menu-top-a;
+          border-bottom: $menu-border-width solid $clr-menu-top-a-color;
+          color: $clr-menu-top-a-color;
           background-color: transparent;
           i.#{$prefix}-submenu__icon-arrow {
-            color: $clr-menu-top-a;
+            color: $clr-menu-top-a-color;
           }
         }
       }
@@ -219,11 +228,11 @@
         height: $menu-item-horizontal-height;
         line-height: $menu-item-horizontal-height;
         // border-bottom: 2px solid transparent;
-        color: $clr-menu-top-n;
+        color: $clr-menu-top-n-color;
         padding: 0;
 
         &:hover {
-          background-color: #fff;
+          background-color: transparent;
         }
       }
       & .#{$prefix}-submenu__icon-arrow {
@@ -240,7 +249,7 @@
     & .#{$prefix}-menu {
       & .#{$prefix}-menu-item,
       & .#{$prefix}-submenu__title {
-        background-color: $clr-bg-content-color;
+        background-color: $clr-menu-top-bg-color;
         float: none;
         height: $menu-item-vertical-height;
         line-height: $menu-item-vertical-height;
@@ -266,19 +275,19 @@
     & .#{$prefix}-menu-item:not(.is-disabled):hover,
     & .#{$prefix}-menu-item:not(.is-disabled):focus {
       outline: none;
-      color: $clr-menu-top-h;
+      color: $clr-menu-top-h-color;
       i {
-        color: $clr-menu-top-h;
+        color: $clr-menu-top-h-color;
       }
     }
     & > .#{$prefix}-menu-item.is-active,
     & > .#{$prefix}-menu-item.is-active:hover,
     & > .#{$prefix}-menu-item.is-active:focus {
-      border-bottom: $menu-border-width solid $clr-menu-top-a;
-      color: $clr-menu-top-a;
+      border-bottom: $menu-border-width solid $clr-menu-top-a-color;
+      color: $clr-menu-top-a-color;
       background-color: transparent;
       i {
-        color: $clr-menu-top-a;
+        color: $clr-menu-top-a-color;
       }
     }
   }
@@ -350,8 +359,9 @@
 .#{$prefix}-menu-item--popover {
   padding: 0 $gap;
   line-height: $menu-item-vertical-height;
-  color: $menu-font02;
+  color: $clr-menu-font02-color;
   margin-left: $gap-fifth * 2;
+  background-color: $clr-menu-nav-bg-color;
 }
 .#{$prefix}-menu--fix-submenu .#{$prefix}-menu {
   height: 100%;

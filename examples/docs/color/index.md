@@ -1,24 +1,11 @@
 <script>
   import scssGlobals from 'theme/variables.scss'
-  import { parseGlobals, getColorsForColorPanel, getMainColors, getSubColors, getNormalColors, darkFonts } from './models'
+  import { parseGlobals, getColorsForColorPanel, getMainColors, getSubColors, getNormalColors, darkFonts, getTopMenuColor, getSideMenuColors, isInDarkFontList, getRegbaColor, getNormalColorOpacity } from './models'
 
   export default {
     created() {},
     mounted() {},
-    methods: {
-      $isInDarkFontList(color) {
-        return darkFonts.indexOf(color) >= 0
-      },
-      $getNormalColorOpacity(key) {
-        if (key === 'clr_mask') {
-          return 0.7
-        } else if (key === 'clr_projection') {
-          return 0.1
-        } else {
-          return 1
-        }
-      }
-    },
+    methods: {},
     data() {
       const globalColors = parseGlobals(scssGlobals)
 
@@ -26,7 +13,14 @@
         colorPanel: getColorsForColorPanel(globalColors),
         mainColor: getMainColors(globalColors),
         subColor: getSubColors(globalColors),
-        normalColor: getNormalColors(globalColors)
+        normalColor: getNormalColors(globalColors),
+        // menuColor: getMenuColors(globalColors),
+        topMenuColor: getTopMenuColor(globalColors),
+        sideMenuColor: getSideMenuColors(globalColors),
+
+        isInDarkFontList, 
+        getRegbaColor, 
+        getNormalColorOpacity
       }
     },
     watch: {
@@ -46,7 +40,7 @@
 #### 色板
 整套页面皮肤所使用到的颜色总概况
 <ul class="hf-ui-doc-color-panel">
-  <li v-for="color in colorPanel" :style="{backgroundColor: color}" :class="[$isInDarkFontList(color) ? 'dark-font': '']">{{color}}</li>
+  <li v-for="color in colorPanel" :style="{backgroundColor: color}" :class="[isInDarkFontList(color) ? 'dark-font': '']">{{color}}</li>
 </ul>
 
 #### 主色
@@ -82,9 +76,32 @@
 多用于文字、图标、边框、背景、阴影等可以体现的页面的层次结构
 <ul class="hf-ui-doc-color-main">
   <li v-for="item in normalColor">
-    <span :style="{backgroundColor: item['color'], opacity: $getNormalColorOpacity(item.key)}" :class="[$isInDarkFontList(item.color) ? 'dark-font': '']">
+    <span :style="getRegbaColor(item.key, item['color'], getNormalColorOpacity(item.key))" :class="[isInDarkFontList(item.color) ? 'dark-font': '']">
       <i>.{{item.key}}</i>
-      <i>{{item.color}}{{item.key === 'clr_mask' ? '70':''}}{{item.key === 'clr_projection' ? '10':''}}</i>
+      <i>{{item.color}}{{item.key === 'clr_mask' ? '70':''}}</i>
+    </span>
+    <b>{{item.label}}</b>
+  </li>
+</ul>
+
+#### 导航用色
+##### 顶部导航相关配色方案
+<ul class="hf-ui-doc-color-main">
+  <li v-for="item in topMenuColor">
+    <span :style="getRegbaColor(item.key, item['color'], getNormalColorOpacity(item.key))" :class="[isInDarkFontList(item.color) || item.key === 'clr_menu_top_projection' ? 'dark-font': '']">
+      <i>.{{item.key}}</i>
+      <i>{{item.color}}{{item.key === 'clr_menu_top_projection' ? '05':''}}</i>
+    </span>
+    <b>{{item.label}}</b>
+  </li>
+</ul>
+
+##### 左侧导航菜单相关配色方案
+<ul class="hf-ui-doc-color-main">
+  <li v-for="item in sideMenuColor">
+    <span :style="{backgroundColor: item['color']}" :class="[isInDarkFontList(item.color) ? 'dark-font': '']">
+      <i>.{{item.key}}</i>
+      <i>{{item.color}}</i>
     </span>
     <b>{{item.label}}</b>
   </li>

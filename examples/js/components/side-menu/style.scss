@@ -6,7 +6,7 @@
 
   li {
     &.level-top {
-      margin-bottom: 15px;
+      margin-bottom: 25px;
     }
   }
 
@@ -22,12 +22,12 @@
       transition: all .3s ease-in-out;
 
       &:hover {
-        color: $clr-error-color;
+        color: #CC9967;
       }
     }
 
     &.actived {
-      color: $clr-error-color;
+      color: #CC9967
     }
   }
 }

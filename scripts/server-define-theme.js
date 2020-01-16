@@ -28,7 +28,7 @@ function doGenerateGlobalFile(globals, ipAddress) {
   let globaFile = fs.readFileSync(globalFullPath, 'utf8')
   
   globals.forEach(item => {
-    let key = '$' + (item.key.replace(/_/g, '-')) + '-color'
+    let key = item.key.lastIndexOf('_color') > -1 ? '$' + (item.key.replace(/_/g, '-')) : '$' + (item.key.replace(/_/g, '-')) + '-color';
     let matchReg = new RegExp(`(\\${key}\\:\\s*)([^\\:;]+)`, 'g')
     globaFile = globaFile.replace(matchReg, ($1, $2, $3) => {
       if ($3 === item.color) {
@@ -49,59 +49,17 @@ function doGenerateIndexFile(ipAddress) {
 }
 
 function doOutputTheme(ipAddress) {
-  // let promise
-  // promise = new Promise((resolve) => {
-  //   const ouputFile = `./tmp/out-theme/${ipAddress}/${cfg.prefix}.min.css`
-  //   const cmd = `npm run generatorTheme`
-  //   exec(cmd, (error) => {
-  //     if (error) {
-  //       console.info(error)
-  //       throw 'Compile scss to css failed'
-  //     } else {
-  //       resolve(ouputFile)
-  //     }
-  //   })
-  // })
-  // return promise
-
-  // let resolveCb
-  // const promise = new Promise(resolve => {
-  //   resolveCb = resolve
-  // })
-  // const cmd = process.platform === 'win32' ? 'npm.cmd' : 'npm'
-  // const ouputFile = `./tmp/out-theme/${ipAddress}/${cfg.prefix}.min.css`
-  // const runWebpack = spawn(cmd, ['run', 'generatorTheme', 'ipAddress=' + ipAddress])
-
-  // runWebpack.stdout.on('data', (data) => {
-  //   console.log('runWebpack stdout:', data)
-  // })
-  // runWebpack.stderr.on('data', (data) => {
-  //   console.log('runWebpack stderr:', data)
-  //   throw 'Compile scss to css failed'
-  // })
-  // runWebpack.on('exit', (code, signal) => {
-  //   console.log('runWebpack exit:', code, signal)
-  //   resolveCb(ouputFile)
-  // })
-
-  // runWebpack.on('error', (err) => {
-  //   console.error('runWebpack error:', err);
-  // })
-
-  // runWebpack.on('close', (code) => {
-  //   console.error('runWebpack close:', code);
-  // })
-  // return promise
-
   let resolveCb
-  const promise = new Promise(resolve => {
+  let rejectCb
+  const promise = new Promise((resolve, reject) => {
     resolveCb = resolve
+    rejectCb = reject
   })
   const ouputFile = `${cfg.userDefineTheme.out}/${ipAddress}/${cfg.prefix}.min.css`
   const config = getConfig(ipAddress)
   webpack(config, function (err) {
     if (err) {
-      throw err
+      rejectCb(err)
     }
     resolveCb(ouputFile)
   })

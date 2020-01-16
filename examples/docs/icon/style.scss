@@ -19,15 +19,19 @@
     list-style: none;
     display: flex;
     align-items: flex-start;
+    // justify-content: space-evenly;
     flex-wrap: wrap;
     border: 1px solid $clr-border-color;
     border-radius: 3px;
 
     li {
-      width: 150px;
-      height: 100px;
+      // width: 150px;
+      flex-basis: 20%;
+      height: 130px;
       text-align: center;
       color: $clr-font-text-color;
+      padding: 5px;
+
       @include transition(all .5s ease);
 
       .hf-ui-icon {
@@ -36,6 +40,7 @@
         font-weight: 600;
         &:before {
           font-size: $font-24;
+          line-height: 60px;
         }
       }
       i {

@@ -5,12 +5,10 @@
 
   @include e(separator) {
     margin: 0 8px;
-    font-weight: bold;
     color: $clr-font-describe-color;
 
     &[class*=icon] {
       margin: 0 6px;
-      font-weight: normal;
       font-size: 12px;
     }
   }
@@ -19,13 +17,12 @@
     float: left;
 
     @include e(inner) {
-      color: $clr-font-text-color;
+      color: $clr-font-describe-color;
 
       &.is-link, & a {
-        font-weight: bold;
+        color: $clr-font-describe-color;
         text-decoration: none;
         transition: $--color-transition-base;
-        color: $clr-font-text-color;
 
         &:hover {
           color: $clr-main02-color;
@@ -44,6 +41,7 @@
         &, &:hover {
           font-weight: normal;
           cursor: text;
+          color: $clr-font-describe-color;
         }
       }
 
@@ -53,3 +51,4 @@
     }
   }
 }
+@import 'theme.scss';

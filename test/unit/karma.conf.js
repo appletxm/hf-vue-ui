@@ -2,14 +2,7 @@ const webpackConfig = require('../../config/webpack.config.component.test');
 
 module.exports = function(config) {
   const configuration = {
-    // browsers: ['ChromeHeadless'],
-browsers: ['ChromeHeadlessNoSandbox'],
-    customLaunchers: {
-      ChromeHeadlessNoSandbox: {
-        base: 'ChromeHeadless',
-        flags: ['--no-sandbox']
-      }
-    },
+    browsers: ['ChromeHeadless'],
     frameworks: ['mocha', 'sinon-chai'],
     reporters: ['spec', 'coverage'],
     files: ['./index.js'],

@@ -1,0 +1,39 @@
+@include b(loading-type-area) {
+  $__square: 56px;
+
+  width: $__square;
+  height: $__square;
+  text-align: center;
+  border-radius: 4px;
+  line-height: $__square;
+  left: 50%;
+  margin: -$__square/2;
+
+  @include getBgColorAlpha($clr-mask-color, 0.8);
+
+  i {
+    vertical-align: middle;
+    font-size: $font-24;
+    color: $clr-font-btn01-color;
+  }
+}
+
+@include b(loading-type-scroll) {
+  $__gap: 12px;
+
+  display: inline-block;
+  width: auto;
+
+  i {
+    font-size: $font-16;
+    color: $clr-font-title-color;
+    vertical-align: middle;
+  }
+
+  .#{$prefix}-loading-text {
+    color: $clr-font-text-color;
+    display: inline-block;
+    margin-left: $__gap;
+    vertical-align: middle;
+  }
+}

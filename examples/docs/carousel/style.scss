@@ -1,0 +1,50 @@
+.demo-carousel .block {
+  padding: 30px;
+  text-align: center;
+  border-right: solid 1px $clr-divider-color;
+  display: inline-block;
+  width: 49%;
+  box-sizing: border-box;
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.demo-carousel .demonstration {
+  display: block;
+  color: $clr-font-title-color;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.demo-carousel .hf-ui-carousel__container {
+  text-align: center;
+}
+
+.demo-carousel .hf-ui-carousel__item {
+  h3 {
+    color: $clr-font-btn01-color;
+    font-size: 18px;
+    line-height: 300px;
+    margin: 0;
+    &.small {
+      font-size: 14px;
+      line-height: 150px;
+    }
+    &.medium {
+      font-size: 14px;
+      line-height: 200px;
+    }
+    &.medium-40 {
+      font-size: 14px;
+      line-height: 160px;
+    }
+  }
+  &:nth-child(2n) {
+    background-color: $clr-font-describe-color;
+  }
+  &:nth-child(2n + 1) {
+    background-color: $clr-font-tips-color;
+  }
+}
+

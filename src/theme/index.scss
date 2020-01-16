@@ -1,12 +1,13 @@
 @import "./globals";
 @import "./variables";
-@import "./mixin";
-@import "./animate";
-@import "./extend";
-
-@import "./font-common.scss";
-@import "./iconfont.css";
+@import "./mix-mixin";
+@import "./mix-utils";
+@import "./mix-extend";
 @import "./transition";
+@import "./animate";
+
+@import "./font/iconfont.css";
+@import "./iconfont-fix";
 @import "./display.css";
 
 @import "../components/button/style";
@@ -27,3 +28,19 @@
 @import "../components/menubar/style";
 @import "../components/tabs/style";
 @import "../components/breadcrumb/style";
+@import "../components/switch/style";
+@import "../components/carousel/style";
+@import "../components/carousel-item/style";
+@import '../components/loading/style';
+@import "../components/input/style";
+@import "../components/pagination/style";
+@import "../components/radio/style";
+@import "../components/color-picker/style";
+@import "../components/checkbox/style";
+@import "../components/checkbox-button/style";
+@import "../components/tree/style";
+@import "../components/backtop/style";
+@import "../components/form/style";
+@import "../components/table/style";
+@import "../components/transfer/style";
+@import "../components/transfer-combine/style";

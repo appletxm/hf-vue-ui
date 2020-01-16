@@ -35,6 +35,13 @@ module.exports = {
         loader: 'eslint-loader',
         exclude: /node_modules|utils\/popper\.js|utils\/date\.js/
       },
+
+      {
+        test: /components-collection\.js$/,
+        loader: path.resolve('./loaders/version-loader/index.js'),
+        include: [path.join(__dirname, '..', 'src')],
+        exclude: /node_modules/
+      },
       
       {
         test: /\.(js|jsx?)$/,
@@ -42,6 +49,7 @@ module.exports = {
         include: [path.join(__dirname, '..', 'src'), path.join(__dirname, '..', 'test')],
         exclude: [path.resolve('src/utils/popper.js')]
       },
+
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
@@ -52,6 +60,7 @@ module.exports = {
           outputPath: 'theme/font/'
         }
       },
+
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
@@ -62,6 +71,7 @@ module.exports = {
           outputPath: 'theme/font/'
         }
       },
+
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
@@ -83,11 +93,13 @@ module.exports = {
           'sass-loader'
         ]
       },
+
       {
         test: /\.vue$/,
         loader: 'vue-loader',
         include: [path.join(__dirname, '..', 'src')]
       },
+      
       {
         test: /\.html$/,
         loader: 'html-loader',

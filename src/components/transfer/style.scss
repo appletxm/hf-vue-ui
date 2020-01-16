@@ -1,0 +1,308 @@
+@import "./variables";
+
+@include b(transfer) {
+  font-size: $font-14;
+  border-radius: $border-radius;
+  display: inline-block;
+  border: 1px solid $clr-divider-color;
+
+  @include e(buttons) {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 30px;
+  }
+
+  @include e(button) {
+    // display: block;
+    // margin: 0 auto;
+    // padding: 10px;
+    // border-radius: 50%;
+    // color: $clr-font-btn01-color;
+    // background-color: $clr-main01-color;
+    // font-size: 0;
+
+    // @include when(with-texts) {
+    //   border-radius: $border-radius;
+    // }
+
+    // @include when(disabled) {
+    //   border: $clr-font-describe-color;
+    //   background-color: $clr-divider-color;
+    //   color: $clr-font-describe-color;
+
+    //   &:hover {
+    //     border: $clr-font-describe-color;
+    //     background-color: $clr-divider-color;
+    //     color: $clr-font-describe-color;
+    //   }
+    // }
+
+    // &:first-child {
+    //   margin-bottom: 10px;
+    // }
+
+    // &:nth-child(2) {
+    //   margin: 0;
+    // }
+
+    // i, span {
+    //   font-size: 14px;
+    // }
+
+    // & [class*="ui-icon-"] + span {
+    //   margin-left: 0;
+    // }
+  }
+
+  .#{$prefix}-transfer-panel{
+    border-right: 1px solid $clr-divider-color;
+    &:nth-last-of-type(1) {
+      border-right: 0;
+    }
+  }
+}
+
+@include b(transfer-panel) {
+  overflow: hidden;
+  background: $clr-bg-content-color;
+  display: inline-block;
+  vertical-align: middle;
+  width: $--transfer-panel-width;
+  max-height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  padding: 16px;
+  border-radius: $border-radius;
+
+  @include e(body) {
+    height: $--transfer-panel-body-height;
+
+    @include when(with-footer) {
+      padding-bottom: $--transfer-panel-footer-height - 10px;
+    }
+  }
+
+  @include e(list) {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: $--transfer-panel-body-height - 50px;
+    overflow: auto;
+    box-sizing: border-box;
+    width: 100%;
+
+    @include when(filterable) {
+      height: #{$--transfer-panel-body-height - 45px};
+      padding-top: 0;
+    }
+  }
+
+  @include e(item) {
+    height: $--transfer-item-height;
+    line-height: $--transfer-item-height;
+    padding: 0 10px;
+    display: block;
+    margin-right: 0;
+    transition: all 0.3s ease-in-out;
+
+    @include when(source) {
+      .ui-icon-line-currency-failure {
+        display: none;
+      }
+      .ui-icon-line-currency-tick {
+        height: 14px;
+        line-height: 14px;
+        width: 14px;
+        background-color: $clr-main01-color;
+        color: $clr-font-btn01-color;
+        font-size: $font-12;
+        border-radius: 2px;
+        opacity: 0;
+        top: 11px;
+        transition: all 0.2s ease-in-out;
+        text-align: center;
+
+        &:before {
+          transform: scale(0.6);
+          display: inline-block;
+        }
+      }
+
+      &:hover {
+        .ui-icon-line-currency-tick {
+         opacity: 1;
+        }
+      }
+    }
+
+    @include when(target) {
+      span[class*="-checkbox__input"] {
+        opacity: 0;
+      }
+    }
+
+    @include when(disabled) {
+      &:hover {
+        background-color: transparent;
+        .ui-icon-line-currency-tick {
+          opacity: 0;
+        }
+      }
+      span[class*="-checkbox__label"] {
+        color: $main-color-08;
+      }
+      span[class*="ui-icon-"] {
+        color: $main-color-08;
+      }
+    }
+
+    & + .#{$prefix}-transfer-panel__item {
+      margin-left: 0;
+      display: block!important;
+    }
+
+    // &.#{$prefix}-checkbox {
+    //   color: $clr-font-title-color;
+    // }
+
+    &.is-checked {
+      .#{$prefix}-checkbox__label {
+        color: $clr-main01-color;
+      }
+    }
+
+    &:hover {
+      color: $clr-main01-color;
+      @include getBgColorAlpha($clr-main02-color, 0.1);
+    }
+
+    &.#{$prefix}-checkbox .#{$prefix}-checkbox__label {
+      width: 100%;
+      @include utils-ellipsis;
+      display: block;
+      box-sizing: border-box;
+      padding-left: 0;
+      line-height: $--transfer-item-height;
+    }
+
+    span[class*="ui-icon-"] {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      z-index: 1;
+    }
+
+    .#{$prefix}-checkbox__input {
+      position: absolute;
+      top: 11px;
+      right: 10px;
+    }
+  }
+
+  @include e(filter) {
+    text-align: center;
+    margin: 0 0 10px 0;
+    box-sizing: border-box;
+    display: block;
+    width: auto;
+
+    .#{$prefix}-input__inner {
+      height: $--transfer-filter-height;
+      width: 100%;
+      font-size: 12px;
+      display: inline-block;
+      box-sizing: border-box;
+      border-radius: $border-radius;
+      padding-right: 10px;
+      padding-left: 30px;
+    }
+
+    .#{$prefix}-input__icon {
+      margin-left: 5px;
+    }
+
+    .#{$prefix}-icon-circle-close {
+      cursor: pointer;
+    }
+  }
+
+  @include e(opt) {
+    display: inline-block;
+    padding-left: 13px;
+
+    button {
+      border: 0;
+
+      &:disabled {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .#{$prefix}-transfer-panel__header {
+    height: $--transfer-panel-header-height;
+    line-height: $--transfer-panel-header-height;
+    background: $clr-bg-page-color;
+    margin: 0 0 10px 0;
+    padding-left: 12px;
+    box-sizing: border-box;
+    color: $clr-font-title-color;
+
+    .#{$prefix}-checkbox {
+      display: block;
+      line-height: 40px;
+
+      .#{$prefix}-checkbox__label {
+        font-size: 16px;
+        color: $clr-main01-color;
+        font-weight: normal;
+
+        span {
+          position: absolute;
+          right: 15px;
+          color: $clr-main02-color;
+          font-size: 12px;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+
+  .#{$prefix}-transfer-panel__footer {
+    height: $--transfer-panel-footer-height;
+    background: $clr-bg-content-color;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: $--index-normal;
+    @include utils-vertical-center;
+
+    .#{$prefix}-checkbox {
+      padding-left: 20px;
+      color: $clr-main01-color;
+    }
+  }
+
+  .#{$prefix}-transfer-panel__empty {
+    margin: 0;
+    height: $--transfer-item-height;
+    line-height: $--transfer-item-height;
+    padding: 6px 15px 0;
+    color: $clr-divider-color;
+    text-align: center;
+  }
+
+  .#{$prefix}-checkbox__inner {
+    height: 14px;
+    width: 14px;
+    border-radius: 3px;
+    &::after {
+      height: 6px;
+      width: 3px;
+      left: 4px;
+    }
+  }
+}

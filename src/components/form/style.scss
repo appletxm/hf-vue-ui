@@ -1,0 +1,183 @@
+@import "variables";
+@import "../input/variables";
+
+@include b(form) {
+  @include m(label-left) {
+    & .#{$prefix}-form-item .#{$prefix}-form-item__label {
+      text-align: left;
+    }
+  }
+  @include m(label-top) {
+    & .#{$prefix}-form-item .#{$prefix}-form-item__label {
+      float: none;
+      display: inline-block;
+      text-align: left;
+      padding: 0 0 $form-label-padding-bottom 0;
+    }
+  }
+  @include m(inline) {
+    & .#{$prefix}-form-item {
+      display: inline-block;
+      margin-right: $form-item-inline-margin-right;
+      vertical-align: top;
+    }
+    & .#{$prefix}-form-item__label {
+      float: none;
+      display: inline-block;
+    }
+    & .#{$prefix}-form-item__content {
+      display: inline-block;
+      vertical-align: top;
+    }
+    &.#{$prefix}-form--label-top .#{$prefix}-form-item__content {
+      display: block;
+    }
+  }
+}
+@include b(form-item) {
+  margin-bottom: $form-item-margin-bottom;
+  @include utils-clearfix;
+
+  & .#{$prefix}-form-item {
+    margin-bottom: 0;
+  }
+
+  & .#{$prefix}-input__validateIcon {
+    display: none;
+  }
+
+  @include m(medium) {
+    .#{$prefix}-form-item__label {
+      line-height: $form-medium-line-height;
+    }
+    .#{$prefix}-form-item__content {
+      line-height: $form-medium-line-height;
+    }
+  }
+  @include m(small) {
+    .#{$prefix}-form-item__label {
+      line-height: $form-small-line-height;
+    }
+    .#{$prefix}-form-item__content {
+      line-height: $form-small-line-height;
+    }
+    &.#{$prefix}-form-item {
+      margin-bottom: $form-small-item-margin-bottom;
+    }
+    .#{$prefix}-form-item__error {
+      padding-top: $form-small-item-padding-top;
+    }
+  }
+  @include m(mini) {
+    .#{$prefix}-form-item__label {
+      line-height: $form-mini-line-height;
+    }
+    .#{$prefix}-form-item__content {
+      line-height: $form-mini-line-height;
+    }
+    &.#{$prefix}-form-item {
+      margin-bottom: $form-mini-item-margin-bottom;
+    }
+    .#{$prefix}-form-item__error {
+      padding-top: $form-mini-item-padding-top;
+    }
+  }
+
+  @include e(label-wrap) {
+    float: left;
+    .#{$prefix}-form-item__label {
+      display: inline-block;
+      float: none;
+    }
+  }
+
+  @include e(label) {
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+    font-size: $form-label-font-size;
+    color: $form-label-font-color;
+    line-height: $form-line-height;
+    padding: 0;
+    margin-right: $form-label-margin-right;
+    box-sizing: border-box;
+  }
+  @include e(content) {
+    line-height: $form-line-height;
+    position: relative;
+    font-size: $form-font-size;
+    @include utils-clearfix;
+
+    .#{$prefix}-input-group {
+      vertical-align: top;
+    }
+  }
+  @include e(error) {
+    color: $input-error-tips-color;
+    font-size: $input-font-size-base;
+    line-height: 1;
+    padding-top: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    @include m(inline) {
+      position: relative;
+      top: auto;
+      left: auto;
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  @include when(required) {
+    @include pseudo('not(.is-no-asterisk)') {
+      & > .#{$prefix}-form-item__label:before,
+      & .#{$prefix}-form-item__label-wrap > .#{$prefix}-form-item__label:before {
+        content: '*';
+        color: $input-error-tips-color;
+        margin-right: 4px;
+      }
+    }
+  }
+
+  @include when(error) {
+    & .#{$prefix}-input__inner,
+    & .#{$prefix}-textarea__inner {
+      &, &:focus {
+        background-color: $input-error-bgcolor;
+        border-color: $input-error-border-color;
+        color: $input-error-color;
+        &::placeholder {
+          color: $input-error-placeholder-color;
+        }
+      }
+    }
+    & .#{$prefix}-input-group__append,
+    & .#{$prefix}-input-group__prepend {
+      & .#{$prefix}-input__inner {
+        border-color: transparent;
+      }
+    }
+    .#{$prefix}-input__validateIcon {
+      color: $input-validate-error-color;
+    }
+  }
+
+  @include when(success) {
+    .#{$prefix}-input__validateIcon {
+      color: $input-validate-success-color;
+    }
+  }
+  @include when(validating) {
+    .#{$prefix}-loading-spinner .path {
+      stroke: $clr-error-color;
+    }
+  }
+
+  @include m(feedback) {
+    .#{$prefix}-input__validateIcon {
+      display: inline-block;
+    }
+  }
+}

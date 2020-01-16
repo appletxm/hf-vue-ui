@@ -180,6 +180,9 @@ export default {
         this.triggerElmFocus();
         target.click();
         if (this.hideOnClick) { // click关闭
+          if (this.triggerElm) {
+            this.triggerElm.parentNode.classList.remove('is-expand');
+          }
           this.visible = false;
         }
       } else if ([9, 27].indexOf(keyCode) > -1) { // tab // esc
@@ -240,6 +243,9 @@ export default {
     },
     handleMenuItemClick(command, instance) {
       if (this.hideOnClick) {
+        if (this.triggerElm) {
+          this.triggerElm.parentNode.classList.remove('is-expand');
+        }
         this.visible = false;
       }
       this.$emit('command', command, instance);

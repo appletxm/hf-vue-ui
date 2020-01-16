@@ -16,6 +16,9 @@
   color: $clr-font-btn2-color;
   background: $clr-bg-content-color;
   border: 1px solid $clr-border-color;
+  & + & {
+    margin-left: $gap-third;
+  }
   &:hover{
     color: $clr-main02-color;
     background: $clr-bg-content-color;
@@ -30,6 +33,7 @@
     color: $clr-font-tips-color;
     background: $clr-uneditable-color;
     border: 1px solid $clr-border-color;
+    cursor: not-allowed;
   }
   /* size */
   @include m(big) {

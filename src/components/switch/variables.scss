@@ -1,0 +1,16 @@
+$switch-font-size: $font-14 !default;
+$switch-height: 28px !default;
+$switch-label-color: $clr-font-text-color !default;
+$switch-label-active-color: $clr-main01-color !default;
+$switch-label-margin-hor: 10px;
+$switch-width: 56px !default;
+$switch-off-color: $clr-uneditable-color;
+$switch-core-border-radius: 56px;
+$switch-border-radius-circle: 100% !default;
+$switch-button-size: 20px;
+$switch-after-color: $clr-font-btn01-color;
+$switch-after-color-shadow: 0 2px 8px rgba($clr-projection-color, 0.1);
+$switch-on-color: $clr-main01-color;
+$switch-off-disabled-color: $clr-uneditable-color;
+$switch-off-disabled-border-color: rgba($clr-border-color, 0.5);
+$switch-off-disabled-after-color: rgba($clr-font-tips-color, 0.3);

@@ -8,16 +8,10 @@
     cursor: pointer;
     flex: 50% 1 1;
     flex-basis: 50%;
-
-    span {
-      transform: rotate(-90deg);
-    }
+    color: #CC9967;
 
     &__next {
       text-align: right;
-      span {
-        transform: rotate(90deg);
-      }
     }
   }
 

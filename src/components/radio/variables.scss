@@ -1,0 +1,57 @@
+$--radio-font-size: $font-14 !default;
+$--radio-font-weight: $font-weight-regular !default;
+$--radio-font-color: $clr-font-text-color !default;
+
+$--radio-input-height: $font-16 !default;
+$--radio-input-width: $font-16 !default;
+$--radio-input-border-radius: $--border-radius-circle !default;
+
+$--radio-input-background-color: $clr-bg-content-color !default;
+$--radio-input-border: 1px !default;
+$--radio-input-border-color: $clr-border-color !default;
+$--radio-icon-color: $clr-bg-content-color !default;
+
+$--radio-disabled-input-border-color: $clr-border-color !default;
+$--radio-disabled-input-fill: $clr-uneditable-color !default;
+$--radio-disabled-input-background-color: $clr-uneditable-color !default;
+$--radio-disabled-icon-color: $clr-border-color !default;
+
+$--radio-disabled-checked-input-border-color: $clr-border-color !default;
+$--radio-disabled-checked-input-fill: $clr-uneditable-color !default;
+$--radio-disabled-checked-icon-color: $clr-font-tips-color !default;
+
+$--radio-checked-font-color: $clr-font-text-color !default;
+$--radio-checked-input-border-color: $clr-main01-color !default;
+$--radio-checked-input-background-color: $clr-main01-color !default;
+$--radio-checked-icon-color: $clr-main01-color !default;
+
+$--radio-input-border-color-hover: $clr-border-color !default;
+
+$--radio-bordered-height: 40px !default;
+$--radio-bordered-padding: 0 10px !default;
+
+$--radio-bordered-medium-padding: 0 8px !default;
+$--radio-bordered-medium-input-height: 14px !default;
+$--radio-bordered-medium-input-width: 14px !default;
+$--radio-bordered-medium-height: 36px !default;
+$--radio-bordered-medium-icon-height: 8px!default;
+
+$--radio-bordered-small-padding: 0 6px !default;
+$--radio-bordered-small-input-height: 12px !default;
+$--radio-bordered-small-input-width: 12px !default;
+$--radio-bordered-small-height: 32px !default;
+$--radio-bordered-small-icon-height: 6px!default;
+
+$--radio-bordered-mini-padding: 0 6px !default;
+$--radio-bordered-mini-input-height: 12px !default;
+$--radio-bordered-mini-input-width: 12px !default;
+$--radio-bordered-mini-height: 28px !default;
+$--radio-bordered-mini-icon-height: 6px!default;
+
+$--radio-button-font-size: $font-14 !default;
+$--radio-button-checked-background-color: $clr-main01-color !default;
+$--radio-button-checked-font-color: $clr-divider-color !default;
+$--radio-button-checked-border-color: $clr-main01-color !default;
+$--radio-button-disabled-checked-fill: $clr-font-text-color !default;
+
+$--radio-bordered-padding: 8px;

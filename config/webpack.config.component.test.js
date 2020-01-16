@@ -1,10 +1,8 @@
 const path = require('path')
-// const MiniCssExtractPlugin  = require('mini-css-extract-plugin')
 const autoprefixer = require('autoprefixer')
 const cfg = require('./component.config')
 const isDev = true
 const mode = 'development'
-// const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   mode: mode,
@@ -19,10 +17,6 @@ module.exports = {
     filename: `${cfg.prefix + (isDev ? '' : '.min')}.js`,
     path: path.resolve(cfg.distPath),
     publicPath: cfg.publicPath
-    // pathinfo: isDev,
-    // libraryTarget:'umd',
-    // library: `${cfg.componentPrefix}`,
-    // libraryExport: 'default'
   },
   module: {
     rules: [
@@ -38,6 +32,7 @@ module.exports = {
         include: [path.join(__dirname, '..', 'src'), path.join(__dirname, '..', 'test')],
         exclude: [path.resolve('src/utils/popper.js')]
       },
+
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
@@ -48,6 +43,7 @@ module.exports = {
           outputPath: 'theme/font/'
         }
       },
+
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
@@ -58,16 +54,10 @@ module.exports = {
           outputPath: 'theme/font/'
         }
       },
+
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          // {
-          //   loader: MiniCssExtractPlugin.loader,
-          //   options: {
-          //     hmr: isDev,
-          //     reloadAll: true
-          //   },
-          // },
           'style-loader',
           'css-loader', 
           {
@@ -80,11 +70,20 @@ module.exports = {
           'sass-loader'
         ]
       },
+
+      {
+        test: /components-collection\.js$/,
+        loader: path.resolve('./loaders/version-loader/index.js'),
+        include: [path.join(__dirname, '..', 'src')],
+        exclude: /node_modules/
+      },
+
       {
         test: /\.vue$/,
         loader: 'vue-loader',
         include: [path.join(__dirname, '..', 'src')]
       },
+      
       {
         test: /\.html$/,
         loader: 'html-loader',
@@ -103,16 +102,6 @@ module.exports = {
     }
   },
   plugins: [
-    // new CopyPlugin([{
-    //   from: path.resolve(cfg.sourcePath + '/theme/font'),
-    //   to: path.resolve(cfg.distPath + '/theme/font')
-    // }]),
-
-    // new MiniCssExtractPlugin({
-    //   // filename: `theme/${cfg.prefix}${isDev ? '' : '.min'}.css`
-    //   filename: '[name].css',
-    //   chunkFilename: '[id].css',
-    // })
   ],
   node: {
     buffer: false

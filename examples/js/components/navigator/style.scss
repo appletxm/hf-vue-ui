@@ -33,7 +33,7 @@
         content: "";
         display: block;
         height: 2px;
-        background-color: $clr-error-color;
+        background-color: #CC9967;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -45,7 +45,7 @@
 
     &:hover {
       .text-inner {
-        color: $clr-error-color;
+        color: #CC9967;
         &:after {
           opacity: 1;
         }
@@ -54,7 +54,7 @@
 
     &.actived {
       .text-inner {
-        color: $clr-error-color;
+        color: #CC9967;
         &:after {
           bottom: 0;
         }

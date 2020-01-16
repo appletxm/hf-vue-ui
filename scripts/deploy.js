@@ -12,19 +12,25 @@ let timeStamp = ''
 let temPkgName = ''
 let tempPkgPath = ''
 
+function getRealPathForPlatForm(filePath) {
+  const isWin = process.platform.indexOf('win') >= 0
+  return isWin ? path.resolve(filePath) : filePath
+}
+
 function checkDeployFolder() {
-  timeStamp = new Date().getTime()
-  temPkgName = `${pkg.name}-${pkg.version}-nv-${timeStamp}`
+  // timeStamp = new Date().getTime()
+  // temPkgName = `${pkg.name}-${pkg.version}-nv-${timeStamp}`
+  temPkgName = `${pkg.name}-${pkg.version}`
   tempPkgPath = `./tmp/${temPkgName}`
 
-  checkDirIsOk(path.resolve('./tmp'))
-  checkDirIsOk(path.resolve(tempPkgPath))
+  checkDirIsOk(getRealPathForPlatForm('./tmp'))
+  checkDirIsOk(getRealPathForPlatForm(tempPkgPath))
 }
 
 function copyExamplesFile() {
   const examplesPath = path.resolve('./dist/examples')
   const deployPath = path.resolve(`${tempPkgPath}/dist/examples`)
-  checkDirIsOk(path.resolve(`${tempPkgPath}/dist`))
+  checkDirIsOk(getRealPathForPlatForm(`${tempPkgPath}/dist`))
   copyFolder(examplesPath, deployPath)
 }
 
@@ -37,7 +43,7 @@ function genPackagejsonFile() {
 function copyThemeFile() {
   const srcPath = path.resolve('./src/theme')
   const deployPath = path.resolve(`./${tempPkgPath}/src/theme`)
-  checkDirIsOk(path.resolve(`${tempPkgPath}/src`))
+  checkDirIsOk(getRealPathForPlatForm(`${tempPkgPath}/src`))
   copyFolder(srcPath, deployPath)
 }
 
@@ -46,7 +52,7 @@ function copyThemeComponentsStyleFile() {
   let deployPath = `${tempPkgPath}/src/components`
   const folders = fs.readdirSync(srcPath)
 
-  checkDirIsOk(path.resolve(deployPath))
+  checkDirIsOk(getRealPathForPlatForm(deployPath))
 
   folders.forEach(function(folder) {
     let srcTmp = srcPath + '/' + folder
@@ -55,7 +61,7 @@ function copyThemeComponentsStyleFile() {
 
     filesInComponent.forEach(function(fileName) {
       if ((/^.+\.scss$/).test(fileName)) {
-        checkDirIsOk(path.resolve(deployPath + '/' + folder))
+        checkDirIsOk(getRealPathForPlatForm(deployPath + '/' + folder))
         cpoyFile(path.resolve(srcTmp + '/' + fileName), path.resolve(deployTmp + '/' + fileName))
       }
     })
@@ -69,7 +75,7 @@ function copyConfigFile() {
     'webpack.config.component.theme.prod.js',
     'env-production.js'
   ]
-  checkDirIsOk(path.resolve(`${tempPkgPath}/config`))
+  checkDirIsOk(getRealPathForPlatForm(`${tempPkgPath}/config`))
   copyFileName.forEach(function(file) {
     cpoyFile(path.resolve(`./config/${file}`), path.resolve(`./${tempPkgPath}/config/${file}`))
   })
@@ -83,7 +89,7 @@ function genServerScriptFile() {
     'sync-copy-files.js',
     'server-icons.js'
   ]
-  checkDirIsOk(path.resolve(`${tempPkgPath}/scripts`))
+  checkDirIsOk(getRealPathForPlatForm(`${tempPkgPath}/scripts`))
   fs.writeFileSync(path.resolve(`${tempPkgPath}/scripts/server.js`), serverJsFile, 'utf8')
   fs.writeFileSync(path.resolve(`${tempPkgPath}/scripts/server-router-handle.js`), serverRouterHandleJsFile, 'utf8')
   copyFileName.forEach(function(file) {
@@ -110,7 +116,7 @@ async function boot() {
     copyThemeComponentsStyleFile()
     copyConfigFile()
     genServerScriptFile()
-    // copyRegistryFile()
+    copyRegistryFile()
     await createTarPackage(tempPkgPath, temPkgName)
   } catch (err) {
     console.error('tar error:', err)

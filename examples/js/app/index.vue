@@ -7,6 +7,7 @@
         <router-view></router-view>
         <app-footer :skip-gide-list="skipGideIndexList" />
       </div>
+      <hf-ui-backtop class="hf-doc-backtop-demo" target=".router-content" :right="40" :bottom="40"></hf-ui-backtop>
     </div>
   </div>
 </template>
@@ -42,7 +43,8 @@ export default {
     this.$store.commit(NAVIGATOR_LIST, navigatorList)
     this.$getSubData(this.$store.state.currentModule)
   },
-  mounted() {},
+  mounted() {
+  },
   methods: {
     $initModuleInfo(path) {
       const res = matchModuleFromUrl(path, this.$store.state.navigatorList)

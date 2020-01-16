@@ -1,5 +1,4 @@
 /* global Vue */
-// import Vue from 'vue';
 import { on } from './dom';
 
 const nodeList = [];

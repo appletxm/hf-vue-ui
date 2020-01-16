@@ -47,5 +47,16 @@ module.exports = {
     "no-underscore-dangle": 0,
     "no-mixed-operators": 0,
     "vue/require-default-prop": 0,
+    "no-bitwise": ["error", { "allow": ["~", "|"] }],
+    "vue/no-side-effects-in-computed-properties": 0,
+    "import/extensions": 0,
+    "class-methods-use-this": 0,
+    "no-continue": 0,
+    "no-nested-ternary": 0,
+    "import/extensions": 0,
+    "no-continue": 0,
+    "no-nested-ternary": 0,
+    "import/extensions": 0,
+    "class-methods-use-this": 0
   }
 };

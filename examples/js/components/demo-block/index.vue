@@ -22,25 +22,22 @@
       :class="{ 'is-fixed': fixedControl }"
       @click="isExpanded = !isExpanded"
     >
-      <transition name="arrow-slide">
-        <i :class="[iconClass, { 'hovering': hovering }]"></i>
-      </transition>
-      <transition name="text-slide">
-        <span>{{ controlText }}</span>
-      </transition>
-      <!--
-      <el-tooltip effect="dark" :content="langConfig['tooltip-text']" placement="right">
+      <i :class="[iconClass, { 'hovering': hovering }]"></i>
+      <span>{{ controlText }}</span>
+
+      <!-- <hf-ui-tooltip effect="dark" :content="langConfig['tooltip-text']" placement="right">
         <transition name="text-slide">
-          <el-button
+          <hf-ui-button
             v-show="hovering || isExpanded"
             size="small"
             type="text"
             class="control-button"
-            @click.stop="goCodepen">
+            @click.stop="goCodepen"
+          >
             {{ langConfig['button-text'] }}
-          </el-button>
+          </hf-ui-button>
         </transition>
-      </el-tooltip> -->
+      </hf-ui-tooltip> -->
     </div>
   </div>
 </template>
@@ -158,7 +155,7 @@ export default {
         return;
       }
       setTimeout(() => {
-        this.scrollParent = document.querySelector('.page-component__scroll > .el-scrollbar__wrap');
+        this.scrollParent = document.querySelector('.router-content');
         this.scrollParent && this.scrollParent.addEventListener('scroll', this.scrollHandler);
         this.scrollHandler();
       }, 200);

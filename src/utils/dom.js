@@ -1,7 +1,5 @@
 /* istanbul ignore next */
 /* global Vue */
-// import Vue from 'vue';
-
 const isServer = Vue.prototype.$isServer;
 const SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g;
 const MOZ_HACK_REGEXP = /^moz([A-Z])/;

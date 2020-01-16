@@ -1,5 +1,4 @@
 /* global Vue */
-// import Vue from 'vue';
 import { addClass, removeClass } from '../dom';
 
 let hasModal = false;

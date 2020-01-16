@@ -1,8 +1,8 @@
 @import "../../src/theme/globals";
 @import "../../src/theme/variables";
-@import "../../src/theme/mixin";
+@import "../../src/theme/mix-mixin";
 @import "../../src/theme/animate";
-@import "../../src/theme/extend";
+@import "../../src/theme/mix-extend";
 
 @import "./variables";
 @import "./common";
@@ -29,4 +29,13 @@
 @import "../docs/dropdown/style";
 @import "../docs/pop-tip/style";
 @import "../docs/tabs/style";
+@import "../docs/breadcrumb/style";
+@import "../docs/switch/style";
+@import "../docs/carousel/style";
+@import "../docs/pagination/style";
+@import "../docs/loading/style";
+@import "../docs/tree/style";
+@import "../docs/input/style";
+@import "../docs/form/style";
+@import "../docs/transfer/style";
 

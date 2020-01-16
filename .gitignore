@@ -1,5 +1,4 @@
 .DS_Store
-yarn.lock
 node_modules/
 dist/examples
 npm-debug.log*

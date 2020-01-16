@@ -1,0 +1,235 @@
+@import "./variables";
+@include b(carousel) {
+  position: relative;
+
+  @include when(background) {
+    background-color: $carousel-bgcolor;
+  }
+
+  @include m(horizontal) {
+    overflow-x: hidden;
+  }
+
+  @include m(vertical) {
+    overflow-y: hidden;
+  }
+
+  @include e(container) {
+    position: relative;
+    height: $carousel-container-height;
+  }
+
+  @include e(arrow) {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    height: $carousel-arrow-size;
+    width: $carousel-arrow-size;
+    cursor: pointer;
+    transition: .3s;
+    border-radius: 50%;
+    background-color: $carousel-arrow-background;
+    color: $carousel-arrow-color;
+    position: absolute;
+    top: 50%;
+    z-index: $carousel-arrow-index;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: $carousel-arrow-font-size;
+
+    @include m(left) {
+      left: $carousel-arrow-margin;
+    }
+
+    @include m(right) {
+      right: $carousel-arrow-margin;
+    }
+
+    &:hover {
+      background-color: $carousel-arrow-hover-background;
+    }
+
+    & i {
+      cursor: pointer;
+    }
+  }
+
+  @include e(indicators) {
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: #{$carousel-index-normal + 1};
+
+    @include m(horizontal) {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @include m(vertical) {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @include m(outside) {
+      bottom: #{$carousel-indicator-height + $carousel-indicator-padding-vertical * 2};
+      text-align: center;
+      position: static;
+      transform: none;
+      .#{$prefix}-carousel__indicator:hover button {
+        opacity: $carousel-indicator-opacity-h;
+      }
+      button {
+        background-color: $carousel-indicator-out-color;
+        opacity: $carousel-indicator-opacity-n;
+      }
+    }
+
+    @include m(labels) {
+      left: 0;
+      right: 0;
+      transform: none;
+      text-align: center;
+
+      .#{$prefix}-carousel__button {
+        height: auto;
+        width: auto;
+        padding: $carousel-indicator-label-inline-vertical $carousel-indicator-label-inline-horizontal;
+        font-size: $carousel-indicator-label-font-size;
+      }
+      .#{$prefix}-carousel__indicator {
+        padding: $carousel-indicator-label-padding-vertical $carousel-indicator-label-padding-horizontal;
+        &.is-active .#{$prefix}-carousel__button, &:hover .#{$prefix}-carousel__button {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  @include e(indicator) {
+    background-color: transparent;
+    cursor: pointer;
+
+    &.#{$prefix}-carousel__indicator--horizontal:hover button {
+      opacity: $carousel-indicator-opacity-h;
+      width: $carousel-indicator-hover-width;
+    }
+    &.#{$prefix}-carousel__indicator--vertical:hover button {
+      opacity: $carousel-indicator-opacity-h;
+      height: $carousel-indicator-hover-width;
+    }
+
+    @include m(horizontal) {
+      display: inline-block;
+      padding: $carousel-indicator-padding-vertical $carousel-indicator-padding-horizontal;
+      padding-left: 0px;
+    }
+
+    @include m(vertical) {
+      padding: $carousel-indicator-padding-horizontal $carousel-indicator-padding-vertical;
+      .#{$prefix}-carousel__button {
+        width: $carousel-indicator-height;
+        height: $carousel-indicator-width;
+      }
+    }
+
+    @include when(active) {
+      &.#{$prefix}-carousel__indicator--horizontal button {
+        width: $carousel-indicator-hover-width;
+        opacity: $carousel-indicator-opacity-a;
+      }
+      &.#{$prefix}-carousel__indicator--vertical button {
+        height: $carousel-indicator-hover-width;
+        opacity: $carousel-indicator-opacity-a;
+      }
+    }
+  }
+
+  @include e(button) {
+    display: block;
+    opacity: $carousel-indicator-opacity-n;
+    width: $carousel-indicator-width;
+    height: $carousel-indicator-height;
+    background-color: $carousel-arrow-color;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    transition: .3s;
+  }
+  @include e(indicators-wrap) {
+    height: $carousel-indicator-column-height;
+    border-bottom: 1px solid $carousel-indicator-column-border-color;
+    padding: 0 $carousel-column-padding;
+    background-color: transparent;
+    .#{$prefix}-carousel__indicator-title {
+      font-size: $carousel-indicator-column-title-font-size;
+      font-weight: $carousel-indicator-column-font-weight;
+      line-height: $carousel-indicator-column-height;
+      color: $carousel-indicator-column-title-color;
+    }
+    .#{$prefix}-carousel__indicators--column {
+      top: 0;
+      right: $carousel-column-padding;
+      height: $carousel-indicator-column-height;
+      display: flex;
+      align-items: center;
+      font-size: $carousel-indicator-column-font-size;
+      .#{$prefix}-carousel__indicator--horizontal {
+        padding: 0;
+        margin-right: $carousel-indicator-column-li-margin-h;
+        .#{$prefix}-carousel__button {
+          width: $carousel-indicator-column-button-size;
+          height: $carousel-indicator-column-button-size;
+          border-radius: 50%;
+          text-align: center;
+          line-height: $carousel-indicator-column-button-size;
+          background-color: transparent;
+          opacity: 1;
+          color: $carousel-indicator-column-button-color-n;
+
+        }
+      }
+      .#{$prefix}-carousel__indicator--horizontal:last-child {
+        margin-right: 0;
+      }
+      .#{$prefix}-carousel__indicator--horizontal:hover button {
+        opacity: 1;
+        width: $carousel-indicator-column-button-size;
+        height: $carousel-indicator-column-button-size;
+        background-color: $carousel-indicator-column-button-bgcolor-h;
+        color: $carousel-indicator-column-button-color-h;
+      }
+      .#{$prefix}-carousel__indicator--horizontal button:active {
+        opacity: 1;
+        width: $carousel-indicator-column-button-size;
+        height: $carousel-indicator-column-button-size;
+        background-color: $carousel-indicator-column-button-bgcolor-f;
+        color: $carousel-indicator-column-button-color-f;
+      }
+      .#{$prefix}-carousel__indicator--horizontal.is-active button {
+        opacity: 1;
+        width: $carousel-indicator-column-button-size;
+        height: $carousel-indicator-column-button-size;
+        background: $carousel-indicator-column-button-bgcolor-a;
+        color: $carousel-indicator-column-button-color-a;
+      }
+    }
+  }
+}
+
+.carousel-arrow-left-enter,
+.carousel-arrow-left-leave-active {
+  transform: translateY(-50%) translateX(-10px);
+  opacity: 0;
+}
+
+.carousel-arrow-right-enter,
+.carousel-arrow-right-leave-active {
+  transform: translateY(-50%) translateX(10px);
+  opacity: 0;
+}

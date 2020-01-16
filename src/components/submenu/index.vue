@@ -226,6 +226,7 @@ export default {
       if (this.isFirstLevel) {
         this.popperElm.style.top = `${parentRect.top}px`;
       } else {
+        this.popperElm.style.left = `${parseInt(this.popperElm.style.left, 10) - 1}px`;
         if (this.popperAppendToBody) {
           this.popperElm.style.top = `${parentRect.top}px`;
         } else {
@@ -373,7 +374,7 @@ export default {
         <div
           ref="menu"
           v-show={opened}
-          class={[`${this.cfg.prefix}-menu--${mode}`, `${this.cfg.prefix}-menu--fix-submenu`, popperClass]}
+          class={[`${this.cfg.prefix}-menu--${mode}`, `${this.cfg.prefix}-menu--fix-submenu`, `${this.cfg.prefix}-submenu--content`, popperClass]}
           on-mouseenter={($event) => this.handleMouseenter($event, 100)}
           on-mouseleave={() => this.handleMouseleave(true)}
           on-focus={($event) => this.handleMouseenter($event, 100)}>
@@ -392,7 +393,7 @@ export default {
       <collapse-transition>
         <ul
           role="menu"
-          class={`${this.cfg.prefix}-menu ${this.cfg.prefix}-menu--inline`}
+          class={`${this.cfg.prefix}-menu ${this.cfg.prefix}-menu--inline ${this.cfg.prefix}-submenu--content`}
           v-show={opened}
           style={{ backgroundColor: rootMenu.backgroundColor || '' }}>
           {$slots.default}

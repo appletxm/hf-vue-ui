@@ -1,0 +1,41 @@
+.demo-Pagination {
+  .block .demonstration, .hf-ui-switch {
+    margin: 24px 0;
+    display: block;
+  }
+}
+.hf-ui-doc-pagination-demo-1 {
+  background-color: $clr-bg-page-color;
+  padding: 20px;
+  .hf-ui-pagination {
+    background-color: $clr-bg-content-color;
+  }
+  .card {
+    width: 255px;
+    padding: $gap-secondary;
+    height: 140px;
+    display: flex;
+    border: 1px solid $clr-border-color;
+    dt {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      @include getBgColorAlpha($clr-main04-color, 0.4);
+      color: $clr-font-btn01-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: $gap-third;
+    }
+    dd {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: $clr-font-text-color;
+    }
+  }
+  .hf-ui-carousel  .hf-ui-carousel__item {
+    display: flex;
+    justify-content: space-between;
+  }
+}

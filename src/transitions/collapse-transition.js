@@ -1,6 +1,6 @@
 import { addClass, removeClass } from '../utils/dom';
 
-class Transition {
+const transitionHooks = {
   beforeEnter(el) {
     addClass(el, 'collapse-transition');
     if (!el.dataset) el.dataset = {};
@@ -11,7 +11,7 @@ class Transition {
     el.style.height = '0';
     el.style.paddingTop = 0;
     el.style.paddingBottom = 0;
-  }
+  },
 
   enter(el) {
     el.dataset.oldOverflow = el.style.overflow;
@@ -26,14 +26,14 @@ class Transition {
     }
 
     el.style.overflow = 'hidden';
-  }
+  },
 
   afterEnter(el) {
     // for safari: remove class then reset height is necessary
     removeClass(el, 'collapse-transition');
     el.style.height = '';
     el.style.overflow = el.dataset.oldOverflow;
-  }
+  },
 
   beforeLeave(el) {
     if (!el.dataset) el.dataset = {};
@@ -43,7 +43,7 @@ class Transition {
 
     el.style.height = el.scrollHeight + 'px';
     el.style.overflow = 'hidden';
-  }
+  },
 
   leave(el) {
     if (el.scrollHeight !== 0) {
@@ -53,7 +53,7 @@ class Transition {
       el.style.paddingTop = 0;
       el.style.paddingBottom = 0;
     }
-  }
+  },
 
   afterLeave(el) {
     removeClass(el, 'collapse-transition');
@@ -69,9 +69,12 @@ export default {
   functional: true,
   render(h, { children }) {
     const data = {
-      on: new Transition()
+      on: {
+        ...transitionHooks
+      }
     };
+    const newVNode = h('transition', data, children)
 
-    return h('transition', data, children);
+    return newVNode;
   }
 };

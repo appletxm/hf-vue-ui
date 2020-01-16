@@ -24,13 +24,41 @@ import Tabs from 'components/tabs'
 import TabPane from 'components/tab-pane'
 import Breadcrumb from 'components/breadcrumb'
 import BreadcrumbItem from 'components/breadcrumb-item'
+import Switch from 'components/switch'
+import Carousel from 'components/carousel'
+import CarouselItem from 'components/carousel-item'
+import Input from 'components/input'
+import Pagination from 'components/pagination'
+import Radio from 'components/radio/radio'
+import RadioButton from 'components/radio/radio-button'
+import RadioGroup from 'components/radio/radio-group'
+import ColorPicker from 'components/color-picker'
+import Checkbox from 'components/checkbox'
+import CheckboxGroup from 'components/checkbox-group'
+import CheckButton from 'components/checkbox-button'
+import Tree from 'components/tree'
+import Backtop from 'components/backtop'
+import Form from 'components/form'
+import FormItem from 'components/form-item'
+import Table from 'components/table'
+import TableColumn from 'components/table-column'
+import Transfer from 'components/transfer'
+import TransferCombine from 'components/transfer-combine'
+
 import locale from 'locale'
 
 import PopTipDirective from 'components/pop-tip/directive'
+import LoadingDirective from 'components/loading/directive'
+
+import LoadingService from 'components/loading'
 
 const cfg = require('component-cfg')
 
-window.Vue.prototype.cfg = cfg
+const version = '{{pkgVersion}}'
+
+if (window.Vue) {
+  window.Vue.prototype.cfg = cfg
+}
 
 const components = [
   Button,
@@ -57,11 +85,38 @@ const components = [
   Tabs,
   TabPane,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Switch,
+  Carousel,
+  CarouselItem,
+  Input,
+  Pagination,
+  Radio,
+  RadioButton,
+  RadioGroup,
+  ColorPicker,
+  Checkbox,
+  CheckboxGroup,
+  CheckButton,
+  Tree,
+  Backtop,
+  Tree,
+  Backtop,
+  Form,
+  FormItem,
+  Table,
+  TableColumn,
+  Transfer,
+  TransferCombine
 ]
 
 const directives = [
-  PopTipDirective
+  PopTipDirective,
+  LoadingDirective
+]
+
+const services = [
+  LoadingService
 ]
 
 const install = function (Vue, opts = {}) {
@@ -69,11 +124,16 @@ const install = function (Vue, opts = {}) {
   locale.i18n(opts.i18n)
 
   components.forEach((component) => {
-    component.name = `${cfg.componentPrefix}${component.name}`
-    Vue.component(component.name, component)
+    // component.name = `${cfg.componentPrefix}${component.name}`
+    Vue.component(`${cfg.componentPrefix}${component.name}`, component)
   })
+
   directives.forEach((directive) => {
     Vue.directive(directive.name, directive);
+  })
+
+  services.forEach((service) => {
+    Vue['prototype'][`$${service.name}`] = service.method
   })
 
   Vue['prototype'][cfg.componentPrefix] = {
@@ -87,7 +147,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '1.0.0',
+  version: version,
   locale: locale.use,
   i18n: locale.i18n,
   Button,
@@ -113,5 +173,22 @@ export default {
   Tabs,
   TabPane,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Switch,
+  Carousel,
+  CarouselItem,
+  Input,
+  Pagination,
+  ColorPicker,
+  Tree,
+  Backtop,
+  Checkbox,
+  CheckboxGroup,
+  CheckButton,
+  Form,
+  FormItem,
+  Table,
+  TableColumn,
+  Transfer,
+  TransferCombine
 }

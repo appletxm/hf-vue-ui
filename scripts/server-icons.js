@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 
-const srcPath = './src/theme/iconfont.css'
+const srcPath = './src/theme/font/iconfont.css'
 
 function getIcons(req, res) {
   const iconCssFile = fs.readFileSync(path.resolve(srcPath), 'utf8')

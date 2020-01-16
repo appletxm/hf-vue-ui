@@ -449,7 +449,7 @@
     {
       "icon_id": "11896673",
       "name": "currency-success",
-      "font_class": "currency-success",
+      "font_class": "line-currency-success",
       "unicode": "e643",
       "unicode_decimal": 58947
     },
@@ -466,6 +466,27 @@
       "font_class": "line-currency-question",
       "unicode": "e645",
       "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "12492243",
+      "name": "fill-currency-iPhone",
+      "font_class": "fill-currency-iPhone",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "12492244",
+      "name": "fill-currency-wechat",
+      "font_class": "fill-currency-wechat",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "12493459",
+      "name": "line-currency-advanced",
+      "font_class": "line-currency-advanced",
+      "unicode": "e648",
+      "unicode_decimal": 58952
     }
   ]
 }
