@@ -1,3 +1,38 @@
+@import './variables';
+
 @include b(transfer-combine) {
-  
+  height: $tc-panel-height;
+  overflow: hidden;
+  border: 0;
+  position: relative;
+
+  @include e(left-menu) {
+    position: absolute;
+    top: $tc-left-menu-top;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+
+    .hf-ui-menu {
+      width: $tc-left-menu-width;
+      .hf-ui-submenu .hf-ui-submenu__title, .hf-ui-submenu .hf-ui-menu-item, .hf-ui-menu-item {
+        height: $tc-left-menu-height;
+        line-height: $tc-left-menu-height;
+        padding: 0 12px !important;
+      }
+    }
+  }
+
+  @include e(transfer-panel) {
+    margin: 0 0 0 $tc-left-menu-width;
+    .hf-ui-transfer-panel {
+      min-width: $tc-panel-cell-width;
+      .hf-ui-transfer-panel__body {
+        height: 280px;
+        .hf-ui-transfer-panel__list.is-filterable {
+          height: 100%;
+        }
+      }
+    }
+  }
 }

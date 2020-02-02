@@ -15,14 +15,6 @@
       </hf-ui-input>
     </p>
     <p v-if="title" :class="[cfg.prefix + '-transfer-panel__header']">
-      <!-- <hf-ui-checkbox
-        v-model="allChecked"
-        :indeterminate="isIndeterminate"
-        @change="handleAllCheckedChange"
-      >
-        {{ title }}
-        <span>{{ checkedSummary }}</span>
-      </hf-ui-checkbox> -->
       {{ title }}
       <span :style="{display: none}">{{ checkedSummary }}</span>
     </p>

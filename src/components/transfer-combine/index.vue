@@ -1,14 +1,14 @@
 <script>
 import Emitter from '../../mixins/emitter';
 import Locale from '../../mixins/locale';
-// import TransferPanel from './transfer-panel.vue';
+import TransferPanel from './transfer-panel.vue';
 import Migrating from '../../mixins/migrating';
 
 export default {
   name: 'TransferCombine',
 
   components: {
-    // TransferPanel
+    TransferPanel
   },
 
   mixins: [Emitter, Locale, Migrating],
@@ -32,6 +32,7 @@ export default {
         return [];
       }
     },
+    filterable: Boolean,
     filterPlaceholder: {
       type: String,
       default: ''
@@ -55,7 +56,12 @@ export default {
         return [];
       }
     },
-    filterable: Boolean,
+    format: {
+      type: Object,
+      default() {
+        return {};
+      }
+    },
     props: {
       type: Object,
       default() {
@@ -69,6 +75,10 @@ export default {
     targetOrder: {
       type: String,
       default: 'original'
+    },
+    isLoading: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -167,18 +177,100 @@ export default {
       }
     },
 
-    getMenuNode() {
-      return (<p>99999dddd999</p>)
+    leftMenuSelectHandler(...args) {
+      console.info(args[0], this.$emit)
+      this.$emit('loading-data')
+    },
+
+    getMenuCircleNodes(menuData, nodeIndex) {
+      return menuData.map((item, subIndex) => {
+        let vNode = null
+        const subIndexLabel = subIndex + 1
+        if (!Array.isArray(nodeIndex) || item.isTopLevel === true) {
+          nodeIndex = [subIndexLabel]
+        } else {
+          nodeIndex.push(subIndexLabel)
+        }
+        const nodeIndexStr = nodeIndex.join('-')
+
+        // console.info('nodeIndexStr:', nodeIndexStr)
+
+        if (item.children && item.children.length > 0) {
+          vNode = (
+            <hf-ui-submenu index={nodeIndexStr}>
+              <span slot="title">{item.label}</span>
+              { this.getMenuCircleNodes(item.children, nodeIndex) }
+            </hf-ui-submenu>
+          )
+        } else {
+          nodeIndex.pop()
+          vNode = (<hf-ui-menu-item index={nodeIndexStr}>{item.label}</hf-ui-menu-item>)
+        }
+
+        if (subIndex === menuData.length - 1) {
+          nodeIndex.pop()
+        }
+
+        return vNode
+      })
+    },
+
+    getMenuNodes() {
+      return (
+        <hf-ui-menu default-active={'2-2-1'} on-select={this.leftMenuSelectHandler}>
+        {this.getMenuCircleNodes(this.menuData)}
+        </hf-ui-menu>
+      )
+    },
+
+    testClick() {
+      console.info('---11---')
     }
   },
 
-  render() {
+  render(h) {
     /* eslint-disable */
     const css = this.cfg.prefix + '-transfer' + ' ' + this.cfg.prefix + '-transfer-combine'
-    const menuNode = this.getMenuNode()
+    const leftMenuCss = this.cfg.prefix + '-transfer-combine__left-menu'
+    const transferPanelCss = this.cfg.prefix + '-transfer-combine__transfer-panel'
+
     return (
-      <div className={css}>
-        { menuNode }
+      <div class={css} v-loading={this.isLoading}>
+        <section class={leftMenuCss}>{ this.getMenuNodes() }</section>
+        <section class={transferPanelCss} on-click={this.testClick}>
+          { h('transfer-panel', {
+            props: {
+              ...this.$props,
+              data: this.sourceData,
+              title: this.titles[0],
+              defaultChecked: this.leftDefaultChecked,
+              placeholder: this.filterPlaceholder || this.t('el.transfer.filterPlaceholder'),
+              transferType: 'source'
+            },
+            nativeOn: {
+              checkedChange: this.onSourceCheckedChange
+            },
+            ref: 'leftPanel'
+          }) }
+
+          { h('transfer-panel', {
+            props: {
+              ...this.$props,
+              data: this.targetData,
+              title: this.titles[1],
+              defaultChecked: this.rightDefaultChecked,
+              placeholder: this.filterPlaceholder || this.t('el.transfer.filterPlaceholder'),
+              transferType: 'target'
+            },
+            nativeOn: {
+              checkedChange: this.onTargetCheckedChange
+            },
+            scopedSlots: {
+              default: () => this['$slots']['right-footer']
+            },
+            ref: 'rightPanel'
+          }) }
+        </section>
       </div>
     )
     /* eslint-enable */

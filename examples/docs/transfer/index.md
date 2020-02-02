@@ -192,15 +192,19 @@
 ```html
 <template>
   <hf-ui-pop-tip
+    popper-class="pop-tip-tc"
     placement="top"
     v-model="visible"
     @show="showTransfer">
     <hf-ui-transfer-combine
+      filterable
+      filter-placeholder="请输入城市拼音"
       :menu-data="menuData"
       v-model="value"
       :data="data"
       :titles="titles"
-      @loading="loadingFn"
+      :is-loading="isLoading"
+      @loading-data="loadingFn"
     >
       <span class="transfer-footer-opt" slot="right-footer">
         <hf-ui-button type="primary" @click="confirmChange">确定</hf-ui-button>
@@ -253,7 +257,6 @@
               label: '全局间距 GlobalSpacing',
               icon: 'hf-iconfont icon-chakuaidi',
               component: 'GlobalSpacing',
-              next: '1_0_1'
             },
 
             {
@@ -262,20 +265,7 @@
               path: '/components/basic/color',
               label: '色彩 Color',
               icon: 'hf-iconfont icon-chakuaidi',
-              component: 'Color',
-              next: '1_0_2',
-              prev: '1_0_0'
-            },
-
-            {
-              id: '1_0_2',
-              module: 'Components_Basic_Font',
-              path: '/components/basic/Font',
-              label: '文字 Font',
-              icon: 'hf-iconfont icon-chakuaidi',
-              component: 'Font',
-              next: '1_0_3',
-              prev: '1_0_1'
+              component: 'Color'
             }
           ]
         },
@@ -292,9 +282,7 @@
               path: '/components/navigation/menu',
               label: '导航菜单 Menu',
               icon: 'hf-iconfont icon-chakuaidi',
-              component: 'Menu',
-              next: '1_1_1',
-              prev: '1_0_6'
+              component: 'Menu'
             },
             {
               id: '1_1_1',
@@ -302,45 +290,14 @@
               path: '/components/navigation/breadcrumb',
               label: '面包屑 Breadcrumb',
               icon: 'hf-iconfont icon-chakuaidi',
-              component: 'Breadcrumb',
-              next: '1_1_2',
-              prev: '1_1_0'
-            }
-          ]
-        },
-
-        {
-          id: '1_2',
-          module: 'Components_Data',
-          label: '数据录入 DataEntry',
-          icon: 'hf-iconfont icon-chakuaidi',
-          children: [
-            {
-              id: '1_2_0',
-              module: 'Components_Data_Radio',
-              path: '/components/data/radio',
-              label: '单选框 Radio',
-              icon: 'hf-iconfont icon-chakuaidi',
-              component: 'Radio',
-              next: '1_2_1',
-              prev: '1_1_4'
-            },
-            {
-              id: '1_2_1',
-              module: 'Components_Data_CheckBox',
-              path: '/components/data/checkbox',
-              label: '复选框 Checkbox',
-              icon: 'hf-iconfont icon-chakuaidi',
-              component: 'Checkbox',
-              next: '1_2_2',
-              prev: '1_2_0'
+              component: 'Breadcrumb'
             }
           ]
         }
       ]
     },
     {
-      id: 3,
+      id: '3',
       module: 'Theme',
       path: '/theme',
       label: '主题',
@@ -376,11 +333,11 @@
       return {
         data: generateData(),
         value: [1, 4],
-        titles: ['备选列表', '已选列表'],
         visible: false,
         labels: [],
         input2: [],
-        menuData
+        menuData,
+        isLoading: false
       };
     },
 
@@ -392,7 +349,7 @@
 
     methods: {
       loadingFn() {
-        debugger
+        this.isLoading = true
       },
 
       confirmChange() {
@@ -417,6 +374,11 @@
   .transfer-footer-opt {
     float: right;
     margin: 10px 16px 0 0;
+  }
+
+  .pop-tip-tc {
+    padding: 0;
+    margin: 0;
   }
 </style>
 ```
