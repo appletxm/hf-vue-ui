@@ -221,10 +221,6 @@ export default {
         {this.getMenuCircleNodes(this.menuData)}
         </hf-ui-menu>
       )
-    },
-
-    testClick() {
-      console.info('---11---')
     }
   },
 
@@ -237,7 +233,7 @@ export default {
     return (
       <div class={css} v-loading={this.isLoading}>
         <section class={leftMenuCss}>{ this.getMenuNodes() }</section>
-        <section class={transferPanelCss} on-click={this.testClick}>
+        <section class={transferPanelCss}>
           { h('transfer-panel', {
             props: {
               ...this.$props,
