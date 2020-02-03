@@ -66,7 +66,7 @@ export default {
       type: Object,
       default() {
         return {
-          // label: 'label',
+          label: 'label',
           key: 'key',
           disabled: 'disabled'
         };
@@ -222,7 +222,7 @@ export default {
 
     getMenuNodes() {
       return (
-        <hf-ui-menu default-active={'2-2-1'} on-select={this.leftMenuSelectHandler}>
+        <hf-ui-menu on-select={this.leftMenuSelectHandler}>
           {this.getMenuCircleNodes(this.menuData)}
         </hf-ui-menu>
       )
@@ -248,8 +248,8 @@ export default {
               placeholder: this.filterPlaceholder || this.t('el.transfer.filterPlaceholder'),
               transferType: 'source'
             },
-            nativeOn: {
-              checkedChange: this.onSourceCheckedChange
+            on: {
+              'checked-change': this.onSourceCheckedChange
             },
             scopedSlots: {
               default: () => this['$slots']['left-footer']
@@ -266,8 +266,8 @@ export default {
               placeholder: this.filterPlaceholder || this.t('el.transfer.filterPlaceholder'),
               transferType: 'target'
             },
-            nativeOn: {
-              checkedChange: this.onTargetCheckedChange
+            on: {
+              'checked-change': this.onTargetCheckedChange
             },
             scopedSlots: {
               default: () => this['$slots']['right-footer']

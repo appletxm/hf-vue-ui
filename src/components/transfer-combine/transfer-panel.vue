@@ -136,7 +136,8 @@ export default {
       default() {
         return []
       }
-    }
+    },
+    isLoading: Boolean
   },
 
   data() {
@@ -198,9 +199,9 @@ export default {
         : 'ui-icon-line-currency-search';
     },
 
-    // labelProp() {
-    //   return this.props.label || 'label';
-    // },
+    labelProp() {
+      return this.props.label || 'label';
+    },
 
     keyProp() {
       return this.props.key || 'key';
@@ -222,10 +223,10 @@ export default {
 
   watch: {
     checked(val, oldVal) {
+      // console.info('checked val:', val)
       this.updateAllChecked();
       if (this.checkChangeByUser) {
-        const movedKeys = val.concat(oldVal)
-          .filter((v) => val.indexOf(v) === -1 || oldVal.indexOf(v) === -1);
+        const movedKeys = val.concat(oldVal).filter((v) => val.indexOf(v) === -1 || oldVal.indexOf(v) === -1);
         this.$emit('checked-change', val, movedKeys);
       } else {
         this.$emit('checked-change', val);
@@ -264,6 +265,12 @@ export default {
         this.checkChangeByUser = false;
         this.checked = checked;
       }
+    },
+
+    isLoading(val) {
+      if (val === true) {
+        this.resetPanel()
+      }
     }
   },
 
@@ -289,6 +296,11 @@ export default {
       if (this.inputIcon === 'ui-icon-line-currency-failure') {
         this.query = '';
       }
+    },
+
+    resetPanel() {
+      this.query = ''
+      this.data = []
     }
   }
 };

@@ -268,7 +268,8 @@
     id: '0001',
     date: '2016-05-02',
     name: '王小虎',
-    school: '小学二号'
+    school: '小学二号',
+    disabled: true
   }, {
     id: '0002',
     date: '2016-05-04',
@@ -281,6 +282,30 @@
     school: '广州市第60小学'
   }, {
     id: '0004',
+    date: '2016-05-03',
+    name: '元芳',
+    school: '红群小学'
+  },
+  {
+    id: '0005',
+    date: '2016-05-03',
+    name: '元芳',
+    school: '红群小学'
+  },
+  {
+    id: '0006',
+    date: '2016-05-03',
+    name: '元芳',
+    school: '红群小学'
+  },
+  {
+    id: '0007',
+    date: '2016-05-03',
+    name: '元芳',
+    school: '红群小学'
+  },
+  {
+    id: '0008',
     date: '2016-05-03',
     name: '元芳',
     school: '红群小学'
@@ -307,8 +332,8 @@
   function mapValueForKey(keys, data) {
     const val = []
     data.forEach(item => {
-      if (keys.indexOf(item.key) >= 0) {
-        val.push(item.label)
+      if (keys.indexOf(item.id) >= 0) {
+        val.push(item.name)
       }
     })
     return val
@@ -321,7 +346,7 @@
   export default {
     data() {
       return {
-        data: generateData(),
+        data: [],
         value: [],
         visible: false,
         labels: [],
@@ -330,7 +355,8 @@
         columns,
         isLoading: false,
         props: {
-          key: 'id'
+          key: 'id',
+          label: 'name'
         }
       };
     },
@@ -344,6 +370,8 @@
     methods: {
       loadingFn() {
         this.isLoading = true
+        this.value = []
+        this.input2 = []
         setTimeout(() => {
           this.data = generateData()
           this.isLoading = false
