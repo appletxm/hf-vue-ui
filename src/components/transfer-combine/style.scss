@@ -13,9 +13,9 @@
     bottom: 0;
     overflow: auto;
 
-    .hf-ui-menu {
+    .#{$prefix}-menu {
       width: $tc-left-menu-width;
-      .hf-ui-submenu .hf-ui-submenu__title, .hf-ui-submenu .hf-ui-menu-item, .hf-ui-menu-item {
+      .#{$prefix}-submenu .#{$prefix}-submenu__title, .#{$prefix}-submenu .#{$prefix}-menu-item, .#{$prefix}-menu-item {
         height: $tc-left-menu-height;
         line-height: $tc-left-menu-height;
         padding: 0 12px !important;
@@ -25,14 +25,47 @@
 
   @include e(transfer-panel) {
     margin: 0 0 0 $tc-left-menu-width;
-    .hf-ui-transfer-panel {
+    .#{$prefix}-transfer-panel {
       min-width: $tc-panel-cell-width;
-      .hf-ui-transfer-panel__body {
+      width: auto;
+      .#{$prefix}-transfer-panel__body {
         height: 280px;
-        .hf-ui-transfer-panel__list.is-filterable {
+        .#{$prefix}-transfer-panel__list.is-filterable {
           height: 100%;
         }
       }
     }
+
+    .#{$prefix}-checkbox {
+      padding: 0;
+    }
+  }
+}
+
+@include b(tc-grid) {
+  overflow: hidden;
+
+  @include e(header) {
+    height: 36px;
+    line-height: 36px;
+    background-color: $clr-bg-page-color;
+    color: $clr-font-title-color;
+    display: block;
+  }
+
+  @include e(cell) {
+    padding: 0 0 0 8px;
+    float: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  @include e(row) {
+    clear: both;
+  }
+
+  @include e(empty-cell) {
+    width: 40px;
   }
 }

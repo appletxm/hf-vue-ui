@@ -19,7 +19,14 @@
       <span :style="{display: none}">{{ checkedSummary }}</span>
     </p>
 
-    <div :class="[cfg.prefix + '-transfer-panel__body', hasFooter ? 'is-with-footer' : '']">
+    <div :class="[cfg.prefix + '-transfer-panel__body', hasFooter ? 'is-with-footer' : '', columns && columns.length ? (cfg.prefix + '-tc-grid') : '']">
+      <label :class="[cfg.prefix + '-tc-grid__header']">
+        <span v-for="column in columns" :key="column.field" :class="[cfg.prefix + '-tc-grid__cell']" :style="{width:(column.width + 'px')}">
+          {{ column.label }}
+        </span>
+        <span :class="[cfg.prefix + '-tc-grid__cell', cfg.prefix + '-tc-grid__empty-cell']"></span>
+      </label>
+
       <hf-ui-checkbox-group
         v-show="!hasNoMatch && data.length > 0"
         v-model="checked"
@@ -32,7 +39,7 @@
           :label="item[keyProp]"
           :disabled="item[disabledProp]"
         >
-          <option-content :option="item"></option-content>
+          <option-content :columns="columns" :option="item"></option-content>
           <span v-if="transferType === 'target'" class="ui-icon-line-currency-failure"></span>
           <span v-if="transferType === 'source'" class="ui-icon-line-currency-tick"></span>
         </hf-ui-checkbox>
@@ -84,25 +91,20 @@ export default {
     HfUiInput,
     OptionContent: {
       props: {
-        option: Object
+        option: Object,
+        columns: Object
       },
-      render(h) {
-        const getParent = (vm) => {
-          if (vm.$options.componentName === 'TransferPanel') {
-            return vm;
-          } else if (vm.$parent) {
-            return getParent(vm.$parent);
-          } else {
-            return vm;
+      render() {
+        // console.info(h, this.option, this.columns)
+        const rowCss = this.cfg.prefix + '-tc-grid__row'
+        const cellCss = this.cfg.prefix + '-tc-grid__cell '
+        return (
+          <div class={rowCss}>
+          {
+            this.columns.map((column) => (<span class={cellCss} style={{ width: column.width + 'px' }}>{this['option'][column.field]}</span>))
           }
-        };
-        const panel = getParent(this);
-        const transfer = panel.$parent || panel;
-        return panel.renderContent
-          ? panel.renderContent(h, this.option)
-          : transfer.$scopedSlots.default
-            ? transfer.$scopedSlots.default({ option: this.option })
-            : <span>{ this.option[panel.labelProp] || this.option[panel.keyProp] }</span>;
+          </div>
+        )
       }
     }
   },
@@ -128,6 +130,12 @@ export default {
     transferType: {
       type: String,
       default: 'source'
+    },
+    columns: {
+      type: Array,
+      default() {
+        return []
+      }
     }
   },
 
@@ -147,8 +155,12 @@ export default {
         if (typeof this.filterMethod === 'function') {
           return this.filterMethod(this.query, item);
         } else {
-          const label = item[this.labelProp] || item[this.keyProp].toString();
-          return label.toLowerCase().indexOf(this.query.toLowerCase()) > -1;
+          const keys = Object.keys(item)
+          let str = ''
+          keys.forEach((key) => {
+            str += item[key]
+          })
+          return str.toLowerCase().indexOf(this.query.toLowerCase()) > -1
         }
       });
       return filerData
@@ -186,9 +198,9 @@ export default {
         : 'ui-icon-line-currency-search';
     },
 
-    labelProp() {
-      return this.props.label || 'label';
-    },
+    // labelProp() {
+    //   return this.props.label || 'label';
+    // },
 
     keyProp() {
       return this.props.key || 'key';

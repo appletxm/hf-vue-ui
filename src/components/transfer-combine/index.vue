@@ -66,7 +66,7 @@ export default {
       type: Object,
       default() {
         return {
-          label: 'label',
+          // label: 'label',
           key: 'key',
           disabled: 'disabled'
         };
@@ -79,6 +79,12 @@ export default {
     isLoading: {
       type: Boolean,
       default: false
+    },
+    columns: {
+      type: Array,
+      default() {
+        return []
+      }
     }
   },
 
@@ -178,8 +184,7 @@ export default {
     },
 
     leftMenuSelectHandler(...args) {
-      console.info(args[0], this.$emit)
-      this.$emit('loading-data')
+      this.$emit('loading-data', args[0])
     },
 
     getMenuCircleNodes(menuData, nodeIndex) {
@@ -218,7 +223,7 @@ export default {
     getMenuNodes() {
       return (
         <hf-ui-menu default-active={'2-2-1'} on-select={this.leftMenuSelectHandler}>
-        {this.getMenuCircleNodes(this.menuData)}
+          {this.getMenuCircleNodes(this.menuData)}
         </hf-ui-menu>
       )
     }
@@ -245,6 +250,9 @@ export default {
             },
             nativeOn: {
               checkedChange: this.onSourceCheckedChange
+            },
+            scopedSlots: {
+              default: () => this['$slots']['left-footer']
             },
             ref: 'leftPanel'
           }) }

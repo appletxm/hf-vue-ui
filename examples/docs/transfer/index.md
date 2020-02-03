@@ -198,11 +198,13 @@
     @show="showTransfer">
     <hf-ui-transfer-combine
       filterable
-      filter-placeholder="请输入城市拼音"
+      filter-placeholder="请输入搜索关键字"
       :menu-data="menuData"
       v-model="value"
+      :columns="columns"
       :data="data"
       :titles="titles"
+      :props="props"
       :is-loading="isLoading"
       @loading-data="loadingFn"
     >
@@ -212,7 +214,7 @@
       </span>
     </hf-ui-transfer-combine>
     <hf-ui-input placeholder="请输入内容" v-model="labels" width="300" slot="reference" readonly="true">
-      <template slot="prepend">选择学校</template>
+      <template slot="prepend">选择学生</template>
     </hf-ui-input>
   </hf-ui-pop-tip>
 </template>
@@ -221,88 +223,84 @@
   const menuData = [
     {
       id: '0',
-      module: 'Guide',
-      label: '指南',
-      icon: 'hf-iconfont icon-bianji',
-      path: '/guide/principle',
+      label: '展开标题1',
       children: [
         {
           id: '0_0',
-          module: 'Guide_Principle',
-          path: '/guide/principle',
-          label: '原则',
-          icon: 'hf-iconfont icon-bianji',
-          component: 'Principle'
+          label: '二级选项',
         }
       ]
     },
 
     {
       id: '1',
-      module: 'Components',
-      label: '组件',
-      icon: 'hf-iconfont icon-chakuaidi',
-      path: '/components/basic/globalSpacing',
+      label: '展示标题2',
       children: [
         {
           id: '1_0',
-          module: 'Components_Basic',
-          label: '基础 Basic',
-          icon: 'hf-iconfont icon-chakuaidi',
+          label: '二级标题1',
           children: [
             {
               id: '1_0_0',
-              module: 'Components_Basic_GlobalSpacing',
-              path: '/components/basic/globalSpacing',
-              label: '全局间距 GlobalSpacing',
-              icon: 'hf-iconfont icon-chakuaidi',
-              component: 'GlobalSpacing',
-            },
-
-            {
-              id: '1_0_1',
-              module: 'Components_Basic_Color',
-              path: '/components/basic/color',
-              label: '色彩 Color',
-              icon: 'hf-iconfont icon-chakuaidi',
-              component: 'Color'
-            }
-          ]
-        },
-
-        {
-          id: '1_1',
-          module: 'Components_Navigation',
-          label: '导航 Navigation',
-          icon: 'hf-iconfont icon-chakuaidi',
-          children: [
-            {
-              id: '1_1_0',
-              module: 'Components_Navigation_Menu',
-              path: '/components/navigation/menu',
-              label: '导航菜单 Menu',
-              icon: 'hf-iconfont icon-chakuaidi',
-              component: 'Menu'
-            },
-            {
-              id: '1_1_1',
-              module: 'Components_Navigation_Breadcrumb',
-              path: '/components/navigation/breadcrumb',
-              label: '面包屑 Breadcrumb',
-              icon: 'hf-iconfont icon-chakuaidi',
-              component: 'Breadcrumb'
+              label: '三级标题1',
+              children: [
+                {
+                  id: '1_0_0_0',
+                  label: '四级选项1'
+                },
+                {
+                  id: '1_0_0_1',
+                  label: '四级选项2'
+                }
+              ]
             }
           ]
         }
       ]
     },
     {
-      id: '3',
-      module: 'Theme',
-      path: '/theme',
-      label: '主题',
-      icon: 'hf-iconfont icon-chakuaidi',
-      component: 'Theme'
+      id: '2',
+      label: '展示标题3'
+    }
+  ]
+
+  const gridData = [{
+    id: '0001',
+    date: '2016-05-02',
+    name: '王小虎',
+    school: '小学二号'
+  }, {
+    id: '0002',
+    date: '2016-05-04',
+    name: '王小三',
+    school: '小学二号'
+  }, {
+    id: '0003',
+    date: '2016-05-01',
+    name: '李四',
+    school: '广州市第60小学'
+  }, {
+    id: '0004',
+    date: '2016-05-03',
+    name: '元芳',
+    school: '红群小学'
+  }]
+
+  const columns = [
+    {
+      label: '姓名',
+      field: 'name',
+      width: 80
+    },
+    {
+      label: '日期',
+      field: 'date',
+      width: 100
+    },
+    {
+      label: '学校名称',
+      field: 'school',
+      width: 120
     }
   ]
 
@@ -317,27 +315,23 @@
   }
 
   function generateData() {
-    const data = [];
-    for (let i = 1; i <= 15; i++) {
-      data.push({
-        key: i,
-        label: `备选项 ${ i }`,
-        disabled: i % 4 === 0
-      });
-    }
-    return data;
+    return gridData;
   }
 
   export default {
     data() {
       return {
         data: generateData(),
-        value: [1, 4],
+        value: [],
         visible: false,
         labels: [],
         input2: [],
         menuData,
-        isLoading: false
+        columns,
+        isLoading: false,
+        props: {
+          key: 'id'
+        }
       };
     },
 
@@ -350,6 +344,10 @@
     methods: {
       loadingFn() {
         this.isLoading = true
+        setTimeout(() => {
+          this.data = generateData()
+          this.isLoading = false
+        }, 3000)
       },
 
       confirmChange() {
@@ -378,7 +376,8 @@
 
   .pop-tip-tc {
     padding: 0;
-    margin: 0;
+    margin: 0!important;
+    border-radius: 4px;
   }
 </style>
 ```
