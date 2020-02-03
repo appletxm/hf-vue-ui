@@ -188,6 +188,7 @@ export default {
     },
 
     getMenuCircleNodes(menuData, nodeIndex) {
+      // const levelGap = 14
       return menuData.map((item, subIndex) => {
         let vNode = null
         const subIndexLabel = subIndex + 1
@@ -197,19 +198,20 @@ export default {
           nodeIndex.push(subIndexLabel)
         }
         const nodeIndexStr = nodeIndex.join('-')
+        // const leftGap = (nodeIndex.length <= 2 ? '' : levelGap) + 'px!important'
 
         // console.info('nodeIndexStr:', nodeIndexStr)
 
         if (item.children && item.children.length > 0) {
           vNode = (
-            <hf-ui-submenu index={nodeIndexStr}>
+            <hf-ui-submenu index={nodeIndexStr} paddingBase={12} paddingStep={14}>
               <span slot="title">{item.label}</span>
               { this.getMenuCircleNodes(item.children, nodeIndex) }
             </hf-ui-submenu>
           )
         } else {
           nodeIndex.pop()
-          vNode = (<hf-ui-menu-item index={nodeIndexStr}>{item.label}</hf-ui-menu-item>)
+          vNode = (<hf-ui-menu-item index={nodeIndexStr} paddingBase={12} paddingStep={14}>{item.label}</hf-ui-menu-item>)
         }
 
         if (subIndex === menuData.length - 1) {

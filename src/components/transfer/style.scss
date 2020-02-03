@@ -58,6 +58,7 @@
     border-right: 1px solid $clr-divider-color;
     &:nth-last-of-type(1) {
       border-right: 0;
+      margin-left: -4px;
     }
   }
 }

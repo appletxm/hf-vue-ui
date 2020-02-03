@@ -12,13 +12,16 @@
     left: 0;
     bottom: 0;
     overflow: auto;
+    width: $tc-left-menu-width;
 
     .#{$prefix}-menu {
-      width: $tc-left-menu-width;
       .#{$prefix}-submenu .#{$prefix}-submenu__title, .#{$prefix}-submenu .#{$prefix}-menu-item, .#{$prefix}-menu-item {
         height: $tc-left-menu-height;
         line-height: $tc-left-menu-height;
-        padding: 0 12px !important;
+        padding: 0 12px;
+      }
+      .#{$prefix}-submenu .#{$prefix}-submenu__icon-arrow {
+        right: 12px;
       }
     }
   }

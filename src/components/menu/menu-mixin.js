@@ -22,19 +22,19 @@ export default {
     paddingStyle() {
       if (this.rootMenu.mode !== 'vertical' || this.rootMenu.type === 'popup') return {};
 
-      let padding = 24;
+      let padding = this.paddingBase || 24;
       let parent = this.$parent;
 
       if (parent.$options.componentName === 'Menu') return {};
 
       if (this.rootMenu.collapse) {
-        padding = 24;
+        padding = this.paddingBase || 24;
       } else {
         while (parent && parent.$options.componentName !== 'Menu') {
           if (parent.$parent.$options.componentName === 'Menu' && parent.$options.componentName === 'Submenu') {
-            padding += 32;
+            padding += (this.paddingStep || 32);
           } else if (parent.$options.componentName === 'Submenu') {
-            padding += 14;
+            padding += (this.paddingStep || 14);
           }
           parent = parent.$parent;
         }

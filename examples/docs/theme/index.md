@@ -16,6 +16,7 @@ import DemoSpinner from './demo-spinner'
 import DemoCheckbox from './demo-checkbox'
 import DemoInput from './demo-input'
 import DemoTree from './demo-tree'
+import DemoTransfer from './demo-transfer'
 
 const globalColors = parseGlobals(scssGlobals)
 
@@ -50,7 +51,8 @@ export default {
     DemoSpinner,
     DemoCheckbox,
     DemoInput,
-    DemoTree
+    DemoTree,
+    DemoTransfer
   },
   methods: {
     $isInDarkFontList(color) {
@@ -194,6 +196,8 @@ export default {
       <demo-checkbox />
       <h3>Input</h3>
       <demo-input />
+      <h3>Transfer</h3>
+      <demo-transfer />
       <h3>Poptip</h3>
       <demo-tooltip />
       <h3>Pagination</h3>

@@ -55,7 +55,9 @@ export default {
       validator: (val) => typeof val === 'string' || val === null
     },
     route: [String, Object],
-    disabled: Boolean
+    disabled: Boolean,
+    paddingBase: Number,
+    paddingStep: Number
   },
   computed: {
     active() {
